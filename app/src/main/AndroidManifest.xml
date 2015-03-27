@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="thedrunkappbeta.karmanishthdevelopers.com.thedrunkapp" >
+
+    <!-- ADD PERMISSIONS -->
+    <uses-sdk
+        android:minSdkVersion="8"
+        android:targetSdkVersion="21" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
+
+    <permission
+        android:name="com.example.gcm.permission.C2D_MESSAGE"
+        android:protectionLevel="signature" />
+
+    <uses-permission android:name="com.example.gcm.permission.C2D_MESSAGE" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/ic_drunk_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+
+        <!-- REGISTER A BROADCAST RECEIVER TO SIT AND WAIT FOR A TRIGGER FROM THE GCM SERVERS -->
+
+        <receiver
+            android:name=".GcmBroadcastReceiver"
+            android:permission="com.google.android.c2dm.permission.SEND" >
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+                <action android:name="com.google.android.c2dm.intent.REGISTRATION" />
+
+                <category android:name="thedrunkappbeta.karmanishthdevelopers.com.thedrunkapp" />
+            </intent-filter>
+        </receiver>
+
+        <!-- ADD INTENT SERVICE -->
+        <service android:name=".GcmIntentService" />
+
+        <activity
+            android:name=".MainActivity"
+            android:label="@string/label_home_screen"
+            android:configChanges="keyboardHidden|orientation"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="com.karmanishthdevelopers.thedrunkapp.MA" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".activity_splash_screen"
+            android:label="@string/label_main"
+            android:configChanges="keyboardHidden|orientation"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".CardFlipActivity"
+            android:label="@string/title_activity_card_flip" >
+            <intent-filter>
+                <action android:name="com.karmanishthdevelopers.thedrunkapp.CFA" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".MainActivityFresh"
+            android:label="@string/title_activity_main_activity_fresh"
+            android:configChanges="keyboardHidden|orientation"
+            android:screenOrientation="portrait"
+            >
+        </activity>
+        <activity
+            android:name=".CorrectActivity"
+            android:label="@string/title_activity_correct"
+            android:configChanges="keyboardHidden|orientation"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name=".FinalScoreActivity"
+            android:label="@string/title_activity_final_score"
+            android:configChanges="keyboardHidden|orientation"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name=".BroadcastReceiver"
+            android:label="@string/title_activity_broadcast_receiver" >
+        </activity>
+    </application>
+
+</manifest>

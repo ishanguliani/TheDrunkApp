@@ -1,0 +1,18 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="thedrunkappbeta.karmanishthdevelopers.com.thedrunkapp.FinalScoreActivity" >
+    <item android:id="@+id/action_rate_us"
+        android:title="@string/action_rate_us"
+        android:orderInCategory="1"
+        android:icon="@drawable/ic_action_star"
+        android:showAsAction="withText|always" />
+
+    <item android:id="@+id/action_share_app"
+        android:title="@string/action_share_app"
+        android:orderInCategory="1"
+        android:icon="@drawable/ic_action_share"
+        android:showAsAction="withText|always" />
+
+
+
+</menu>

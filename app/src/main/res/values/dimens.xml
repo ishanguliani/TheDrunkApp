@@ -1,0 +1,18 @@
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="min_padding">4dp</dimen>
+    <dimen name="margin_standard_top">16dp</dimen>
+    <dimen name="margin_standard">16dp</dimen>
+    <dimen name="textsize_question_number">24dp</dimen>
+    <dimen name="textsize_countdown">40dp</dimen>
+    <dimen name="textsize_question_statement">20dp</dimen>
+    <dimen name="textsize_radiobutton">15.5dp</dimen>
+
+    <dimen name="height_button">50dp</dimen>
+    <dimen name="textsize_button">20dp</dimen>
+
+
+
+</resources>

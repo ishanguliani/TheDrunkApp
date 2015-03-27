@@ -1,0 +1,782 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">The Drunk App</string>
+    <string name="hello_world"></string>
+    <string name="firstscreen_hi">Hi ! My name is John !</string>
+    <string name="firstscreen_letstake">Let\'s take the Drunk Test !</string>
+    <string name="action_settings">Settings</string>
+    <string name="label_main">The Drunk App</string>
+    <string name="label_home_screen">Drunk Test</string>
+    <string name="text_start_button">Tap to Start</string>
+    <string name="title_activity_activity_splash_screen">activity_splash_screen</string>
+    <string name="title_activity_card_flip">CardFlipActivity</string>
+    <string name="title_card_flip">Card Flip</string>
+    <string name="action_info">Photo info</string>
+    <string name="toast_nothing_selected">Forgot to chose an answer! Too Drunk eh ?</string>
+    <string name="action_photo">View photo</string>
+    <string name="card_back_title">Angry Red Android</string>
+    <string name="card_back_description"><![CDATA[Lorem ipsum dolor sit]]></string>
+    <string name="description_image_1">Image 1</string>
+    <string name="title_activity_activity_questions">activity_questions</string>
+    <string name="button_submit"></string>
+
+    <!-- version names -->
+    <string name="version1.1">1.1</string>
+
+    <!-- Taken from dhruv -->
+
+    <string name="acc_to_john">Hey ! According to John,</string>
+    <string name="you_are">You are</string>
+    <string name="perc">%</string>
+    <string name="drunk">Drunk !</string>
+
+    <string-array name="questions">
+        <item>Odometer is to mileage as compass is to</item>
+        <item>Marathon is to race as hibernation is to</item>
+        <item>Window is to pane as book is to</item>
+        <item>Cup is to coffee as bowl is to</item>
+        <item>Yard is to inch as quart is to</item>
+        <item>Elated is to despondent as enlightened is to</item>
+        <item>Optimist is to cheerful as pessimist is to</item>
+        <item>Reptile is to lizard as flower is to</item>
+        <item>Play is to actor as concert is to</item>
+        <item>Sponge is to porous as rubber is to</item>
+        <item>Look at this series: 2, 1, 1/2, 1/4, ... What number should come next?</item>
+        <item>Look at this series: 7, 10, 8, 11, 9, 12, ... What number should come next?</item>
+        <item>Look at this series: 36, 34, 30, 28, 24, ... What number should come next?</item>
+        <item>Look at this series: 22, 21, 23, 22, 24, 23, ... What number should come next?</item>
+        <item>Look at this series: 53, 53, 40, 40, 27, 27, ... What number should come next?</item>
+        <item>Look at this series: 21, 9, 21, 11, 21, 13, 21, ... What number should come next?</item>
+        <item>Look at this series: 58, 52, 46, 40, 34, ... What number should come next?</item>
+        <item>Look at this series: 3, 4, 7, 8, 11, 12, ... What number should come next?</item>
+        <item>Look at this series: 8, 22, 8, 28, 8, ... What number should come next?</item>
+        <item>Look at this series: 31, 29, 24, 22, 17, ... What number should come next?</item>
+        <item>Pointing to a photograph of a boy Suresh said, \"He is the son of the only son of my mother.\" How is Suresh related to that boy?</item>
+        <item>If A is the brother of B; B is the sister of C; and C is the father of D, how D is related to A?</item>
+        <item>Introducing a boy, a girl said, \"He is the son of the daughter of the father of my uncle.\" How is the boy related to the girl?</item>
+        <item>Pointing to a photograph Lata says, \"He is the son of the only son of my grandfather.\" How is the man in the photograph related to Lata?</item>
+        <item>Veena who is the sister-in-law of Ashok, is the daughter-in-law of Kalyani. Dheeraj is the father of Sudeep who is the only brother of Ashok. How Kalyani is related to Ashok?</item>
+        <item>Pointing to a woman, Abhijit said, \"Her granddaughter is the only daughter of my brother.\" How is the woman related to Abhijit?</item>
+        <item>Amit said - \"This girl is the wife of the grandson of my mother\". How is Amit related to the girl?</item>
+        <item>Pointing towards a man, a woman said, \"His mother is the only daughter of my mother.\" How is the woman related to the man?</item>
+        <item>Introducing Sonia, Aamir says, \"She is the wife of only nephew of only brother of my mother.\" How Sonia is related to Aamir?</item>
+        <item>Pointing to Varman, Madhav said, \"I am the only son of one of the sons of his father.\" How is Varman related to Madhav?</item>
+        <item>SCD, TEF, UGH, ____, WKL</item>
+        <item>FAG, GAF, HAI, IAH, ____</item>
+        <item>ELFA, GLHA, ILJA, _____, MLNA</item>
+        <item>CMM, EOO, GQQ, _____, KUU</item>
+        <item>QPO, NML, KJI, _____, EDC</item>
+        <item>JAK, KBL, LCM, MDN, _____</item>
+        <item>BCB, DED, FGF, HIH, ___</item>
+        <item>QAR, RAS, SAT, TAU, _____</item>
+        <item>W9Y, T7V, Q5S, N3P, ___</item>
+        <item>Q8R, S6T, U4V, W2X, ___</item>
+        <item>The essential part of \'harvest\' is</item>
+        <item>The essential part of \'desert\' is</item>
+        <item>The essential part of \'book\' is</item>
+        <item>The essential part of \'language\' is</item>
+        <item>The essential part of \'school\' is</item>
+        <item>The essential part of \'pain\' is</item>
+        <item>The essential part of \'gala\' is</item>
+        <item>The essential part of \'monopoly\' is</item>
+        <item>The essential part of \'guitar\' is</item>
+        <item>The essential part of \'election\' is</item>
+        <item>Number of consonents in \'alphabet\' are ___</item>
+        <item>Number of consonents in \'weather\' are ___</item>
+        <item>Number of distinct consonents in \'betterment\' are ___</item>
+        <item>Number of vowels in \'married\' are ___</item>
+        <item>Number of distinct vowels in \'antarctica\' are ___</item>
+        <item>Number of consonants in \'filter\' are ___</item>
+        <item>Number of consonants in \'cricket\' are ___</item>
+        <item>Number of distinct consonants in \'consonants\' are ___</item>
+        <item>Number of vowels in \'keyboard\' are ___</item>
+        <item>Number of distinct vowels in \'telephone\' are ___</item>
+        <item>Count number of non prime digits in \'433759754\'</item>
+        <item>Count number of prime digits in \'854697144358\'</item>
+        <item>Count number of distinct prime digits in \'3415685992\'</item>
+        <item>Count number of distinct non prime digits in \'256434897\'</item>
+        <item>Count number of non prime digits in \'2165473854\'</item>
+        <item>Count number of non prime digits in \'433759754\'</item>
+        <item>Count number of prime digits in \'854697144358\'</item>
+        <item>Count number of distinct prime digits in \'3415685992\'</item>
+        <item>Count number of distinct non prime digits in \'256434897\'</item>
+        <item>Count number of non prime digits in \'2165473854\'</item>
+        <item>Which option has all the alphabets of \'PENCIL\' ? </item>
+        <item>Which option has all the alphabets of \'COMMENTS\' ? </item>
+        <item>Which option has all the alphabets of \'STARTING\' ? </item>
+        <item>Which option has all the alphabets of \'INSERTION\' ? </item>
+        <item>Which option has all the alphabets of \'QUEUE\' ? </item>
+        <item>Which option has all the alphabets of \'MOBILE\' ? </item>
+        <item>Which option has all the alphabets of \'CENTRAL\' ? </item>
+        <item>Which option has all the alphabets of \'INTERNET\' ? </item>
+        <item>Which option has all the alphabets of \'MONITOR\' ? </item>
+        <item>Which option has all the alphabets of \'CLOCK\' ? </item>
+        <item>Which option has the correct spelling? </item>
+        <item>Which option has the correct spelling? </item>
+        <item>Which option has the correct spelling? </item>
+        <item>Which option has the correct spelling? </item>
+        <item>Which option has the correct spelling? </item>
+        <item>Which option has the correct spelling? </item>
+        <item>Which option has the correct spelling? </item>
+        <item>Which option has the correct spelling? </item>
+        <item>Which option has the correct spelling? </item>
+        <item>Which option has the correct spelling? </item>
+    </string-array>
+    <string-array name="option_a">
+        <item>speed</item>
+        <item>winter</item>
+        <item>novel</item>
+        <item>dish</item>
+        <item>gallon</item>
+        <item>aware</item>
+        <item>gloomy</item>
+        <item>petal</item>
+        <item>symphony</item>
+        <item>massive</item>
+        <item>1/3</item>
+        <item>7</item>
+        <item>20</item>
+        <item>22</item>
+        <item>12</item>
+        <item>14</item>
+        <item>26</item>
+        <item>7</item>
+        <item>9</item>
+        <item>15</item>
+        <item>Brother</item>
+        <item>Brother</item>
+        <item>Brother</item>
+        <item>Brother</item>
+        <item>Mother-in-law</item>
+        <item>Sister</item>
+        <item>Brother</item>
+        <item>Mother</item>
+        <item>Wife</item>
+        <item>Nephew</item>
+        <item>CMN</item>
+        <item>JAK</item>
+        <item>OLPA</item>
+        <item>GRR</item>
+        <item>HGF</item>
+        <item>OEP</item>
+        <item>JKJ</item>
+        <item>UAV</item>
+        <item>M6K</item>
+        <item>Y0Z</item>
+        <item>autumn</item>
+        <item>cactus</item>
+        <item>fiction</item>
+        <item>tongue</item>
+        <item>student</item>
+        <item>cut</item>
+        <item>celebration</item>
+        <item>corrupt</item>
+        <item>band</item>
+        <item>president</item>
+        <item>4</item>
+        <item>2</item>
+        <item>7</item>
+        <item>3</item>
+        <item>4</item>
+        <item>2</item>
+        <item>3</item>
+        <item>2</item>
+        <item>2</item>
+        <item>2</item>
+        <item>1</item>
+        <item>3</item>
+        <item>2</item>
+        <item>4</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>4</item>
+        <item>3</item>
+        <item>3</item>
+        <item>ENCPFI</item>
+        <item>ENMMCOTS</item>
+        <item>NSATRTING</item>
+        <item>RTNSOIIEE</item>
+        <item>EQUEE</item>
+        <item>EOMLEIB</item>
+        <item>TRCEMLA</item>
+        <item>NETIINTR</item>
+        <item>NOMTORI</item>
+        <item>LOKKC</item>
+        <item>Expereinced</item>
+        <item>Ommineous</item>
+        <item>Foreign</item>
+        <item>Benefitted</item>
+        <item>Forcast</item>
+        <item>Sharie</item>
+        <item>Experienced</item>
+        <item>Antarticka</item>
+        <item>Tution</item>
+        <item>Personal</item>
+    </string-array>
+    <string-array name="option_b">
+        <item>hiking</item>
+        <item>bear</item>
+        <item>glass</item>
+        <item>soup</item>
+        <item>ounce</item>
+        <item>ignorant</item>
+        <item>mean</item>
+        <item>stem</item>
+        <item>musician</item>
+        <item>solid</item>
+        <item>1/8</item>
+        <item>10</item>
+        <item>22</item>
+        <item>24</item>
+        <item>14</item>
+        <item>15</item>
+        <item>28</item>
+        <item>10</item>
+        <item>29</item>
+        <item>14</item>
+        <item>Uncle</item>
+        <item>Sister</item>
+        <item>Nephew</item>
+        <item>Uncle</item>
+        <item>Aunt</item>
+        <item>Grandmother</item>
+        <item>Grandfather</item>
+        <item>Grandmother</item>
+        <item>Sister</item>
+        <item>Uncle</item>
+        <item>UJI</item>
+        <item>HAL</item>
+        <item>KLMA</item>
+        <item>GSS</item>
+        <item>CAB</item>
+        <item>NEO</item>
+        <item>HJH</item>
+        <item>UAT</item>
+        <item>K1M</item>
+        <item>Z1Y</item>
+        <item>stockpile</item>
+        <item>arid</item>
+        <item>pages</item>
+        <item>slang</item>
+        <item>report card</item>
+        <item>burn</item>
+        <item>tuxedo</item>
+        <item>exclusive</item>
+        <item>teacher</item>
+        <item>voter</item>
+        <item>3</item>
+        <item>3</item>
+        <item>3</item>
+        <item>4</item>
+        <item>3</item>
+        <item>4</item>
+        <item>4</item>
+        <item>3</item>
+        <item>3</item>
+        <item>3</item>
+        <item>2</item>
+        <item>2</item>
+        <item>3</item>
+        <item>1</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>5</item>
+        <item>4</item>
+        <item>4</item>
+        <item>CNLPEI</item>
+        <item>MCSTOSMN</item>
+        <item>IGSITRAN</item>
+        <item>SRENOTIIN</item>
+        <item>UQEUU</item>
+        <item>IEBILEM</item>
+        <item>NRCELTA</item>
+        <item>INTTEER</item>
+        <item>NOMTNRI</item>
+        <item>OCLCK</item>
+        <item>Efficient</item>
+        <item>Omineous</item>
+        <item>Foreine</item>
+        <item>Benifited</item>
+        <item>Forecaste</item>
+        <item>Shair</item>
+        <item>Expereinced</item>
+        <item>Antarctika</item>
+        <item>Tuition</item>
+        <item>Persenal</item>
+    </string-array>
+    <string-array name="option_c">
+        <item>needle</item>
+        <item>dream</item>
+        <item>cover</item>
+        <item>spoon</item>
+        <item>milk</item>
+        <item>miserable</item>
+        <item>petty</item>
+        <item>daisy</item>
+        <item>piano</item>
+        <item>elastic</item>
+        <item>2\8</item>
+        <item>12</item>
+        <item>23</item>
+        <item>25</item>
+        <item>27</item>
+        <item>21</item>
+        <item>30</item>
+        <item>14</item>
+        <item>32</item>
+        <item>13</item>
+        <item>Cousin</item>
+        <item>Nephew</item>
+        <item>Uncle</item>
+        <item>Cousin</item>
+        <item>Wife</item>
+        <item>Mother-in-law</item>
+        <item>Husband</item>
+        <item>Sister</item>
+        <item>Sister-in-law</item>
+        <item>Father or Uncle</item>
+        <item>VIJ</item>
+        <item>HAK</item>
+        <item>LLMA</item>
+        <item>ISS</item>
+        <item>JKL</item>
+        <item>MEN</item>
+        <item>IJI</item>
+        <item>TAS</item>
+        <item>K6M</item>
+        <item>Z0Y</item>
+        <item>tractor</item>
+        <item>oasis</item>
+        <item>pictures</item>
+        <item>writing</item>
+        <item>test</item>
+        <item>nuisance</item>
+        <item>appetizer</item>
+        <item>rich</item>
+        <item>songs</item>
+        <item>November</item>
+        <item>5</item>
+        <item>4</item>
+        <item>4</item>
+        <item>2</item>
+        <item>2</item>
+        <item>3</item>
+        <item>5</item>
+        <item>4</item>
+        <item>4</item>
+        <item>4</item>
+        <item>3</item>
+        <item>4</item>
+        <item>4</item>
+        <item>3</item>
+        <item>1</item>
+        <item>5</item>
+        <item>6</item>
+        <item>6</item>
+        <item>5</item>
+        <item>5</item>
+        <item>NULPCE</item>
+        <item>NSEMCMOS</item>
+        <item>TRANISTG</item>
+        <item>ESRNIOITE</item>
+        <item>QKUEE</item>
+        <item>OBMLEI</item>
+        <item>NLRATSE</item>
+        <item>ITEERNIN</item>
+        <item>TOMINTR</item>
+        <item>KCLOK</item>
+        <item>Nervuos</item>
+        <item>Ominous</item>
+        <item>Fariegn</item>
+        <item>Benefited</item>
+        <item>Forcaust</item>
+        <item>Share</item>
+        <item>Expireinced</item>
+        <item>Antartica</item>
+        <item>Tutoin</item>
+        <item>Persanal</item>
+    </string-array>
+    <string-array name="option_d">
+        <item>direction</item>
+        <item>sleep</item>
+        <item>page</item>
+        <item>food</item>
+        <item>liquid</item>
+        <item>tolerant</item>
+        <item>helpful</item>
+        <item>alligator</item>
+        <item>percussion</item>
+        <item>inflexible</item>
+        <item>1/16</item>
+        <item>13</item>
+        <item>26</item>
+        <item>26</item>
+        <item>53</item>
+        <item>23</item>
+        <item>32</item>
+        <item>15</item>
+        <item>34</item>
+        <item>12</item>
+        <item>Father</item>
+        <item>Cannot be Determined</item>
+        <item>Son-in-law</item>
+        <item>Data is inadequate</item>
+        <item>None of these</item>
+        <item>Mother</item>
+        <item>Father-in-law</item>
+        <item>Daughter</item>
+        <item>Data is inadequate</item>
+        <item>Father</item>
+        <item>IJT</item>
+        <item>JAI</item>
+        <item>KLLA</item>
+        <item>ITT</item>
+        <item>GHI</item>
+        <item>PFQ</item>
+        <item>JHJ</item>
+        <item>TAT</item>
+        <item>KLM</item>
+        <item>Y1Z</item>
+        <item>crop</item>
+        <item>flat</item>
+        <item>learning</item>
+        <item>words</item>
+        <item>learning</item>
+        <item>hurt</item>
+        <item>orator</item>
+        <item>gigantic</item>
+        <item>strings</item>
+        <item>nation</item>
+        <item>6</item>
+        <item>5</item>
+        <item>6</item>
+        <item>5</item>
+        <item>1</item>
+        <item>1</item>
+        <item>6</item>
+        <item>5</item>
+        <item>5</item>
+        <item>5</item>
+        <item>4</item>
+        <item>1</item>
+        <item>1</item>
+        <item>2</item>
+        <item>4</item>
+        <item>6</item>
+        <item>7</item>
+        <item>7</item>
+        <item>6</item>
+        <item>6</item>
+        <item>ECIMPL</item>
+        <item>MOENCMSC</item>
+        <item>NTSARTIN</item>
+        <item>NIRESNIOTN</item>
+        <item>UEQUE</item>
+        <item>BLNOIE</item>
+        <item>TENCRLC</item>
+        <item>NITERTEN</item>
+        <item>TMNIRMO</item>
+        <item>KKCLO</item>
+        <item>Weature</item>
+        <item>Omenous</item>
+        <item>Forein</item>
+        <item>Benefeted</item>
+        <item>Forecast</item>
+        <item>Shaer</item>
+        <item>Expirienced</item>
+        <item>Antarctica</item>
+        <item>Teution</item>
+        <item>Personel</item>
+    </string-array>
+    <string-array name="correct_answer">
+        <item>option_D</item>
+        <item>option_D</item>
+        <item>option_D</item>
+        <item>option_B</item>
+        <item>option_B</item>
+        <item>option_B</item>
+        <item>option_A</item>
+        <item>option_C</item>
+        <item>option_B</item>
+        <item>option_C</item>
+        <item>option_B</item>
+        <item>option_B</item>
+        <item>option_B</item>
+        <item>option_C</item>
+        <item>option_B</item>
+        <item>option_B</item>
+        <item>option_B</item>
+        <item>option_D</item>
+        <item>option_D</item>
+        <item>option_A</item>
+        <item>option_D</item>
+        <item>option_D</item>
+        <item>option_A</item>
+        <item>option_A</item>
+        <item>option_D</item>
+        <item>option_D</item>
+        <item>option_D</item>
+        <item>option_A</item>
+        <item>option_A</item>
+        <item>option_C</item>
+        <item>option_C</item>
+        <item>option_A</item>
+        <item>option_D</item>
+        <item>option_C</item>
+        <item>option_A</item>
+        <item>option_B</item>
+        <item>option_A</item>
+        <item>option_A</item>
+        <item>option_B</item>
+        <item>option_D</item>
+        <item>option_D</item>
+        <item>option_B</item>
+        <item>option_B</item>
+        <item>option_D</item>
+        <item>option_A</item>
+        <item>option_D</item>
+        <item>option_A</item>
+        <item>option_B</item>
+        <item>option_D</item>
+        <item>option_B</item>
+        <item>option_C</item>
+        <item>option_C</item>
+        <item>option_D</item>
+        <item>option_A</item>
+        <item>option_C</item>
+        <item>option_B</item>
+        <item>option_C</item>
+        <item>option_C</item>
+        <item>option_B</item>
+        <item>option_A</item>
+        <item>option_C</item>
+        <item>option_C</item>
+        <item>option_B</item>
+        <item>option_A</item>
+        <item>option_D</item>
+        <item>option_B</item>
+        <item>option_A</item>
+        <item>option_A</item>
+        <item>option_B</item>
+        <item>option_C</item>
+        <item>option_B</item>
+        <item>option_A</item>
+        <item>option_C</item>
+        <item>option_B</item>
+        <item>option_D</item>
+        <item>option_C</item>
+        <item>option_B</item>
+        <item>option_D</item>
+        <item>option_A</item>
+        <item>option_B</item>
+        <item>option_B</item>
+        <item>option_C</item>
+        <item>option_A</item>
+        <item>option_C</item>
+        <item>option_D</item>
+        <item>option_C</item>
+        <item>option_A</item>
+        <item>option_D</item>
+        <item>option_B</item>
+        <item>option_A</item>
+    </string-array>
+
+    <integer-array name="penalty">
+        <item>30</item>
+        <item>30</item>
+        <item>30</item>
+        <item>30</item>
+        <item>30</item>
+        <item>30</item>
+        <item>30</item>
+        <item>30</item>
+        <item>30</item>
+        <item>30</item>
+        <item>80</item>
+        <item>80</item>
+        <item>80</item>
+        <item>80</item>
+        <item>80</item>
+        <item>80</item>
+        <item>80</item>
+        <item>80</item>
+        <item>80</item>
+        <item>80</item>
+        <item>10</item>
+        <item>10</item>
+        <item>10</item>
+        <item>10</item>
+        <item>10</item>
+        <item>10</item>
+        <item>10</item>
+        <item>10</item>
+        <item>10</item>
+        <item>10</item>
+        <item>70</item>
+        <item>70</item>
+        <item>70</item>
+        <item>70</item>
+        <item>70</item>
+        <item>70</item>
+        <item>70</item>
+        <item>70</item>
+        <item>70</item>
+        <item>70</item>
+        <item>20</item>
+        <item>20</item>
+        <item>20</item>
+        <item>20</item>
+        <item>20</item>
+        <item>20</item>
+        <item>20</item>
+        <item>20</item>
+        <item>20</item>
+        <item>20</item>
+        <item>40</item>
+        <item>40</item>
+        <item>40</item>
+        <item>40</item>
+        <item>40</item>
+        <item>40</item>
+        <item>40</item>
+        <item>40</item>
+        <item>40</item>
+        <item>40</item>
+        <item>50</item>
+        <item>50</item>
+        <item>50</item>
+        <item>50</item>
+        <item>50</item>
+        <item>50</item>
+        <item>50</item>
+        <item>50</item>
+        <item>50</item>
+        <item>50</item>
+        <item>90</item>
+        <item>90</item>
+        <item>90</item>
+        <item>90</item>
+        <item>90</item>
+        <item>90</item>
+        <item>90</item>
+        <item>90</item>
+        <item>90</item>
+        <item>90</item>
+        <item>60</item>
+        <item>60</item>
+        <item>60</item>
+        <item>60</item>
+        <item>60</item>
+        <item>60</item>
+        <item>60</item>
+        <item>60</item>
+        <item>60</item>
+        <item>60</item>
+    </integer-array>
+
+    <string-array name="level">
+        <item>HARDCORE</item>
+        <item>HARDCORE</item>
+        <item>HARDCORE</item>
+        <item>HARDCORE</item>
+        <item>HARDCORE</item>
+        <item>HARDCORE</item>
+        <item>HARDCORE</item>
+        <item>HARDCORE</item>
+        <item>HARDCORE</item>
+        <item>HARDCORE</item>
+        <item>CAKEWALK</item>
+        <item>CAKEWALK</item>
+        <item>CAKEWALK</item>
+        <item>CAKEWALK</item>
+        <item>CAKEWALK</item>
+        <item>CAKEWALK</item>
+        <item>CAKEWALK</item>
+        <item>CAKEWALK</item>
+        <item>CAKEWALK</item>
+        <item>CAKEWALK</item>
+        <item>EXTREME</item>
+        <item>EXTREME</item>
+        <item>EXTREME</item>
+        <item>EXTREME</item>
+        <item>EXTREME</item>
+        <item>EXTREME</item>
+        <item>EXTREME</item>
+        <item>EXTREME</item>
+        <item>EXTREME</item>
+        <item>EXTREME</item>
+        <item>MODERATE</item>
+        <item>MODERATE</item>
+        <item>MODERATE</item>
+        <item>MODERATE</item>
+        <item>MODERATE</item>
+        <item>MODERATE</item>
+        <item>MODERATE</item>
+        <item>MODERATE</item>
+        <item>MODERATE</item>
+        <item>MODERATE</item>
+        <item>EXTREME</item>
+        <item>EXTREME</item>
+        <item>EXTREME</item>
+        <item>EXTREME</item>
+        <item>EXTREME</item>
+        <item>EXTREME</item>
+        <item>EXTREME</item>
+        <item>EXTREME</item>
+        <item>EXTREME</item>
+        <item>EXTREME</item>
+        <item>HARDCORE</item>
+        <item>HARDCORE</item>
+        <item>HARDCORE</item>
+        <item>HARDCORE</item>
+        <item>HARDCORE</item>
+        <item>HARDCORE</item>
+        <item>HARDCORE</item>
+        <item>HARDCORE</item>
+        <item>HARDCORE</item>
+        <item>HARDCORE</item>
+        <item>MODERATE</item>
+        <item>MODERATE</item>
+        <item>MODERATE</item>
+        <item>MODERATE</item>
+        <item>MODERATE</item>
+        <item>MODERATE</item>
+        <item>MODERATE</item>
+        <item>MODERATE</item>
+        <item>MODERATE</item>
+        <item>MODERATE</item>
+        <item>CAKEWALK</item>
+        <item>CAKEWALK</item>
+        <item>CAKEWALK</item>
+        <item>CAKEWALK</item>
+        <item>CAKEWALK</item>
+        <item>CAKEWALK</item>
+        <item>CAKEWALK</item>
+        <item>CAKEWALK</item>
+        <item>CAKEWALK</item>
+        <item>CAKEWALK</item>
+        <item>MODERATE</item>
+        <item>MODERATE</item>
+        <item>MODERATE</item>
+        <item>MODERATE</item>
+        <item>MODERATE</item>
+        <item>MODERATE</item>
+        <item>MODERATE</item>
+        <item>MODERATE</item>
+        <item>MODERATE</item>
+        <item>MODERATE</item>
+    </string-array>
+
+    <!-- END -->
+    <string name="title_activity_main_activity_fresh">MainActivityFresh</string>
+    <string name="title_activity_correct">CorrectActivity</string>
+    <string name="title_activity_final_score">Result</string>
+    <string name="action_rate_us">Rate Us</string>
+    <string name="action_share_app">Share</string>
+    <string name="title_activity_broadcast_receiver">BroadcastReceiver</string>
+    <string name="title_activity_m_receiver">mReceiver</string>
+
+</resources>

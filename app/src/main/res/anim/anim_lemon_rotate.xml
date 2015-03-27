@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<set xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+
+    <translate
+        android:duration="1000"
+        android:fromXDelta="400"
+        android:fromYDelta="0"
+        android:interpolator="@android:anim/overshoot_interpolator"
+        android:fillEnabled="true"
+        android:fillAfter="true"
+        android:toXDelta="0"
+        android:toYDelta="0"
+        android:startOffset="3000"
+        />
+
+    <rotate
+        android:duration="6000"
+        android:fromDegrees="0"
+        android:toDegrees="360"
+        android:interpolator="@android:anim/linear_interpolator"
+        android:pivotX="100"
+        android:pivotY="115"
+        android:startOffset="3000"
+        />
+    </set>
