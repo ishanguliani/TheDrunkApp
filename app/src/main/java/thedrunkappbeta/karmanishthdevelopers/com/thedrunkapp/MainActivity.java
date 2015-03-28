@@ -37,6 +37,8 @@ public class MainActivity extends Activity {
     //EDIT
     private final static int PLAY_SERVICES_RESOLUTION_REQUEST = 9000;
 
+    //this is a test comment added on 29th March 2015
+
     //EDIT - constants
     public static final String EXTRA_MESSAGE = "message";
     public static String PROPERTY_REG_ID = "registration_id";
