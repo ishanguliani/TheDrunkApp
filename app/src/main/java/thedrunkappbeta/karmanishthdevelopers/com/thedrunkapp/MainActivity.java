@@ -41,6 +41,7 @@ public class MainActivity extends Activity {
 
     //added another test line
 
+
     //EDIT - constants
     public static final String EXTRA_MESSAGE = "message";
     public static String PROPERTY_REG_ID = "registration_id";
