@@ -41,6 +41,8 @@ public class MainActivity extends Activity {
 
     //added another test line
 
+    //third test line added
+
 
     //EDIT - constants
     public static final String EXTRA_MESSAGE = "message";
