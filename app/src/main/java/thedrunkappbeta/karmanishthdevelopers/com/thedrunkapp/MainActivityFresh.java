@@ -37,6 +37,9 @@ import java.util.Random;
 
 public class MainActivityFresh extends Activity {
 
+    //TAG
+    private static final String TAG = "DRUNK_TAG";
+
     //editted on 25th March
     //Add variable for maximum question number
     private static final int MAX_QUESTION_NUMBER = 10 ;
@@ -46,12 +49,12 @@ public class MainActivityFresh extends Activity {
 
     /*Addied by dhiraj for progress bar and media player*/
     private static final int PROGRESS = 0x1;
-    private Thread mThread;
-    private ProgressBar mProgress;
-    private int mProgressStatus = 0;
-    MediaPlayer player;
+    private static Thread mThread;
+    private static ProgressBar mProgress;
+    private static int mProgressStatus = 0;
+    private static MediaPlayer player;
 
-    private Handler mHandler = new Handler();
+    private static Handler mHandler ;
 
     /* Adeed by dhiraj till here*/
 
@@ -218,6 +221,10 @@ public class MainActivityFresh extends Activity {
 
         mProgress.setVisibility(View.VISIBLE);
         playaudio("tick");
+
+        /*INITIALIZE THE HANDLER*/
+        mHandler = new Handler() ;
+
         // Start lengthy operation in a background thread
         mThread = new Thread(){
                 //(new Runnable() {
@@ -260,21 +267,24 @@ public class MainActivityFresh extends Activity {
                             }
 
                         }
-                    });
+                    }); //end of Runnable of mHandler
 
-                }
-
-                stopThread(mThread);
-                stopaudio();
-                AnswerSelected = true ;
-                CorrectAnswerSelected = false ;
-                SubmitPressed(null);
-            }
+                } //end of while loop
 
 
 
-        };
+                /*Now Stop this thread*/
+                stopThread();
+                Log.i(TAG, "stopThread() called after finishing timer");
 
+            } //end of run method
+
+
+
+        }; //end of the thread
+
+        /*START THE THREAD INSIDE ONCREATE()*/
+        mThread.setName("updateThread");
         mThread.start();
 
         //////Code changed till here by dhiraj
@@ -348,19 +358,45 @@ public class MainActivityFresh extends Activity {
     }
 
 
-    public void stopThread(Thread theThread){
+    /*STOP THE RUNNING THREAD*/
+    public void stopThread(){
 
-        if (theThread != null)
-        {
-            theThread = null;
+        Log.i(TAG, "stopThread() called") ;
+
+        if(mThread.getName().equals("updateThread".toString()))   {
+
+            Log.i(TAG, "inside if block");
+            mThread.interrupt();
+
+            /*set the value of the variables to show that nothing has been selected*/
+            AnswerSelected = true ;
+            CorrectAnswerSelected = false ;
+
+            /*explicitly call the SubmitPressed() method*/
+            SubmitPressed(null);
+
+            /*stop the audio*/
+            stopaudio();
+
+
+
         }
+        Log.i(TAG, "Interrupt done");
+
         //Thread.interrupted();
     }
 
     public void stopaudio(){
 
         //player = MediaPlayer.create(MainActivityFresh.this, getAudio(MainActivityFresh.this, playfile) );
-        player.stop();
+
+
+        //ADDED 29th March
+        if(player.isPlaying() == true)  {
+
+            player.stop();
+        }
+
 
     }
 
@@ -481,9 +517,11 @@ public class MainActivityFresh extends Activity {
     //newedit 25th march
     public void SubmitPressed(View v)   {
 
-        stopThread(mThread);
+       /* stopThread();
+        Log.i(TAG, "stopThread called inside SubmitPressed()") ;*/
+
+        /*ENSURE THAT NO AUDIO IS PLAYING FROM THE PREVIOUS QUESTION*/
         stopaudio();
-        stopCountDownTimer();
 
         if(AnswerSelected == null)
             /*if no radio button has been pressed even once*/
