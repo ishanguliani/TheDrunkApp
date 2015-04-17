@@ -9,6 +9,7 @@
     android:layout_height="match_parent"
     android:background="@drawable/front">
 
+    EDITTED : 29th March
     <ProgressBar
         style="@android:style/Widget.ProgressBar.Horizontal"
         android:layout_width="match_parent"
@@ -16,9 +17,7 @@
         android:id="@+id/progressBar2"
         android:layout_centerHorizontal="true"
         android:layout_alignParentTop="true"
-
-
-        android:max="100"
+        android:max="15"
 
         />
 

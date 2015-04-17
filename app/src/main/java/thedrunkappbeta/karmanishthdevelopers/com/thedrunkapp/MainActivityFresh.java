@@ -51,13 +51,16 @@ public class MainActivityFresh extends Activity {
     private static final int PROGRESS = 0x1;
     private static Thread mThread;
     private static ProgressBar mProgress;
-    private static int mProgressStatus = 0;
+    private int mProgressStatus = 0;
     private static MediaPlayer player;
 
     private static Handler mHandler ;
 
     /* Adeed by dhiraj till here*/
 
+    //edit 7th April by Ishan
+    private static final int MAX_PROGRESSBAR_LIMIT = 15 ;
+    //end of edit on 7th April by Ishan
     private static final int MAX_TIME_QUESTION = 16000;    //Time Limit for each question
     private static final int FIRST_COLOR_CHANGE = 11000;    //Time at which first color change will happen
     private static final int SECOND_COLOR_CHANGE = 6000;   //Time at which second color change will happen
@@ -115,7 +118,7 @@ public class MainActivityFresh extends Activity {
     private static RadioButton choice1 = null , choice2= null , choice3= null , choice4= null  ;
     private View.OnClickListener radioListener ;
 
-    private  Boolean AnswerSelected = false ;
+    private  Boolean AnswerSelected = null ;
     private  Boolean CorrectAnswerSelected = false ;
 
     private  View contentView = null ;
@@ -230,9 +233,9 @@ public class MainActivityFresh extends Activity {
                 //(new Runnable() {
             @Override
             public void run(){
-                while (mProgressStatus < 100) {
+                while (mProgressStatus < MAX_PROGRESSBAR_LIMIT) {
 
-                    mProgressStatus = mProgressStatus + 100/15;
+                    mProgressStatus = mProgressStatus + MAX_PROGRESSBAR_LIMIT/15;
 
                     try{
                         Thread.sleep(1000);
@@ -245,17 +248,17 @@ public class MainActivityFresh extends Activity {
                         public void run() {
                             mProgress.setProgress(mProgressStatus);
 
-                            if(mProgressStatus >= 80)
+                            if(mProgressStatus >= 11)
                             {
                                 stopaudio();
                                 playaudio("timeover");
                             }
-                                if(mProgressStatus >= 70)
+                                if(mProgressStatus >= 11)
                             {
                                 mProgress.setProgressDrawable(getResources().getDrawable(R.drawable.redprogressbar));
 
                             }
-                            else if (mProgressStatus >= 40)
+                            else if (mProgressStatus >= 6)
                             {
 
 
@@ -275,6 +278,10 @@ public class MainActivityFresh extends Activity {
 
                 /*Now Stop this thread*/
                 stopThread();
+
+                /*explicitly call the SubmitPressed() method*/
+                SubmitPressed(null);
+
                 Log.i(TAG, "stopThread() called after finishing timer");
 
             } //end of run method
@@ -285,49 +292,14 @@ public class MainActivityFresh extends Activity {
 
         /*START THE THREAD INSIDE ONCREATE()*/
         mThread.setName("updateThread");
-        mThread.start();
 
+
+        //edit by Ishan on 9th April
+        if(question_number != MAX_QUESTION_NUMBER) {
+            mThread.start();
+
+        }
         //////Code changed till here by dhiraj
-
-
-    /*LINK THE COUNTDOWN TIMER TEXTVIEW*/
-/*        mTextField = (TextView) findViewById(R.id.text_countdown) ;
-      *//*ADD COUNTDOWN TIMER*//*
-        countdowntimer = new CountDownTimer(MAX_TIME_QUESTION, TIME_DELAY) {
-
-            //onTick is invoked when the countdown is ticking
-            public void onTick(long millisUntilFinished) {
-
-                if (millisUntilFinished > 0 && millisUntilFinished < SECOND_COLOR_CHANGE) {
-                    mTextField.setTextColor(COLOR_RED_LAST_DISPLAYED);
-                } else if (millisUntilFinished > SECOND_COLOR_CHANGE && millisUntilFinished < FIRST_COLOR_CHANGE) {
-                    mTextField.setTextColor(COLOR_BLUE_SECOND_DISPLAYED);
-                } else if (millisUntilFinished > FIRST_COLOR_CHANGE && millisUntilFinished < MAX_TIME_QUESTION) {
-                    mTextField.setTextColor(COLOR_BLACK_FIRST_DISPLAYED);
-
-                }
-
-                if ((millisUntilFinished / TIME_DELAY) < 10) {
-                    mTextField.setText("00:0" + millisUntilFinished / TIME_DELAY);
-                } else {
-
-                    mTextField.setText("00:" + millisUntilFinished / TIME_DELAY);
-                }
-
-            }
-
-            //onFinish is invoked when the countdown is finished
-            public void onFinish() {
-
-                //We want to show that the user has not selected any answer out of the four and hence does not get any
-                //points
-                AnswerSelected = true ;
-                CorrectAnswerSelected = false ;
-                SubmitPressed(null);
-
-
-            }
-        }.start();*/
 
     }  /*End of Oncreate()*/
 
@@ -336,6 +308,7 @@ public class MainActivityFresh extends Activity {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.main_activity_fresh, menu);
         return true;
+
     }
 
     @Override
@@ -369,11 +342,8 @@ public class MainActivityFresh extends Activity {
             mThread.interrupt();
 
             /*set the value of the variables to show that nothing has been selected*/
-            AnswerSelected = true ;
+           // AnswerSelected = true ;
             CorrectAnswerSelected = false ;
-
-            /*explicitly call the SubmitPressed() method*/
-            SubmitPressed(null);
 
             /*stop the audio*/
             stopaudio();
@@ -387,9 +357,6 @@ public class MainActivityFresh extends Activity {
     }
 
     public void stopaudio(){
-
-        //player = MediaPlayer.create(MainActivityFresh.this, getAudio(MainActivityFresh.this, playfile) );
-
 
         //ADDED 29th March
         if(player.isPlaying() == true)  {
@@ -517,36 +484,29 @@ public class MainActivityFresh extends Activity {
     //newedit 25th march
     public void SubmitPressed(View v)   {
 
-       /* stopThread();
-        Log.i(TAG, "stopThread called inside SubmitPressed()") ;*/
+        stopThread();
+        Log.i(TAG, "stopThread called inside SubmitPressed()") ;
 
         /*ENSURE THAT NO AUDIO IS PLAYING FROM THE PREVIOUS QUESTION*/
-        stopaudio();
+        //stopaudio();
 
-        if(AnswerSelected == null)
+        if(AnswerSelected == null) {
             /*if no radio button has been pressed even once*/
-            NothingSelected();
+            //NothingSelected();
 
-        else if(AnswerSelected == false)    {
-
-            /*if time ran out and the user selected nothing*/
             timeover();
-        }
-        else if (CorrectAnswerSelected == true){
 
-            //if the user selected an answer and that answer is correct
-            Intent intent = new Intent(context, CorrectActivity.class) ;
-            intent.putExtra("my_app" , 1) ;
-            intent.putExtra("my_penalty_correct", CurrentQuestionPenalty) ;
-            startActivity(intent) ;
+        }
+
+       else if (CorrectAnswerSelected == true){
+
+            //EDITTED 29th March
+            correctanswer();
+
         }
         else if (CorrectAnswerSelected == false){
 
-            //if the user selected an answer and that answer is incorrect
-            Intent intent = new Intent(context, CorrectActivity.class) ;
-            intent.putExtra("my_app" , 0) ;
-            intent.putExtra("my_penalty", CurrentQuestionPenalty) ;
-            startActivity(intent) ;
+            incorrectanswer();
             //  myVib.vibrate(800);
         }
     }
@@ -560,16 +520,7 @@ public class MainActivityFresh extends Activity {
         ).show();
     }
 
-    //stops the countdown timer thread running in the background
-    public void stopCountDownTimer()  {
-
-        if(countdowntimer != null) {
-            countdowntimer.cancel();
-           // countdowntimer.purge();
-            countdowntimer = null;
-        }
-    }
-
+     
     public static int getAudio(Context context, String name)
     {
         Assert.assertNotNull(context);
@@ -578,6 +529,27 @@ public class MainActivityFresh extends Activity {
         return context.getResources().getIdentifier(name,"raw", context.getPackageName());
     }
 
+    /*CALLED WHEN USER PRESSES SUBMIT BUTTON AFTER SELECTING INCORRECT ANSWER*/
+    public void incorrectanswer()   {
+
+        //if the user selected an answer and that answer is incorrect
+        Intent intent = new Intent(context, CorrectActivity.class) ;
+        intent.putExtra("my_app" , 0) ;
+        intent.putExtra("my_penalty", CurrentQuestionPenalty) ;
+        startActivity(intent) ;
+    }
+
+    /*CALLED WHEN USER PRESSES SUBMIT BUTTON AFTER SELECTING CORRECT ANSWER*/
+    public void correctanswer() {
+
+        //if the user selected an answer and that answer is correct
+        Intent intent = new Intent(context, CorrectActivity.class) ;
+        intent.putExtra("my_app" , 1) ;
+        intent.putExtra("my_penalty_correct", CurrentQuestionPenalty) ;
+        startActivity(intent) ;
+    }
+
+    /*CALLED WHEN USER PRESSES SUBMIT BUTTON WITHOUT SELECTING ANY ANSWER*/
     public void timeover()  {
         Intent intent = new Intent(context, CorrectActivity.class) ;
         intent.putExtra("my_app" , 2) ;
@@ -585,6 +557,8 @@ public class MainActivityFresh extends Activity {
         startActivity(intent) ;
 
     }
+
+
 
 
 }

@@ -31,13 +31,7 @@ public class CorrectActivity extends Activity {
             setContentView(R.layout.activity_incorrect);
 
             PenaltyScored += getIntent().getIntExtra("my_penalty", -9999) ;
-            /*Toast.makeText(
 
-                    getApplicationContext()
-                    , "Total Penalty is : " + PenaltyScored
-                    , Toast.LENGTH_SHORT
-            ).show();
-*/
         }
 
 
