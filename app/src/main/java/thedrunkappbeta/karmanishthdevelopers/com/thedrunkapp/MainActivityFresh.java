@@ -190,6 +190,7 @@ public class MainActivityFresh extends Activity {
         choice3 = (RadioButton)findViewById(R.id.option_C);
         choice4 = (RadioButton)findViewById(R.id.option_D);
 
+        
         choice1.setText(array_option_a[CurrentQuestionNumber]);
         choice2.setText(array_option_b[CurrentQuestionNumber]);
         choice3.setText(array_option_c[CurrentQuestionNumber]);
