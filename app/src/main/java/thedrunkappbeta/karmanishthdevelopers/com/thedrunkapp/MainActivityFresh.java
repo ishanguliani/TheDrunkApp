@@ -8,9 +8,12 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Resources;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.graphics.Rect;
 import android.media.MediaPlayer;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.os.Handler;
@@ -41,6 +44,15 @@ import java.util.Random;
 
 public class MainActivityFresh extends Activity {
 
+    //set a flag to check if the time ran out
+    private Boolean POST_EXECUTE_REACHED = false ; //will only get called if the time runs out
+
+    //get an instance of UpdateTimerTask Asynctask
+    UpdateTimerTask updatetimertask;
+
+    //Timer thread sleep delay time
+    private final int mDelay = 1000 ;
+
     //TAG
     private static final String TAG = "DRUNK_TAG";
 
@@ -56,7 +68,7 @@ public class MainActivityFresh extends Activity {
     private static Thread mThread;
     private static ProgressBar mProgress;
     private int mProgressStatus = 0;
-    private static MediaPlayer player;
+    private MediaPlayer player;
 
     private static Handler mHandler ;
 
@@ -103,18 +115,18 @@ public class MainActivityFresh extends Activity {
     //array to store all the questions
     private  String[] array_questions = null ;
     //array to store the options
-    private  String[] array_option_a = null ;
-    private  String[] array_option_b = null ;
-    private  String[] array_option_c = null ;
-    private  String[] array_option_d = null ;
+    private String[] array_option_a = null ;
+    private String[] array_option_b = null ;
+    private String[] array_option_c = null ;
+    private String[] array_option_d = null ;
 
     //array to store penalty
     private  int[] array_penalty = null ;
     //array to store correct_answer
-    private  String[] array_correct_answer = null ;
+    private String[] array_correct_answer = null ;
 
     //array to store difficulty level
-    private  String[] array_level = null ;
+    private String[] array_level = null ;
 
     //private String ANSWER = "CORRECT" ;
     private final  Button SubmitButton = null ;
@@ -122,13 +134,13 @@ public class MainActivityFresh extends Activity {
     private static RadioButton choice1 = null , choice2= null , choice3= null , choice4= null  ;
     private View.OnClickListener radioListener ;
 
-    private  Boolean AnswerSelected = null ;
-    private  Boolean CorrectAnswerSelected = false ;
+    private Boolean AnswerSelected = null ;
+    private Boolean CorrectAnswerSelected = false ;
 
-    private  View contentView = null ;
+    private View contentView = null ;
 
     private static int CurrentQuestionNumber = 0 ;
-    private  int CurrentQuestionPenalty = 0 ;
+    private int CurrentQuestionPenalty = 0 ;
     private static int i = 0 ;
 
     @Override
@@ -194,7 +206,6 @@ public class MainActivityFresh extends Activity {
         choice3 = (RadioButton)findViewById(R.id.option_C);
         choice4 = (RadioButton)findViewById(R.id.option_D);
 
-
         choice1.setText(array_option_a[CurrentQuestionNumber]);
         choice2.setText(array_option_b[CurrentQuestionNumber]);
         choice3.setText(array_option_c[CurrentQuestionNumber]);
@@ -226,82 +237,12 @@ public class MainActivityFresh extends Activity {
         //////////Needs to be changed for a horizontal bar timer by dhiraj
 
         mProgress = (ProgressBar) findViewById(R.id.progressBar2);
-
-        mProgress.setVisibility(View.VISIBLE);
-        playaudio("tick");
-
-        /*INITIALIZE THE HANDLER*/
-        mHandler = new Handler() ;
-
-        // Start lengthy operation in a background thread
-        mThread = new Thread(){
-                //(new Runnable() {
-            @Override
-            public void run(){
-                while (mProgressStatus < MAX_PROGRESSBAR_LIMIT) {
-
-                    mProgressStatus = mProgressStatus + MAX_PROGRESSBAR_LIMIT/15;
-
-                    try{
-                        Thread.sleep(1000);
-                    }
-                    catch (InterruptedException e){
-
-                    }
-                    // Update the progress bar
-                    mHandler.post(new Runnable() {
-                        public void run() {
-                            mProgress.setProgress(mProgressStatus);
-
-                            if(mProgressStatus >= 11)
-                            {
-                                stopaudio();
-                                playaudio("timeover");
-                            }
-                                if(mProgressStatus >= 11)
-                            {
-                                mProgress.setProgressDrawable(getResources().getDrawable(R.drawable.redprogressbar));
-
-                            }
-                            else if (mProgressStatus >= 6)
-                            {
-
-
-                                mProgress.setProgressDrawable(getResources().getDrawable(R.drawable.blueprogressbar));
-                            }
-                            else
-                            {
-                                mProgress.setProgressDrawable(getResources().getDrawable(R.drawable.greenprogressbar));
-                            }
-
-                        }
-                    }); //end of Runnable of mHandler
-
-                } //end of while loop
-
-
-
-                /*Now Stop this thread*/
-                stopThread();
-
-                /*explicitly call the SubmitPressed() method*/
-                SubmitPressed(null);
-
-                Log.i(TAG, "stopThread() called after finishing timer");
-
-            } //end of run method
-
-
-
-        }; //end of the thread
-
-        /*START THE THREAD INSIDE ONCREATE()*/
-        mThread.setName("updateThread");
-
+        updatetimertask = new UpdateTimerTask();
 
         //edit by Ishan on 9th April
-        if(question_number != MAX_QUESTION_NUMBER) {
-            mThread.start();
+        if(question_number < MAX_QUESTION_NUMBER) {
+            //execute the Asynctask in the background to start the timer
+            updatetimertask.execute(1) ;
 
         }
         //////Code changed till here by dhiraj
@@ -337,28 +278,15 @@ public class MainActivityFresh extends Activity {
 
 
     /*STOP THE RUNNING THREAD*/
-    public void stopThread(){
+    public void stopTask(){
 
-        Log.i(TAG, "stopThread() called") ;
-
-        if(mThread.getName().equals("updateThread".toString()))   {
-
-            Log.i(TAG, "inside if block");
-            mThread.interrupt();
-
-            /*set the value of the variables to show that nothing has been selected*/
-           // AnswerSelected = true ;
-            CorrectAnswerSelected = false ;
-
-            /*stop the audio*/
-            stopaudio();
-
-
-
-        }
+        //stop the background audio
+        stopaudio();
+        //interrupt the currently running updatetimertask thread
+        updatetimertask.cancel(true);
+        //log the message
         Log.i(TAG, "Interrupt done");
 
-        //Thread.interrupted();
     }
 
     public void stopaudio(){
@@ -487,30 +415,35 @@ public class MainActivityFresh extends Activity {
     }
 
     //newedit 25th march
+    //newedits on 25th April
     public void SubmitPressed(View v)   {
-
-        stopThread();
-        Log.i(TAG, "stopThread called inside SubmitPressed()") ;
-
-        /*ENSURE THAT NO AUDIO IS PLAYING FROM THE PREVIOUS QUESTION*/
-        //stopaudio();
 
         if(AnswerSelected == null) {
             /*if no radio button has been pressed even once*/
             //NothingSelected();
 
-            timeover();
+            //check if the time ran out
+            if(POST_EXECUTE_REACHED == true) {
+                timeover();
+            }
+            else    {
+                NothingSelected();
+            }
 
         }
 
        else if (CorrectAnswerSelected == true){
 
+            //stop the background task
+            stopTask();
             //EDITTED 29th March
             correctanswer();
 
         }
         else if (CorrectAnswerSelected == false){
 
+            //stop the background task
+            stopTask();
             incorrectanswer();
             //  myVib.vibrate(800);
         }
@@ -564,6 +497,86 @@ public class MainActivityFresh extends Activity {
     }
 
 
+
+    //the asynctask class has been added on 25th April 2015 by Ishan
+    class UpdateTimerTask extends AsyncTask<Integer, Integer, Integer> {
+
+
+        @Override
+        protected void onPreExecute() {
+            //start playing the background audio
+           playaudio("tick");
+            //DO SOMETHING HERE
+            mProgress.setVisibility(ProgressBar.VISIBLE);
+        }
+
+        @Override
+        protected Integer doInBackground(Integer... resId) {
+
+            while (mProgressStatus < MAX_PROGRESSBAR_LIMIT) {
+
+                //delay the thread for one second to show updation on the screen after one second
+                sleep();
+                mProgressStatus = mProgressStatus + 1;
+
+                // Update the progress bar
+                publishProgress(mProgressStatus);
+
+                if (mProgressStatus >= 11) {
+                    stopaudio();
+                    playaudio("timeover");
+                }
+
+                //check if the thread has been interrupted manually
+                if (isCancelled()) {
+                    //if this is true, then come out of the while loop
+                    break;
+                }
+            }   //end of while loop
+
+            return null;
+        }
+
+        @Override
+        protected void onProgressUpdate(Integer... mProgressStatus) {
+            //update the progressbar
+            mProgress.setProgress(mProgressStatus[0]);
+
+            if (mProgressStatus[0] >= 11) {
+                mProgress.setProgressDrawable(getResources().getDrawable(R.drawable.redprogressbar));
+            } else if (mProgressStatus[0] >= 6) {
+                mProgress.setProgressDrawable(getResources().getDrawable(R.drawable.blueprogressbar));
+            } else {
+                mProgress.setProgressDrawable(getResources().getDrawable(R.drawable.greenprogressbar));
+            } //end of while loop
+
+        }
+
+        @Override
+        protected void onPostExecute(Integer result) {
+            //log the report
+            Log.i(TAG, "POST EXECUTE CALLED");
+            //stop the audio
+            stopaudio();
+            //Make the progress bar invisible
+            mProgress.setVisibility(ProgressBar.INVISIBLE);
+            //FLAG
+            POST_EXECUTE_REACHED = true ;
+            //press the Submit button manually
+            SubmitPressed(null);
+
+        }
+
+
+        private void sleep() {
+            try {
+                Thread.sleep(mDelay);
+                //Thread.sleep(1000);
+            } catch (InterruptedException e) {
+                Log.e(TAG, e.toString());
+            }
+        }
+    }
 
 
 }
