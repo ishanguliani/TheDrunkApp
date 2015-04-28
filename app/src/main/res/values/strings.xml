@@ -32,6 +32,8 @@
     <string name="drunk">Drunk !</string>
 
     <string-array name="questions">
+
+        <!-- 4th category -->
         <item>Odometer is to mileage as compass is to</item>
         <item>Marathon is to race as hibernation is to</item>
         <item>Window is to pane as book is to</item>
@@ -42,6 +44,8 @@
         <item>Reptile is to lizard as flower is to</item>
         <item>Play is to actor as concert is to</item>
         <item>Sponge is to porous as rubber is to</item>
+
+        <!-- 1st category-->
         <item>Look at this series: 2, 1, 1/2, 1/4, ... What number should come next?</item>
         <item>Look at this series: 7, 10, 8, 11, 9, 12, ... What number should come next?</item>
         <item>Look at this series: 36, 34, 30, 28, 24, ... What number should come next?</item>
@@ -52,6 +56,8 @@
         <item>Look at this series: 3, 4, 7, 8, 11, 12, ... What number should come next?</item>
         <item>Look at this series: 8, 22, 8, 28, 8, ... What number should come next?</item>
         <item>Look at this series: 31, 29, 24, 22, 17, ... What number should come next?</item>
+
+        <!-- 3rd category-->
         <item>Pointing to a photograph of a boy Suresh said, \"He is the son of the only son of my mother.\" How is Suresh related to that boy?</item>
         <item>If A is the brother of B; B is the sister of C; and C is the father of D, how D is related to A?</item>
         <item>Introducing a boy, a girl said, \"He is the son of the daughter of the father of my uncle.\" How is the boy related to the girl?</item>
@@ -62,6 +68,8 @@
         <item>Pointing towards a man, a woman said, \"His mother is the only daughter of my mother.\" How is the woman related to the man?</item>
         <item>Introducing Sonia, Aamir says, \"She is the wife of only nephew of only brother of my mother.\" How Sonia is related to Aamir?</item>
         <item>Pointing to Varman, Madhav said, \"I am the only son of one of the sons of his father.\" How is Varman related to Madhav?</item>
+
+        <!-- 2nd category-->
         <item>SCD, TEF, UGH, ____, WKL</item>
         <item>FAG, GAF, HAI, IAH, ____</item>
         <item>ELFA, GLHA, ILJA, _____, MLNA</item>
@@ -72,6 +80,7 @@
         <item>QAR, RAS, SAT, TAU, _____</item>
         <item>W9Y, T7V, Q5S, N3P, ___</item>
         <item>Q8R, S6T, U4V, W2X, ___</item>
+
         <item>The essential part of \'harvest\' is</item>
         <item>The essential part of \'desert\' is</item>
         <item>The essential part of \'book\' is</item>
@@ -82,6 +91,7 @@
         <item>The essential part of \'monopoly\' is</item>
         <item>The essential part of \'guitar\' is</item>
         <item>The essential part of \'election\' is</item>
+
         <item>Number of consonents in \'alphabet\' are ___</item>
         <item>Number of consonents in \'weather\' are ___</item>
         <item>Number of distinct consonents in \'betterment\' are ___</item>
@@ -92,6 +102,7 @@
         <item>Number of distinct consonants in \'consonants\' are ___</item>
         <item>Number of vowels in \'keyboard\' are ___</item>
         <item>Number of distinct vowels in \'telephone\' are ___</item>
+
         <item>Count number of non prime digits in \'433759754\'</item>
         <item>Count number of prime digits in \'854697144358\'</item>
         <item>Count number of distinct prime digits in \'3415685992\'</item>
@@ -102,6 +113,7 @@
         <item>Count number of distinct prime digits in \'3415685992\'</item>
         <item>Count number of distinct non prime digits in \'256434897\'</item>
         <item>Count number of non prime digits in \'2165473854\'</item>
+
         <item>Which option has all the alphabets of \'PENCIL\' ? </item>
         <item>Which option has all the alphabets of \'COMMENTS\' ? </item>
         <item>Which option has all the alphabets of \'STARTING\' ? </item>
@@ -112,6 +124,7 @@
         <item>Which option has all the alphabets of \'INTERNET\' ? </item>
         <item>Which option has all the alphabets of \'MONITOR\' ? </item>
         <item>Which option has all the alphabets of \'CLOCK\' ? </item>
+
         <item>Which option has the correct spelling? </item>
         <item>Which option has the correct spelling? </item>
         <item>Which option has the correct spelling? </item>
@@ -122,6 +135,7 @@
         <item>Which option has the correct spelling? </item>
         <item>Which option has the correct spelling? </item>
         <item>Which option has the correct spelling? </item>
+
     </string-array>
     <string-array name="option_a">
         <item>speed</item>
