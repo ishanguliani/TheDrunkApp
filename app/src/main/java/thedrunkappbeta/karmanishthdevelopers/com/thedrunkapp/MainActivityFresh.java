@@ -388,6 +388,9 @@ public class MainActivityFresh extends Activity {
                 r = ran.nextInt(22) + 0 ;
                 break;
             case 8 :
+            case 9 :
+            case 10 :
+
                 //EXTREME 2
                 //nextInt(UL-LL) + LL
                 r = ran.nextInt(19) + 63 ;
