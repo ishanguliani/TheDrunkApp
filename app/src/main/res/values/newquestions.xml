@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <resources></resources>
+<!--
+<resources>
+
+    <string-array name="newquestions">
+
+        &lt;!&ndash; TO BE DIVIDED into two categories
+        1st and 3rd category questions will be from these two.
+        &ndash;&gt;
+
+        &lt;!&ndash; CAKEWALK 1&ndash;&gt;
+        <item>Where does the stubble grow ?</item>
+        <item>What ended in the beginning of year 2014 ?</item>
+        <item>Choose the last but 1th option</item>
+        <item>Choose the Second th option</item>
+        <item>10 X 10 = ?</item>
+        <item>When did you buy this phone? Do you remember ?</item>
+        <item>Whats the 7th alphabet of this line ?</item>
+        <item>How will a deaf person speak to his friend ?</item>
+        <item>What is an iPhone ?</item>
+        <item>Select any option you see</item>
+        <item>How to light an electronic lamp</item>
+
+        &lt;!&ndash; DIFFICULT 1&ndash;&gt;
+        <item>How many months have 28 days ?</item>
+        <item>Who do you see while drunk ?</item>
+        <item>Look around you. Are things sliding across the walls ?</item>
+        <item>Roses are red, Violets are _____ ?</item>
+        <item>Doctor : Patient :: Politician</item>
+        <item>Find the odd one</item>
+        <item>Which word, if pronounced right, is wrong, but if pronounced wrong is right?</item>
+        <item>Which one is heavier ? A ton of gold or a ton of feathers ?</item>
+        <item>What does this say? esgg sgeg gegs gsge</item>
+        <item>Which word in the dictionary is written incorrectly ?</item>
+        <item>What is at the end of a RAINBOW ?</item>
+
+    </string-array>
+
+    <string-array name="option_a">
+
+        &lt;!&ndash; CAKEWALK 1&ndash;&gt;
+        <item>Mouth</item>
+        <item>2014</item>
+        <item>Here</item>
+        <item>First</item>
+        <item>?</item>
+        <item>Umm</item>
+        <item>My Nose :D</item>
+        <item>He cannot speak</item>
+        <item>Phone with an EYE ! :D</item>
+        <item>Easy one</item>
+        <item>Electricity</item>
+
+        &lt;!&ndash; DIFFICULT 1&ndash;&gt;
+        <item>I know this answer !</item>
+        <item>Everyone around me. In caricature form</item>
+        <item>Only that hot babe</item>
+        <item>Blue</item>
+        <item>Voter</item>
+        <item>flourish</item>
+        <item>Right</item>
+        <item>Gold -_-</item>
+        <item>I can't read it</item>
+        <item>Incorrectly</item>
+        <item>Colors</item>
+
+    </string-array>
+
+    <string-array name="option_b">
+
+        &lt;!&ndash; CAKEWALK 1&ndash;&gt;
+        <item>Cheek</item>
+        <item>2013</item>
+        <item>Here</item>
+        <item>Third</item>
+        <item>1000</item>
+        <item>This is my phone ! -_-</item>
+        <item>t</item>
+        <item>By actions :D</item>
+        <item>I always wished to buy one. :(</item>
+        <item>Next question please. :/</item>
+        <item>Matchstick</item>
+
+        &lt;!&ndash; DIFFICULT 1&ndash;&gt;
+        <item>Umm..</item>
+        <item>(gasp) PINKY THE PINK ELEPHANT</item>
+        <item>I don't care</item>
+        <item>Green</item>
+        <item>Chair</item>
+        <item>renovate</item>
+        <item>umm...</item>
+        <item>Both weigh same, i.e. A ton</item>
+        <item>What was that  ! Duh !</item>
+        <item>My Friend's Name</item>
+        <item>Black hole</item>
+
+    </string-array>
+
+    <string-array name="option_c">
+
+        &lt;!&ndash; CAKEWALK 1&ndash;&gt;
+        <item>Head</item>
+        <item>2015</item>
+        <item>Here</item>
+        <item>Fourth</item>
+        <item>100</item>
+        <item>I don't have a phone :(</item>
+        <item> </item>
+        <item>By writing</item>
+        <item>An Apple Mobile Phone -_-</item>
+        <item>Seriously ?</item>
+        <item>Coal</item>
+
+        &lt;!&ndash; DIFFICULT 1&ndash;&gt;
+        <item>Only 1</item>
+        <item>Double Everything</item>
+        <item>Is that even possible ?</item>
+        <item>Orange</item>
+        <item>Money</item>
+        <item>blossom</item>
+        <item>kjfepof</item>
+        <item>Thats so easy.</item>
+        <item>Scrambled eggs</item>
+        <item>Nothing</item>
+        <item>W ?</item>
+
+    </string-array>
+
+    <string-array name="option_d">
+
+        &lt;!&ndash; CAKEWALK 1&ndash;&gt;
+        <item>Nose</item>
+        <item>2016</item>
+        <item>Here</item>
+        <item>Second</item>
+        <item>10</item>
+        <item>I lost my phone</item>
+        <item>h</item>
+        <item>He is deaf not dumb. -_-</item>
+        <item>My friend has it</item>
+        <item>Any</item>
+        <item>Lighter</item>
+
+        &lt;!&ndash; DIFFICULT 1&ndash;&gt;
+        <item>Every month has 28 days</item>
+        <item>I've never gotten drunk.</item>
+        <item> Dude.... Yeah....</item>
+        <item>Violets</item>
+        <item>Public</item>
+        <item>thrive</item>
+        <item>Wrong</item>
+        <item>Seriously ?</item>
+        <item>I don't care</item>
+        <item>My Name</item>
+        <item>I don't care</item>
+
+    </string-array>
+
+    <string-array name="correct_answer">
+
+            &lt;!&ndash; CAKEWALK 1&ndash;&gt;
+            <item>option_B</item>
+            <item>option_D</item>
+            <item>option_C</item>
+            <item>option_B</item>
+            <item>option_C</item>
+            <item>option_B</item>
+            <item>option_B</item>
+            <item>option_D</item>
+            <item>option_C</item>
+            <item>option_D</item>
+            <item>option_A</item>
+
+        &lt;!&ndash; DIFFICULT 1&ndash;&gt;
+            <item>option_D</item>
+            <item>option_D</item>
+            <item>option_C</item>
+            <item>option_D</item>
+            <item>option_A</item>
+            <item>option_B</item>
+            <item>option_D</item>
+            <item>option_B</item>
+            <item>option_C</item>
+            <item>option_A</item>
+            <item>option_C</item>
+
+    </string-array>
+
+</resources>
+-->

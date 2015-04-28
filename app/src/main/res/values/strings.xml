@@ -33,19 +33,38 @@
 
     <string-array name="questions">
 
-        <!-- 4th category -->
-        <item>Odometer is to mileage as compass is to</item>
-        <item>Marathon is to race as hibernation is to</item>
-        <item>Window is to pane as book is to</item>
-        <item>Cup is to coffee as bowl is to</item>
-        <item>Yard is to inch as quart is to</item>
-        <item>Elated is to despondent as enlightened is to</item>
-        <item>Optimist is to cheerful as pessimist is to</item>
-        <item>Reptile is to lizard as flower is to</item>
-        <item>Play is to actor as concert is to</item>
-        <item>Sponge is to porous as rubber is to</item>
+        <!-- range for INNOVATIVE : 0 - 22 -->
+        <!-- ****INNOVATIVE****-->
+        <!-- CAKEWALK 1-->
+        <item>Where does the stubble grow ?</item>
+        <item>What ended in the beginning of year 2014 ?</item>
+        <item>Choose the last but 1th option</item>
+        <item>Choose the Second th option</item>
+        <item>10 X 10 = ?</item>
+        <item>When did you buy this phone? Do you remember ?</item>
+        <item>Whats the 7th alphabet of this line ?</item>
+        <item>How will a deaf person speak to his friend ?</item>
+        <item>What is an iPhone ?</item>
+        <item>Select any option you see</item>
+        <item>How to light an electronic lamp</item>
 
-        <!-- 1st category-->
+        <!-- ****INNOVATIVE****-->
+        <!-- DIFFICULT 1-->
+        <item>How many months have 28 days ?</item>
+        <item>Who do you see while drunk ?</item>
+        <item>Look around you. Are things sliding across the walls ?</item>
+        <item>Roses are red, Violets are _____ ?</item>
+        <item>Doctor : Patient :: Politician</item>
+        <item>Find the odd one</item>
+        <item>Which word, if pronounced right, is wrong, but if pronounced wrong is right?</item>
+        <item>Which one is heavier ? A ton of gold or a ton of feathers ?</item>
+        <item>What does this say? esgg sgeg gegs gsge</item>
+        <item>Which word in the dictionary is written incorrectly ?</item>
+        <item>What is at the end of a RAINBOW ?</item>
+
+
+         <!-- range : 23 - 42 -->
+        <!-- CAKEWALK 2-->
         <item>Look at this series: 2, 1, 1/2, 1/4, ... What number should come next?</item>
         <item>Look at this series: 7, 10, 8, 11, 9, 12, ... What number should come next?</item>
         <item>Look at this series: 36, 34, 30, 28, 24, ... What number should come next?</item>
@@ -57,19 +76,8 @@
         <item>Look at this series: 8, 22, 8, 28, 8, ... What number should come next?</item>
         <item>Look at this series: 31, 29, 24, 22, 17, ... What number should come next?</item>
 
-        <!-- 3rd category-->
-        <item>Pointing to a photograph of a boy Suresh said, \"He is the son of the only son of my mother.\" How is Suresh related to that boy?</item>
-        <item>If A is the brother of B; B is the sister of C; and C is the father of D, how D is related to A?</item>
-        <item>Introducing a boy, a girl said, \"He is the son of the daughter of the father of my uncle.\" How is the boy related to the girl?</item>
-        <item>Pointing to a photograph Lata says, \"He is the son of the only son of my grandfather.\" How is the man in the photograph related to Lata?</item>
-        <item>Veena who is the sister-in-law of Ashok, is the daughter-in-law of Kalyani. Dheeraj is the father of Sudeep who is the only brother of Ashok. How Kalyani is related to Ashok?</item>
-        <item>Pointing to a woman, Abhijit said, \"Her granddaughter is the only daughter of my brother.\" How is the woman related to Abhijit?</item>
-        <item>Amit said - \"This girl is the wife of the grandson of my mother\". How is Amit related to the girl?</item>
-        <item>Pointing towards a man, a woman said, \"His mother is the only daughter of my mother.\" How is the woman related to the man?</item>
-        <item>Introducing Sonia, Aamir says, \"She is the wife of only nephew of only brother of my mother.\" How Sonia is related to Aamir?</item>
-        <item>Pointing to Varman, Madhav said, \"I am the only son of one of the sons of his father.\" How is Varman related to Madhav?</item>
 
-        <!-- 2nd category-->
+        <!-- MODERATE 1-->
         <item>SCD, TEF, UGH, ____, WKL</item>
         <item>FAG, GAF, HAI, IAH, ____</item>
         <item>ELFA, GLHA, ILJA, _____, MLNA</item>
@@ -81,17 +89,9 @@
         <item>W9Y, T7V, Q5S, N3P, ___</item>
         <item>Q8R, S6T, U4V, W2X, ___</item>
 
-        <item>The essential part of \'harvest\' is</item>
-        <item>The essential part of \'desert\' is</item>
-        <item>The essential part of \'book\' is</item>
-        <item>The essential part of \'language\' is</item>
-        <item>The essential part of \'school\' is</item>
-        <item>The essential part of \'pain\' is</item>
-        <item>The essential part of \'gala\' is</item>
-        <item>The essential part of \'monopoly\' is</item>
-        <item>The essential part of \'guitar\' is</item>
-        <item>The essential part of \'election\' is</item>
 
+        <!-- range : 43 - 62 -->
+        <!-- MODERATE 2-->
         <item>Number of consonents in \'alphabet\' are ___</item>
         <item>Number of consonents in \'weather\' are ___</item>
         <item>Number of distinct consonents in \'betterment\' are ___</item>
@@ -103,17 +103,9 @@
         <item>Number of vowels in \'keyboard\' are ___</item>
         <item>Number of distinct vowels in \'telephone\' are ___</item>
 
-        <item>Count number of non prime digits in \'433759754\'</item>
-        <item>Count number of prime digits in \'854697144358\'</item>
-        <item>Count number of distinct prime digits in \'3415685992\'</item>
-        <item>Count number of distinct non prime digits in \'256434897\'</item>
-        <item>Count number of non prime digits in \'2165473854\'</item>
-        <item>Count number of non prime digits in \'433759754\'</item>
-        <item>Count number of prime digits in \'854697144358\'</item>
-        <item>Count number of distinct prime digits in \'3415685992\'</item>
-        <item>Count number of distinct non prime digits in \'256434897\'</item>
-        <item>Count number of non prime digits in \'2165473854\'</item>
 
+
+        <!-- DIFFICULT 2-->
         <item>Which option has all the alphabets of \'PENCIL\' ? </item>
         <item>Which option has all the alphabets of \'COMMENTS\' ? </item>
         <item>Which option has all the alphabets of \'STARTING\' ? </item>
@@ -125,6 +117,8 @@
         <item>Which option has all the alphabets of \'MONITOR\' ? </item>
         <item>Which option has all the alphabets of \'CLOCK\' ? </item>
 
+        <!-- range : 63 - 82 -->
+        <!-- EXTREME 1-->
         <item>Which option has the correct spelling? </item>
         <item>Which option has the correct spelling? </item>
         <item>Which option has the correct spelling? </item>
@@ -136,18 +130,52 @@
         <item>Which option has the correct spelling? </item>
         <item>Which option has the correct spelling? </item>
 
+        <!-- EXTREME 2-->
+        <item>Odometer is to mileage as compass is to</item>
+        <item>Marathon is to race as hibernation is to</item>
+        <item>Window is to pane as book is to</item>
+        <item>Cup is to coffee as bowl is to</item>
+        <item>Yard is to inch as quart is to</item>
+        <item>Elated is to despondent as enlightened is to</item>
+        <item>Optimist is to cheerful as pessimist is to</item>
+        <item>Reptile is to lizard as flower is to</item>
+        <item>Play is to actor as concert is to</item>
+        <item>Sponge is to porous as rubber is to</item>
+
+
     </string-array>
     <string-array name="option_a">
-        <item>speed</item>
-        <item>winter</item>
-        <item>novel</item>
-        <item>dish</item>
-        <item>gallon</item>
-        <item>aware</item>
-        <item>gloomy</item>
-        <item>petal</item>
-        <item>symphony</item>
-        <item>massive</item>
+
+        <!-- ****INNOVATIVE****-->
+        <!-- CAKEWALK 1-->
+        <item>Mouth</item>
+        <item>2014</item>
+        <item>Here</item>
+        <item>First</item>
+        <item>/?</item>
+        <item>Umm</item>
+        <item>My Nose :D</item>
+        <item>He cannot speak</item>
+        <item>Phone with an EYE ! :D</item>
+        <item>Easy one</item>
+        <item>Electricity</item>
+
+        <!-- ****INNOVATIVE****-->
+        <!-- DIFFICULT 1-->
+        <item>I know this answer !</item>
+        <item>Everyone around me. In caricature form</item>
+        <item>Only that hot babe</item>
+        <item>Blue</item>
+        <item>Voter</item>
+        <item>flourish</item>
+        <item>Right</item>
+        <item>Gold -_-</item>
+        <item>I can\'t read it</item>
+        <item>Incorrectly</item>
+        <item>Colors</item>
+
+        <!-- CONSIDERED -->
+        <!-- CAKEWALK 2-->
         <item>1/3</item>
         <item>7</item>
         <item>20</item>
@@ -158,16 +186,11 @@
         <item>7</item>
         <item>9</item>
         <item>15</item>
-        <item>Brother</item>
-        <item>Brother</item>
-        <item>Brother</item>
-        <item>Brother</item>
-        <item>Mother-in-law</item>
-        <item>Sister</item>
-        <item>Brother</item>
-        <item>Mother</item>
-        <item>Wife</item>
-        <item>Nephew</item>
+
+
+
+        <!-- CONSIDERED -->
+        <!-- MODERATE 1-->
         <item>CMN</item>
         <item>JAK</item>
         <item>OLPA</item>
@@ -178,16 +201,11 @@
         <item>UAV</item>
         <item>M6K</item>
         <item>Y0Z</item>
-        <item>autumn</item>
-        <item>cactus</item>
-        <item>fiction</item>
-        <item>tongue</item>
-        <item>student</item>
-        <item>cut</item>
-        <item>celebration</item>
-        <item>corrupt</item>
-        <item>band</item>
-        <item>president</item>
+
+
+
+        <!-- CONSIDERED -->
+        <!-- MODERATE 2-->
         <item>4</item>
         <item>2</item>
         <item>7</item>
@@ -198,16 +216,11 @@
         <item>2</item>
         <item>2</item>
         <item>2</item>
-        <item>1</item>
-        <item>3</item>
-        <item>2</item>
-        <item>4</item>
-        <item>2</item>
-        <item>3</item>
-        <item>4</item>
-        <item>4</item>
-        <item>3</item>
-        <item>3</item>
+
+
+
+        <!-- MANDATORY  -->
+        <!-- DIFFICULT 2-->
         <item>ENCPFI</item>
         <item>ENMMCOTS</item>
         <item>NSATRTING</item>
@@ -218,6 +231,9 @@
         <item>NETIINTR</item>
         <item>NOMTORI</item>
         <item>LOKKC</item>
+
+        <!-- MANDATORY -->
+        <!-- EXTREME 1-->
         <item>Expereinced</item>
         <item>Ommineous</item>
         <item>Foreign</item>
@@ -228,18 +244,58 @@
         <item>Antarticka</item>
         <item>Tution</item>
         <item>Personal</item>
+
+        <!-- MANDATORY -->
+        <!-- EXTREME 2-->
+        <item>speed</item>
+        <item>winter</item>
+        <item>novel</item>
+        <item>dish</item>
+        <item>gallon</item>
+        <item>aware</item>
+        <item>gloomy</item>
+        <item>petal</item>
+        <item>symphony</item>
+        <item>massive</item>
+
+
+
+
+
     </string-array>
+
     <string-array name="option_b">
-        <item>hiking</item>
-        <item>bear</item>
-        <item>glass</item>
-        <item>soup</item>
-        <item>ounce</item>
-        <item>ignorant</item>
-        <item>mean</item>
-        <item>stem</item>
-        <item>musician</item>
-        <item>solid</item>
+
+        <!-- ****INNOVATIVE****-->
+        <!-- CAKEWALK 1-->
+        <item>Cheek</item>
+        <item>2013</item>
+        <item>Here</item>
+        <item>Third</item>
+        <item>1000</item>
+        <item>This is my phone ! -_-</item>
+        <item>t</item>
+        <item>By actions :D</item>
+        <item>I always wished to buy one. :(</item>
+        <item>Next question please. :/</item>
+        <item>Matchstick</item>
+
+        <!-- ****INNOVATIVE****-->
+        <!-- DIFFICULT 1-->
+        <item>Umm..</item>
+        <item>(gasp) PINKY THE PINK ELEPHANT</item>
+        <item>I don\'t care</item>
+        <item>Green</item>
+        <item>Chair</item>
+        <item>renovate</item>
+        <item>umm...</item>
+        <item>Both weigh same, i.e. A ton</item>
+        <item>What was that  ! Duh !</item>
+        <item>My Friend\'s Name</item>
+        <item>Black hole</item>
+
+        <!-- CONSIDERED -->
+        <!-- CAKEWALK 2-->
         <item>1/8</item>
         <item>10</item>
         <item>22</item>
@@ -250,16 +306,11 @@
         <item>10</item>
         <item>29</item>
         <item>14</item>
-        <item>Uncle</item>
-        <item>Sister</item>
-        <item>Nephew</item>
-        <item>Uncle</item>
-        <item>Aunt</item>
-        <item>Grandmother</item>
-        <item>Grandfather</item>
-        <item>Grandmother</item>
-        <item>Sister</item>
-        <item>Uncle</item>
+
+
+
+        <!-- CONSIDERED -->
+        <!-- MODERATE 1-->
         <item>UJI</item>
         <item>HAL</item>
         <item>KLMA</item>
@@ -270,16 +321,10 @@
         <item>UAT</item>
         <item>K1M</item>
         <item>Z1Y</item>
-        <item>stockpile</item>
-        <item>arid</item>
-        <item>pages</item>
-        <item>slang</item>
-        <item>report card</item>
-        <item>burn</item>
-        <item>tuxedo</item>
-        <item>exclusive</item>
-        <item>teacher</item>
-        <item>voter</item>
+
+
+        <!-- CONSIDERED -->
+        <!-- MODERATE 2-->
         <item>3</item>
         <item>3</item>
         <item>3</item>
@@ -290,16 +335,11 @@
         <item>3</item>
         <item>3</item>
         <item>3</item>
-        <item>2</item>
-        <item>2</item>
-        <item>3</item>
-        <item>1</item>
-        <item>3</item>
-        <item>4</item>
-        <item>5</item>
-        <item>5</item>
-        <item>4</item>
-        <item>4</item>
+
+
+
+        <!-- MANDATORY  -->
+        <!-- DIFFICULT 2-->
         <item>CNLPEI</item>
         <item>MCSTOSMN</item>
         <item>IGSITRAN</item>
@@ -310,6 +350,9 @@
         <item>INTTEER</item>
         <item>NOMTNRI</item>
         <item>OCLCK</item>
+
+        <!-- MANDATORY -->
+        <!-- EXTREME 1-->
         <item>Efficient</item>
         <item>Omineous</item>
         <item>Foreine</item>
@@ -320,18 +363,58 @@
         <item>Antarctika</item>
         <item>Tuition</item>
         <item>Persenal</item>
+
+        <!-- MANDATORY -->
+        <!-- EXTREME 2-->
+        <item>hiking</item>
+        <item>bear</item>
+        <item>glass</item>
+        <item>soup</item>
+        <item>ounce</item>
+        <item>ignorant</item>
+        <item>mean</item>
+        <item>stem</item>
+        <item>musician</item>
+        <item>solid</item>
+
+
+
+
+
     </string-array>
     <string-array name="option_c">
-        <item>needle</item>
-        <item>dream</item>
-        <item>cover</item>
-        <item>spoon</item>
-        <item>milk</item>
-        <item>miserable</item>
-        <item>petty</item>
-        <item>daisy</item>
-        <item>piano</item>
-        <item>elastic</item>
+
+        <!-- ****INNOVATIVE****-->
+        <!-- CAKEWALK 1-->
+        <item>Head</item>
+        <item>2015</item>
+        <item>Here</item>
+        <item>Fourth</item>
+        <item>100</item>
+        <item>I don\'t have a phone :(</item>
+        <item> </item>
+        <item>By writing</item>
+        <item>An Apple Mobile Phone -_-</item>
+        <item>Seriously ?</item>
+        <item>Coal</item>
+
+        <!-- ****INNOVATIVE****-->
+        <!-- DIFFICULT 1-->
+        <item>Only 1</item>
+        <item>Double Everything</item>
+        <item>Is that even possible ?</item>
+        <item>Orange</item>
+        <item>Money</item>
+        <item>blossom</item>
+        <item>kjfepof</item>
+        <item>Thats so easy.</item>
+        <item>Scrambled eggs</item>
+        <item>Nothing</item>
+        <item>W ?</item>
+
+
+        <!-- CONSIDERED -->
+        <!-- CAKEWALK 2-->
         <item>2\8</item>
         <item>12</item>
         <item>23</item>
@@ -342,16 +425,11 @@
         <item>14</item>
         <item>32</item>
         <item>13</item>
-        <item>Cousin</item>
-        <item>Nephew</item>
-        <item>Uncle</item>
-        <item>Cousin</item>
-        <item>Wife</item>
-        <item>Mother-in-law</item>
-        <item>Husband</item>
-        <item>Sister</item>
-        <item>Sister-in-law</item>
-        <item>Father or Uncle</item>
+
+
+
+        <!-- CONSIDERED -->
+        <!-- MODERATE 1-->
         <item>VIJ</item>
         <item>HAK</item>
         <item>LLMA</item>
@@ -362,16 +440,11 @@
         <item>TAS</item>
         <item>K6M</item>
         <item>Z0Y</item>
-        <item>tractor</item>
-        <item>oasis</item>
-        <item>pictures</item>
-        <item>writing</item>
-        <item>test</item>
-        <item>nuisance</item>
-        <item>appetizer</item>
-        <item>rich</item>
-        <item>songs</item>
-        <item>November</item>
+
+
+
+        <!-- CONSIDERED -->
+        <!-- MODERATE 2-->
         <item>5</item>
         <item>4</item>
         <item>4</item>
@@ -382,16 +455,10 @@
         <item>4</item>
         <item>4</item>
         <item>4</item>
-        <item>3</item>
-        <item>4</item>
-        <item>4</item>
-        <item>3</item>
-        <item>1</item>
-        <item>5</item>
-        <item>6</item>
-        <item>6</item>
-        <item>5</item>
-        <item>5</item>
+
+
+        <!-- MANDATORY  -->
+        <!-- DIFFICULT 2-->
         <item>NULPCE</item>
         <item>NSEMCMOS</item>
         <item>TRANISTG</item>
@@ -402,6 +469,9 @@
         <item>ITEERNIN</item>
         <item>TOMINTR</item>
         <item>KCLOK</item>
+
+        <!-- MANDATORY -->
+        <!-- EXTREME 1-->
         <item>Nervuos</item>
         <item>Ominous</item>
         <item>Fariegn</item>
@@ -412,18 +482,57 @@
         <item>Antartica</item>
         <item>Tutoin</item>
         <item>Persanal</item>
+
+        <!-- MANDATORY -->
+        <!-- EXTREME 2-->
+        <item>needle</item>
+        <item>dream</item>
+        <item>cover</item>
+        <item>spoon</item>
+        <item>milk</item>
+        <item>miserable</item>
+        <item>petty</item>
+        <item>daisy</item>
+        <item>piano</item>
+        <item>elastic</item>
+
+
+
     </string-array>
+
     <string-array name="option_d">
-        <item>direction</item>
-        <item>sleep</item>
-        <item>page</item>
-        <item>food</item>
-        <item>liquid</item>
-        <item>tolerant</item>
-        <item>helpful</item>
-        <item>alligator</item>
-        <item>percussion</item>
-        <item>inflexible</item>
+
+
+        <!-- ****INNVOVATIVE****-->
+        <!-- CAKEWALK 1-->
+        <item>Nose</item>
+        <item>2016</item>
+        <item>Here</item>
+        <item>Second</item>
+        <item>10</item>
+        <item>I lost my phone</item>
+        <item>h</item>
+        <item>He is deaf not dumb. -_-</item>
+        <item>My friend has it</item>
+        <item>Any</item>
+        <item>Lighter</item>
+
+        <!-- ****INNVOVATIVE****-->
+        <!-- DIFFICULT 1-->
+        <item>Every month has 28 days</item>
+        <item>I\'ve never gotten drunk.</item>
+        <item> Dude.... Yeah....</item>
+        <item>Violets</item>
+        <item>Public</item>
+        <item>thrive</item>
+        <item>Wrong</item>
+        <item>Seriously ?</item>
+        <item>I don\'t care</item>
+        <item>My Name</item>
+        <item>I don\'t care</item>
+
+        <!-- CONSIDERED -->
+        <!-- CAKEWALK 2-->
         <item>1/16</item>
         <item>13</item>
         <item>26</item>
@@ -434,16 +543,10 @@
         <item>15</item>
         <item>34</item>
         <item>12</item>
-        <item>Father</item>
-        <item>Cannot be Determined</item>
-        <item>Son-in-law</item>
-        <item>Data is inadequate</item>
-        <item>None of these</item>
-        <item>Mother</item>
-        <item>Father-in-law</item>
-        <item>Daughter</item>
-        <item>Data is inadequate</item>
-        <item>Father</item>
+
+
+        <!-- CONSIDERED -->
+        <!-- MODERATE 1-->
         <item>IJT</item>
         <item>JAI</item>
         <item>KLLA</item>
@@ -454,16 +557,11 @@
         <item>TAT</item>
         <item>KLM</item>
         <item>Y1Z</item>
-        <item>crop</item>
-        <item>flat</item>
-        <item>learning</item>
-        <item>words</item>
-        <item>learning</item>
-        <item>hurt</item>
-        <item>orator</item>
-        <item>gigantic</item>
-        <item>strings</item>
-        <item>nation</item>
+
+
+
+        <!-- CONSIDERED -->
+        <!-- MODERATE 2-->
         <item>6</item>
         <item>5</item>
         <item>6</item>
@@ -474,16 +572,10 @@
         <item>5</item>
         <item>5</item>
         <item>5</item>
-        <item>4</item>
-        <item>1</item>
-        <item>1</item>
-        <item>2</item>
-        <item>4</item>
-        <item>6</item>
-        <item>7</item>
-        <item>7</item>
-        <item>6</item>
-        <item>6</item>
+
+
+        <!-- MANDATORY  -->
+        <!-- DIFFICULT 2-->
         <item>ECIMPL</item>
         <item>MOENCMSC</item>
         <item>NTSARTIN</item>
@@ -494,6 +586,9 @@
         <item>NITERTEN</item>
         <item>TMNIRMO</item>
         <item>KKCLO</item>
+
+        <!-- MANDATORY -->
+        <!-- EXTREME 1-->
         <item>Weature</item>
         <item>Omenous</item>
         <item>Forein</item>
@@ -504,8 +599,125 @@
         <item>Antarctica</item>
         <item>Teution</item>
         <item>Personel</item>
+
+        <!-- MANDATORY -->
+        <!-- EXTREME 2-->
+        <item>direction</item>
+        <item>sleep</item>
+        <item>page</item>
+        <item>food</item>
+        <item>liquid</item>
+        <item>tolerant</item>
+        <item>helpful</item>
+        <item>alligator</item>
+        <item>percussion</item>
+        <item>inflexible</item>
+
+
+
+
+
     </string-array>
     <string-array name="correct_answer">
+
+        <!-- ****INNVOVATIVE****-->
+        <!-- CAKEWALK 1-->
+        <item>option_B</item>
+        <item>option_D</item>
+        <item>option_C</item>
+        <item>option_B</item>
+        <item>option_C</item>
+        <item>option_B</item>
+        <item>option_B</item>
+        <item>option_D</item>
+        <item>option_C</item>
+        <item>option_D</item>
+        <item>option_A</item>
+
+
+        <!-- ****INNVOVATIVE****-->
+        <!-- DIFFICULT 1-->
+        <item>option_D</item>
+        <item>option_D</item>
+        <item>option_C</item>
+        <item>option_D</item>
+        <item>option_A</item>
+        <item>option_B</item>
+        <item>option_D</item>
+        <item>option_B</item>
+        <item>option_C</item>
+        <item>option_A</item>
+        <item>option_C</item>
+
+
+        <!-- CONSIDERED -->
+        <!-- CAKEWALK 2-->
+        <item>option_B</item>
+        <item>option_B</item>
+        <item>option_B</item>
+        <item>option_C</item>
+        <item>option_B</item>
+        <item>option_B</item>
+        <item>option_B</item>
+        <item>option_D</item>
+        <item>option_D</item>
+        <item>option_A</item>
+
+        <!-- CONSIDERED -->
+        <!-- MODERATE 1-->
+        <item>option_C</item>
+        <item>option_A</item>
+        <item>option_D</item>
+        <item>option_C</item>
+        <item>option_A</item>
+        <item>option_B</item>
+        <item>option_A</item>
+        <item>option_A</item>
+        <item>option_B</item>
+        <item>option_D</item>
+
+
+        <!-- CONSIDERED -->
+        <!-- MODERATE 2-->
+        <item>option_C</item>
+        <item>option_C</item>
+        <item>option_D</item>
+        <item>option_A</item>
+        <item>option_C</item>
+        <item>option_B</item>
+        <item>option_C</item>
+        <item>option_C</item>
+        <item>option_B</item>
+        <item>option_A</item>
+
+        <!-- MANDATORY  -->
+        <!-- DIFFICULT 2-->
+        <item>option_B</item>
+        <item>option_A</item>
+        <item>option_C</item>
+        <item>option_B</item>
+        <item>option_D</item>
+        <item>option_C</item>
+        <item>option_B</item>
+        <item>option_D</item>
+        <item>option_A</item>
+        <item>option_B</item>
+
+        <!-- MANDATORY -->
+        <!-- EXTREME 1-->
+        <item>option_B</item>
+        <item>option_C</item>
+        <item>option_A</item>
+        <item>option_C</item>
+        <item>option_D</item>
+        <item>option_C</item>
+        <item>option_A</item>
+        <item>option_D</item>
+        <item>option_B</item>
+        <item>option_A</item>
+
+        <!-- MANDATORY -->
+        <!-- EXTREME 2-->
         <item>option_D</item>
         <item>option_D</item>
         <item>option_D</item>
@@ -516,99 +728,44 @@
         <item>option_C</item>
         <item>option_B</item>
         <item>option_C</item>
-        <item>option_B</item>
-        <item>option_B</item>
-        <item>option_B</item>
-        <item>option_C</item>
-        <item>option_B</item>
-        <item>option_B</item>
-        <item>option_B</item>
-        <item>option_D</item>
-        <item>option_D</item>
-        <item>option_A</item>
-        <item>option_D</item>
-        <item>option_D</item>
-        <item>option_A</item>
-        <item>option_A</item>
-        <item>option_D</item>
-        <item>option_D</item>
-        <item>option_D</item>
-        <item>option_A</item>
-        <item>option_A</item>
-        <item>option_C</item>
-        <item>option_C</item>
-        <item>option_A</item>
-        <item>option_D</item>
-        <item>option_C</item>
-        <item>option_A</item>
-        <item>option_B</item>
-        <item>option_A</item>
-        <item>option_A</item>
-        <item>option_B</item>
-        <item>option_D</item>
-        <item>option_D</item>
-        <item>option_B</item>
-        <item>option_B</item>
-        <item>option_D</item>
-        <item>option_A</item>
-        <item>option_D</item>
-        <item>option_A</item>
-        <item>option_B</item>
-        <item>option_D</item>
-        <item>option_B</item>
-        <item>option_C</item>
-        <item>option_C</item>
-        <item>option_D</item>
-        <item>option_A</item>
-        <item>option_C</item>
-        <item>option_B</item>
-        <item>option_C</item>
-        <item>option_C</item>
-        <item>option_B</item>
-        <item>option_A</item>
-        <item>option_C</item>
-        <item>option_C</item>
-        <item>option_B</item>
-        <item>option_A</item>
-        <item>option_D</item>
-        <item>option_B</item>
-        <item>option_A</item>
-        <item>option_A</item>
-        <item>option_B</item>
-        <item>option_C</item>
-        <item>option_B</item>
-        <item>option_A</item>
-        <item>option_C</item>
-        <item>option_B</item>
-        <item>option_D</item>
-        <item>option_C</item>
-        <item>option_B</item>
-        <item>option_D</item>
-        <item>option_A</item>
-        <item>option_B</item>
-        <item>option_B</item>
-        <item>option_C</item>
-        <item>option_A</item>
-        <item>option_C</item>
-        <item>option_D</item>
-        <item>option_C</item>
-        <item>option_A</item>
-        <item>option_D</item>
-        <item>option_B</item>
-        <item>option_A</item>
+
     </string-array>
 
+    <!-- NOT TO BE USED-->
     <integer-array name="penalty">
-        <item>30</item>
-        <item>30</item>
-        <item>30</item>
-        <item>30</item>
-        <item>30</item>
-        <item>30</item>
-        <item>30</item>
-        <item>30</item>
-        <item>30</item>
-        <item>30</item>
+
+        <!-- ****INNOVATIVE****-->
+        <!-- CAKEWALK 1-->
+        <item>0</item>
+        <item>0</item>
+        <item>0</item>
+        <item>0</item>
+        <item>0</item>
+        <item>0</item>
+        <item>0</item>
+        <item>0</item>
+        <item>0</item>
+        <item>0</item>
+        <item>0</item>
+
+
+        <!-- ****INNOVATIVE****-->
+        <!-- DIFFICULT 1-->
+        <item>0</item>
+        <item>0</item>
+        <item>0</item>
+        <item>0</item>
+        <item>0</item>
+        <item>0</item>
+        <item>0</item>
+        <item>0</item>
+        <item>0</item>
+        <item>0</item>
+        <item>0</item>
+
+
+        <!-- CONSIDERED -->
+        <!-- CAKEWALK 2-->
         <item>80</item>
         <item>80</item>
         <item>80</item>
@@ -619,16 +776,10 @@
         <item>80</item>
         <item>80</item>
         <item>80</item>
-        <item>10</item>
-        <item>10</item>
-        <item>10</item>
-        <item>10</item>
-        <item>10</item>
-        <item>10</item>
-        <item>10</item>
-        <item>10</item>
-        <item>10</item>
-        <item>10</item>
+
+
+        <!-- CONSIDERED -->
+        <!-- MODERATE 1-->
         <item>70</item>
         <item>70</item>
         <item>70</item>
@@ -639,16 +790,11 @@
         <item>70</item>
         <item>70</item>
         <item>70</item>
-        <item>20</item>
-        <item>20</item>
-        <item>20</item>
-        <item>20</item>
-        <item>20</item>
-        <item>20</item>
-        <item>20</item>
-        <item>20</item>
-        <item>20</item>
-        <item>20</item>
+
+
+
+        <!-- CONSIDERED -->
+        <!-- MODERATE 2-->
         <item>40</item>
         <item>40</item>
         <item>40</item>
@@ -659,16 +805,10 @@
         <item>40</item>
         <item>40</item>
         <item>40</item>
-        <item>50</item>
-        <item>50</item>
-        <item>50</item>
-        <item>50</item>
-        <item>50</item>
-        <item>50</item>
-        <item>50</item>
-        <item>50</item>
-        <item>50</item>
-        <item>50</item>
+
+
+        <!-- MANDATORY  -->
+        <!-- DIFFICULT 2-->
         <item>90</item>
         <item>90</item>
         <item>90</item>
@@ -679,6 +819,9 @@
         <item>90</item>
         <item>90</item>
         <item>90</item>
+
+        <!-- MANDATORY -->
+        <!-- EXTREME 1-->
         <item>60</item>
         <item>60</item>
         <item>60</item>
@@ -689,100 +832,23 @@
         <item>60</item>
         <item>60</item>
         <item>60</item>
+
+        <!-- MANDATORY -->
+        <!-- EXTREME 2-->
+        <item>30</item>
+        <item>30</item>
+        <item>30</item>
+        <item>30</item>
+        <item>30</item>
+        <item>30</item>
+        <item>30</item>
+        <item>30</item>
+        <item>30</item>
+        <item>30</item>
+
+
     </integer-array>
 
-    <string-array name="level">
-        <item>HARDCORE</item>
-        <item>HARDCORE</item>
-        <item>HARDCORE</item>
-        <item>HARDCORE</item>
-        <item>HARDCORE</item>
-        <item>HARDCORE</item>
-        <item>HARDCORE</item>
-        <item>HARDCORE</item>
-        <item>HARDCORE</item>
-        <item>HARDCORE</item>
-        <item>CAKEWALK</item>
-        <item>CAKEWALK</item>
-        <item>CAKEWALK</item>
-        <item>CAKEWALK</item>
-        <item>CAKEWALK</item>
-        <item>CAKEWALK</item>
-        <item>CAKEWALK</item>
-        <item>CAKEWALK</item>
-        <item>CAKEWALK</item>
-        <item>CAKEWALK</item>
-        <item>EXTREME</item>
-        <item>EXTREME</item>
-        <item>EXTREME</item>
-        <item>EXTREME</item>
-        <item>EXTREME</item>
-        <item>EXTREME</item>
-        <item>EXTREME</item>
-        <item>EXTREME</item>
-        <item>EXTREME</item>
-        <item>EXTREME</item>
-        <item>MODERATE</item>
-        <item>MODERATE</item>
-        <item>MODERATE</item>
-        <item>MODERATE</item>
-        <item>MODERATE</item>
-        <item>MODERATE</item>
-        <item>MODERATE</item>
-        <item>MODERATE</item>
-        <item>MODERATE</item>
-        <item>MODERATE</item>
-        <item>EXTREME</item>
-        <item>EXTREME</item>
-        <item>EXTREME</item>
-        <item>EXTREME</item>
-        <item>EXTREME</item>
-        <item>EXTREME</item>
-        <item>EXTREME</item>
-        <item>EXTREME</item>
-        <item>EXTREME</item>
-        <item>EXTREME</item>
-        <item>HARDCORE</item>
-        <item>HARDCORE</item>
-        <item>HARDCORE</item>
-        <item>HARDCORE</item>
-        <item>HARDCORE</item>
-        <item>HARDCORE</item>
-        <item>HARDCORE</item>
-        <item>HARDCORE</item>
-        <item>HARDCORE</item>
-        <item>HARDCORE</item>
-        <item>MODERATE</item>
-        <item>MODERATE</item>
-        <item>MODERATE</item>
-        <item>MODERATE</item>
-        <item>MODERATE</item>
-        <item>MODERATE</item>
-        <item>MODERATE</item>
-        <item>MODERATE</item>
-        <item>MODERATE</item>
-        <item>MODERATE</item>
-        <item>CAKEWALK</item>
-        <item>CAKEWALK</item>
-        <item>CAKEWALK</item>
-        <item>CAKEWALK</item>
-        <item>CAKEWALK</item>
-        <item>CAKEWALK</item>
-        <item>CAKEWALK</item>
-        <item>CAKEWALK</item>
-        <item>CAKEWALK</item>
-        <item>CAKEWALK</item>
-        <item>MODERATE</item>
-        <item>MODERATE</item>
-        <item>MODERATE</item>
-        <item>MODERATE</item>
-        <item>MODERATE</item>
-        <item>MODERATE</item>
-        <item>MODERATE</item>
-        <item>MODERATE</item>
-        <item>MODERATE</item>
-        <item>MODERATE</item>
-    </string-array>
 
     <!-- END -->
     <string name="title_activity_main_activity_fresh">MainActivityFresh</string>

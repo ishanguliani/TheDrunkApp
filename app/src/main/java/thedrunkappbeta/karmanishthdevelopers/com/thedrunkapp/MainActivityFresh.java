@@ -366,46 +366,49 @@ public class MainActivityFresh extends Activity {
         switch(question_number) {
 
             case 1 :
+                //INNOVATIVE
                 //CAKEWALK 1
                 //nextInt(UL-LL) + LL
-                r = ran.nextInt(10) + 0 ;
+                r = ran.nextInt(22) + 0 ;
                 break;
             case 2 :
                 //CAKEWALK 2
                 //nextInt(UL-LL) + LL
-                r = ran.nextInt(9) + 11 ;
+                r = ran.nextInt(19) + 23 ;
                 break;
 
             case 3 :
                 //MODERATE 1
                 //nextInt(UL-LL) + LL
-                r = ran.nextInt(9) + 21 ;
+                r = ran.nextInt(19) + 23 ;
                 break;
             case 4 :
+                //INNOVATIVE
                 //MODERATE 2
                 //nextInt(UL-LL) + LL
-                r = ran.nextInt(9) + 31 ;
+                r = ran.nextInt(22) + 0 ;
                 break;
 
             case 5 :
                 //DIFFICULT 1
                 //nextInt(UL-LL) + LL
-                r = ran.nextInt(10) + 41 ;
+                r = ran.nextInt(19) + 43 ;
                 break;
             case 6 :
                 //DIFFICULT 2
                 //nextInt(UL-LL) + LL
-                r = ran.nextInt(9) + 52 ;
+                r = ran.nextInt(19) + 43 ;
                 break;
             case 7 :
+                //INNOVATIVE
                 //EXTREME 1
                 //nextInt(UL-LL) + LL
-                r = ran.nextInt(9) + 62 ;
+                r = ran.nextInt(22) + 0 ;
                 break;
             case 8 :
                 //EXTREME 2
                 //nextInt(UL-LL) + LL
-                r = ran.nextInt(9) + 72 ;
+                r = ran.nextInt(19) + 63 ;
                 break;
                 /*
             case 9 :
