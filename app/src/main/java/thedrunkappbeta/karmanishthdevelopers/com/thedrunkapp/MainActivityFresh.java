@@ -96,9 +96,6 @@ public class MainActivityFresh extends Activity {
     //store random number
     private static int r ;
 
-    //current difficulty level
-    String CurrentDiffLevel = null ;
-
     //array to maintain the random numbers which have already been generated
     public static int[] NumbersGenerated = new int[100] ;
 
