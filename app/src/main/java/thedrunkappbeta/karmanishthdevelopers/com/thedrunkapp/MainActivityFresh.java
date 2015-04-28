@@ -125,9 +125,6 @@ public class MainActivityFresh extends Activity {
     //array to store correct_answer
     private String[] array_correct_answer = null ;
 
-    //array to store difficulty level
-    private String[] array_level = null ;
-
     //private String ANSWER = "CORRECT" ;
     private final  Button SubmitButton = null ;
 
@@ -178,19 +175,13 @@ public class MainActivityFresh extends Activity {
         //link array to penalties
         array_penalty = getResources().getIntArray(R.array.penalty) ;
 
-        //link array to difficulty level
-        array_level = getResources().getStringArray(R.array.level) ;
-
         //get random number
-
         CurrentQuestionNumber = getRandomNumber() ;
 
         //
         CurrentQuestionPenalty = array_penalty[CurrentQuestionNumber] ;
 
-        CurrentDiffLevel = array_level[CurrentQuestionNumber] ;
-
-        //link all UI elements to the screen
+       //link all UI elements to the screen
        //LinkToScreen() ;
         TextView tv= (TextView) findViewById(R.id.textView);
         TextView ques_no= (TextView) findViewById(R.id.text_question_number);
