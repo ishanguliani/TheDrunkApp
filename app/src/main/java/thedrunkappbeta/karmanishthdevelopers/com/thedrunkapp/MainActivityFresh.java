@@ -162,6 +162,7 @@ public class MainActivityFresh extends Activity {
         array_option_c = getResources().getStringArray(R.array.option_c) ;
         array_option_d = getResources().getStringArray(R.array.option_d) ;
 
+        
         //link array to correct_answer
         array_correct_answer = getResources().getStringArray(R.array.correct_answer) ;
 
