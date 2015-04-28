@@ -39,11 +39,15 @@ import java.awt.font.NumericShaper;
 import java.net.URI;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Random;
+import java.util.Set;
 
 public class MainActivityFresh extends Activity {
 
+    //Boolean Variable
+    Boolean b = null ;
     //set a flag to check if the time ran out
     private Boolean POST_EXECUTE_REACHED = false ; //will only get called if the time runs out
 
@@ -58,7 +62,7 @@ public class MainActivityFresh extends Activity {
 
     //editted on 25th March
     //Add variable for maximum question number
-    private static final int MAX_QUESTION_NUMBER = 10 ;
+    private static final int MAX_QUESTION_NUMBER = 9 ;
 
     /*ADDING VARIABLES FOR COUNTDOWN TIMER*/
     CountDownTimer countdowntimer;
@@ -94,13 +98,12 @@ public class MainActivityFresh extends Activity {
     //random number
     public static Random ran ;
     //store random number
-    private static int r ;
+    private static Integer r  = 0;
 
     //array to maintain the random numbers which have already been generated
-    public static int[] NumbersGenerated = new int[100] ;
+    public static Integer[] NumbersGenerated  = new Integer[100];
 
     private  String CorrectAnswer ;
-    private  String OptionSelectedByUser ;
 
     private static int question_number = 1 ;
 
@@ -121,17 +124,10 @@ public class MainActivityFresh extends Activity {
     private  int[] array_penalty = null ;
     //array to store correct_answer
     private String[] array_correct_answer = null ;
-
-    //private String ANSWER = "CORRECT" ;
-    private final  Button SubmitButton = null ;
-
+    //link Radio Buttons to options
     private static RadioButton choice1 = null , choice2= null , choice3= null , choice4= null  ;
-    private View.OnClickListener radioListener ;
-
     private Boolean AnswerSelected = null ;
     private Boolean CorrectAnswerSelected = false ;
-
-    private View contentView = null ;
 
     private static int CurrentQuestionNumber = 0 ;
     private int CurrentQuestionPenalty = 0 ;
@@ -172,10 +168,12 @@ public class MainActivityFresh extends Activity {
         //link array to penalties
         array_penalty = getResources().getIntArray(R.array.penalty) ;
 
+        //link progressBar
+        mProgress = (ProgressBar) findViewById(R.id.progressBar2);
+
         //get random number
         CurrentQuestionNumber = getRandomNumber() ;
 
-        //
         CurrentQuestionPenalty = array_penalty[CurrentQuestionNumber] ;
 
        //link all UI elements to the screen
@@ -204,11 +202,19 @@ public class MainActivityFresh extends Activity {
         choice3.setChecked(false);
         choice4.setChecked(false);
 
-        question_number = question_number + 1 ;
+
 
         //check if the current question number has reached the maximum number - if true
         //then finish the quiz and pass the control to the final score calculating activity
-        if(question_number == MAX_QUESTION_NUMBER)   {
+        if(question_number < MAX_QUESTION_NUMBER)   {
+
+            //instantiate the AsyncTask UpdateTimerTask
+            updatetimertask = new UpdateTimerTask();
+            //execute the Asynctask in the background to start the timer
+            updatetimertask.execute(1);
+        }
+
+        else {
 
             Intent intent = new Intent(MainActivityFresh.this, FinalScoreActivity.class) ;
             intent.putExtra("final_score" , CorrectActivity.PenaltyScored) ;
@@ -217,20 +223,9 @@ public class MainActivityFresh extends Activity {
             startActivity(intent);
         }
 
+        question_number = question_number + 1 ;
         //link the vibrator
         //myVib = (Vibrator) this.getSystemService(VIBRATOR_SERVICE);
-
-        mProgress = (ProgressBar) findViewById(R.id.progressBar2);
-
-        //instantiate the AsynTaskn UpdateTimerTask
-        updatetimertask = new UpdateTimerTask();
-
-        if(question_number < MAX_QUESTION_NUMBER) {
-            //execute the Asynctask in the background to start the timer
-            updatetimertask.execute(1) ;
-
-        }
-        //////Code changed till here by dhiraj
 
     }  /*End of Oncreate()*/
 
@@ -262,7 +257,7 @@ public class MainActivityFresh extends Activity {
     }
 
 
-    /*STOP THE RUNNING THREAD*/
+    /*STOP THE RUNNING TIMER THREAD*/
     public void stopTask(){
 
         //stop the background audio
@@ -382,17 +377,32 @@ public class MainActivityFresh extends Activity {
         }
 
 
-        boolean b = Arrays.asList(NumbersGenerated).contains(r);
-        if( b == true)  {
-            Log.i("my_app", "Random Number matched " + r) ;
+        //check if the generated number has already been used
+       //b = Arrays.asList(NumbersGenerated).contains(r);
+
+        b = searchInArray(NumbersGenerated, r) ;
+        //b = ArrayUtils.contains(NumbersGenerated, r) ;
+
+        Log.i(TAG, "b assigned : " + b) ;
+        if(b)  {
+            Log.i(TAG, "Random Number matched " + r) ;
             getRandomNumber() ;
         }
         else {
             NumbersGenerated[i] = r ;
-            //editted on 12TH mARCH EDIT
-            // i++ ;
+            Log.i(TAG, "" + r + " saved in index " + i) ;
+            i++ ;
         }
-        Log.i("my_app", "Random Number method entered : " + r) ;
+        //Log.i(TAG, "Random Number method entered : " + r) ;
+
+
+        //Refresh the array NumbersGenerated if nearly full
+        if(i > 70 )   {
+            NumbersGenerated = null ;
+            Log.i(TAG, "Array reassigned to NULL") ;
+        }
+
+
         return(r) ;
     }
 
@@ -489,12 +499,7 @@ public class MainActivityFresh extends Activity {
     }
 
 
-    /*this function will start a new timer thread if the current queston numbert
-    * HAS NOt exceeded the maximum numbtr of questions */
-    public void startNewTimerThread()   {
 
-
-    }
     //the asynctask class has been added on 25th April 2015 by Ishan
     class UpdateTimerTask extends AsyncTask<Integer, Integer, Integer> {
 
@@ -506,6 +511,7 @@ public class MainActivityFresh extends Activity {
             //DO SOMETHING HERE
             mProgress.setVisibility(ProgressBar.VISIBLE);
         }
+
 
         @Override
         protected Integer doInBackground(Integer... resId) {
@@ -574,6 +580,12 @@ public class MainActivityFresh extends Activity {
             }
         }
     }
+
+    public static boolean searchInArray(Integer[] arr, Integer targetValue) {
+        Set<Integer> set = new HashSet<Integer>(Arrays.asList(arr));
+        return set.contains(targetValue);
+    }
+
 
 
 }
