@@ -218,7 +218,6 @@ public class MainActivityFresh extends Activity {
 
         question_number = question_number + 1 ;
 
-        //newedit 25th march
         //check if the current question number has reached the maximum number - if true
         //then finish the quiz and pass the control to the final score calculating activity
         if(question_number == MAX_QUESTION_NUMBER)   {
@@ -233,13 +232,11 @@ public class MainActivityFresh extends Activity {
         //link the vibrator
         //myVib = (Vibrator) this.getSystemService(VIBRATOR_SERVICE);
 
-
-        //////////Needs to be changed for a horizontal bar timer by dhiraj
-
         mProgress = (ProgressBar) findViewById(R.id.progressBar2);
+
+        //instantiate the AsynTaskn UpdateTimerTask
         updatetimertask = new UpdateTimerTask();
 
-        //edit by Ishan on 9th April
         if(question_number < MAX_QUESTION_NUMBER) {
             //execute the Asynctask in the background to start the timer
             updatetimertask.execute(1) ;
@@ -396,6 +393,7 @@ public class MainActivityFresh extends Activity {
                 break ;
         }
 
+
         boolean b = Arrays.asList(NumbersGenerated).contains(r);
         if( b == true)  {
             Log.i("my_app", "Random Number matched " + r) ;
@@ -479,6 +477,8 @@ public class MainActivityFresh extends Activity {
         intent.putExtra("my_app" , 0) ;
         intent.putExtra("my_penalty", CurrentQuestionPenalty) ;
         startActivity(intent) ;
+
+        //startNewTimerThread() ;
     }
 
     /*CALLED WHEN USER PRESSES SUBMIT BUTTON AFTER SELECTING CORRECT ANSWER*/
@@ -501,7 +501,12 @@ public class MainActivityFresh extends Activity {
     }
 
 
+    /*this function will start a new timer thread if the current queston numbert
+    * HAS NOt exceeded the maximum numbtr of questions */
+    public void startNewTimerThread()   {
 
+
+    }
     //the asynctask class has been added on 25th April 2015 by Ishan
     class UpdateTimerTask extends AsyncTask<Integer, Integer, Integer> {
 
