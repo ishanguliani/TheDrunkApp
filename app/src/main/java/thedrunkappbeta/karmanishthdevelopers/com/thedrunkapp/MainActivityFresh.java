@@ -96,6 +96,9 @@ public class MainActivityFresh extends Activity {
     //store random number
     private static int r ;
 
+    //current difficulty level
+    String CurrentDiffLevel = null ;
+
     //array to maintain the random numbers which have already been generated
     public static int[] NumbersGenerated = new int[100] ;
 
@@ -121,6 +124,9 @@ public class MainActivityFresh extends Activity {
     private  int[] array_penalty = null ;
     //array to store correct_answer
     private String[] array_correct_answer = null ;
+
+    //array to store difficulty level
+    private String[] array_level = null ;
 
     //private String ANSWER = "CORRECT" ;
     private final  Button SubmitButton = null ;
@@ -172,13 +178,19 @@ public class MainActivityFresh extends Activity {
         //link array to penalties
         array_penalty = getResources().getIntArray(R.array.penalty) ;
 
+        //link array to difficulty level
+       // array_level = getResources().getStringArray(R.array.level) ;
+
         //get random number
+
         CurrentQuestionNumber = getRandomNumber() ;
 
         //
         CurrentQuestionPenalty = array_penalty[CurrentQuestionNumber] ;
 
-       //link all UI elements to the screen
+  //      CurrentDiffLevel = array_level[CurrentQuestionNumber] ;
+
+        //link all UI elements to the screen
        //LinkToScreen() ;
         TextView tv= (TextView) findViewById(R.id.textView);
         TextView ques_no= (TextView) findViewById(R.id.text_question_number);
@@ -206,6 +218,7 @@ public class MainActivityFresh extends Activity {
 
         question_number = question_number + 1 ;
 
+        //newedit 25th march
         //check if the current question number has reached the maximum number - if true
         //then finish the quiz and pass the control to the final score calculating activity
         if(question_number == MAX_QUESTION_NUMBER)   {
@@ -220,11 +233,13 @@ public class MainActivityFresh extends Activity {
         //link the vibrator
         //myVib = (Vibrator) this.getSystemService(VIBRATOR_SERVICE);
 
-        mProgress = (ProgressBar) findViewById(R.id.progressBar2);
 
-        //instantiate the AsynTaskn UpdateTimerTask
+        //////////Needs to be changed for a horizontal bar timer by dhiraj
+
+        mProgress = (ProgressBar) findViewById(R.id.progressBar2);
         updatetimertask = new UpdateTimerTask();
 
+        //edit by Ishan on 9th April
         if(question_number < MAX_QUESTION_NUMBER) {
             //execute the Asynctask in the background to start the timer
             updatetimertask.execute(1) ;
@@ -351,36 +366,55 @@ public class MainActivityFresh extends Activity {
         switch(question_number) {
 
             case 1 :
+                //CAKEWALK 1
+                //nextInt(UL-LL) + LL
+                r = ran.nextInt(10) + 0 ;
+                break;
             case 2 :
-                //generate a cakewalk difficulty level question
-                //2nd category in xml
-                r = ran.nextInt(9) + 10 ;
+                //CAKEWALK 2
+                //nextInt(UL-LL) + LL
+                r = ran.nextInt(9) + 11 ;
                 break;
 
             case 3 :
+                //MODERATE 1
+                //nextInt(UL-LL) + LL
+                r = ran.nextInt(9) + 21 ;
+                break;
             case 4 :
-                //generate a moderate difficulty level question
-                //4th category
-                r = ran.nextInt(9) + 30 ;
+                //MODERATE 2
+                //nextInt(UL-LL) + LL
+                r = ran.nextInt(9) + 31 ;
                 break;
 
             case 5 :
-            case 6 :
-                //generate an extreme difficulty level question
-                //3rd category -- to be removed
-                r = ran.nextInt(9) + 20 ;
+                //DIFFICULT 1
+                //nextInt(UL-LL) + LL
+                r = ran.nextInt(10) + 41 ;
                 break;
-
+            case 6 :
+                //DIFFICULT 2
+                //nextInt(UL-LL) + LL
+                r = ran.nextInt(9) + 52 ;
+                break;
             case 7 :
+                //EXTREME 1
+                //nextInt(UL-LL) + LL
+                r = ran.nextInt(9) + 62 ;
+                break;
             case 8 :
+                //EXTREME 2
+                //nextInt(UL-LL) + LL
+                r = ran.nextInt(9) + 72 ;
+                break;
+                /*
             case 9 :
             case 10 :
                 //generate a hardcore difficulty level question
                 //first category in xml
                 r = ran.nextInt(9) ;
-                break ;
+                break ;*/
         }
-
 
         boolean b = Arrays.asList(NumbersGenerated).contains(r);
         if( b == true)  {
@@ -388,7 +422,7 @@ public class MainActivityFresh extends Activity {
             getRandomNumber() ;
         }
         else {
-            NumbersGenerated[i] = r ;
+            NumbersGenerated[i] = r;
             //editted on 12TH mARCH EDIT
             // i++ ;
         }
@@ -448,7 +482,7 @@ public class MainActivityFresh extends Activity {
         ).show();
     }
 
-     
+
     public static int getAudio(Context context, String name)
     {
         Assert.assertNotNull(context);
@@ -465,8 +499,6 @@ public class MainActivityFresh extends Activity {
         intent.putExtra("my_app" , 0) ;
         intent.putExtra("my_penalty", CurrentQuestionPenalty) ;
         startActivity(intent) ;
-
-        //startNewTimerThread() ;
     }
 
     /*CALLED WHEN USER PRESSES SUBMIT BUTTON AFTER SELECTING CORRECT ANSWER*/
@@ -489,12 +521,7 @@ public class MainActivityFresh extends Activity {
     }
 
 
-    /*this function will start a new timer thread if the current queston numbert
-    * HAS NOt exceeded the maximum numbtr of questions */
-    public void startNewTimerThread()   {
 
-
-    }
     //the asynctask class has been added on 25th April 2015 by Ishan
     class UpdateTimerTask extends AsyncTask<Integer, Integer, Integer> {
 
