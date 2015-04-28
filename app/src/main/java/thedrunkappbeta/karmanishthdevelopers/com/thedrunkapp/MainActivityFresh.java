@@ -368,18 +368,21 @@ public class MainActivityFresh extends Activity {
             case 1 :
             case 2 :
                 //generate a cakewalk difficulty level question
+                //2nd category in xml
                 r = ran.nextInt(9) + 10 ;
                 break;
 
             case 3 :
             case 4 :
                 //generate a moderate difficulty level question
+                //4th category
                 r = ran.nextInt(9) + 30 ;
                 break;
 
             case 5 :
             case 6 :
                 //generate an extreme difficulty level question
+                //3rd category -- to be removed
                 r = ran.nextInt(9) + 20 ;
                 break;
 
@@ -388,6 +391,7 @@ public class MainActivityFresh extends Activity {
             case 9 :
             case 10 :
                 //generate a hardcore difficulty level question
+                //first category in xml
                 r = ran.nextInt(9) ;
                 break ;
         }
