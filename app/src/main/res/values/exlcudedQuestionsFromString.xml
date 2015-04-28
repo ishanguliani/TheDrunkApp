@@ -1,0 +1,288 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <resources></resources>
+<!--
+<resources>
+
+    <string-array name="removed_questions">
+
+        &lt;!&ndash; 3rd category&ndash;&gt;
+        &lt;!&ndash; REMOVE &ndash;&gt;
+        <item>Pointing to a photograph of a boy Suresh said, \"He is the son of the only son of my mother.\" How is Suresh related to that boy?</item>
+        <item>If A is the brother of B; B is the sister of C; and C is the father of D, how D is related to A?</item>
+        <item>Introducing a boy, a girl said, \"He is the son of the daughter of the father of my uncle.\" How is the boy related to the girl?</item>
+        <item>Pointing to a photograph Lata says, \"He is the son of the only son of my grandfather.\" How is the man in the photograph related to Lata?</item>
+        <item>Veena who is the sister-in-law of Ashok, is the daughter-in-law of Kalyani. Dheeraj is the father of Sudeep who is the only brother of Ashok. How Kalyani is related to Ashok?</item>
+        <item>Pointing to a woman, Abhijit said, \"Her granddaughter is the only daughter of my brother.\" How is the woman related to Abhijit?</item>
+        <item>Amit said - \"This girl is the wife of the grandson of my mother\". How is Amit related to the girl?</item>
+        <item>Pointing towards a man, a woman said, \"His mother is the only daughter of my mother.\" How is the woman related to the man?</item>
+        <item>Introducing Sonia, Aamir says, \"She is the wife of only nephew of only brother of my mother.\" How Sonia is related to Aamir?</item>
+        <item>Pointing to Varman, Madhav said, \"I am the only son of one of the sons of his father.\" How is Varman related to Madhav?</item>
+
+        &lt;!&ndash; REMOVE &ndash;&gt;
+        <item>The essential part of \'harvest\' is</item>
+        <item>The essential part of \'desert\' is</item>
+        <item>The essential part of \'book\' is</item>
+        <item>The essential part of \'language\' is</item>
+        <item>The essential part of \'school\' is</item>
+        <item>The essential part of \'pain\' is</item>
+        <item>The essential part of \'gala\' is</item>
+        <item>The essential part of \'monopoly\' is</item>
+        <item>The essential part of \'guitar\' is</item>
+        <item>The essential part of \'election\' is</item>
+
+        &lt;!&ndash; REMOVE &ndash;&gt;
+        <item>Count number of non prime digits in \'433759754\'</item>
+        <item>Count number of prime digits in \'854697144358\'</item>
+        <item>Count number of distinct prime digits in \'3415685992\'</item>
+        <item>Count number of distinct non prime digits in \'256434897\'</item>
+        <item>Count number of non prime digits in \'2165473854\'</item>
+        <item>Count number of non prime digits in \'433759754\'</item>
+        <item>Count number of prime digits in \'854697144358\'</item>
+        <item>Count number of distinct prime digits in \'3415685992\'</item>
+        <item>Count number of distinct non prime digits in \'256434897\'</item>
+        <item>Count number of non prime digits in \'2165473854\'</item>
+
+    </string-array>
+
+    <string-array name="option_a">
+
+        &lt;!&ndash; REMOVE &ndash;&gt;
+        <item>Brother</item>
+        <item>Brother</item>
+        <item>Brother</item>
+        <item>Brother</item>
+        <item>Mother-in-law</item>
+        <item>Sister</item>
+        <item>Brother</item>
+        <item>Mother</item>
+        <item>Wife</item>
+        <item>Nephew</item>
+
+        &lt;!&ndash; REMOVE &ndash;&gt;
+        <item>autumn</item>
+        <item>cactus</item>
+        <item>fiction</item>
+        <item>tongue</item>
+        <item>student</item>
+        <item>cut</item>
+        <item>celebration</item>
+        <item>corrupt</item>
+        <item>band</item>
+        <item>president</item>
+
+        &lt;!&ndash; REMOVE &ndash;&gt;
+        <item>1</item>
+        <item>3</item>
+        <item>2</item>
+        <item>4</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>4</item>
+        <item>3</item>
+        <item>3</item>
+
+    </string-array>
+
+    <string-array name="option_b">
+
+        &lt;!&ndash; REMOVE &ndash;&gt;
+        <item>Uncle</item>
+        <item>Sister</item>
+        <item>Nephew</item>
+        <item>Uncle</item>
+        <item>Aunt</item>
+        <item>Grandmother</item>
+        <item>Grandfather</item>
+        <item>Grandmother</item>
+        <item>Sister</item>
+        <item>Uncle</item>
+
+        &lt;!&ndash; REMOVE&ndash;&gt;
+        <item>stockpile</item>
+        <item>arid</item>
+        <item>pages</item>
+        <item>slang</item>
+        <item>report card</item>
+        <item>burn</item>
+        <item>tuxedo</item>
+        <item>exclusive</item>
+        <item>teacher</item>
+        <item>voter</item>
+
+        &lt;!&ndash; REMOVE &ndash;&gt;
+        <item>2</item>
+        <item>2</item>
+        <item>3</item>
+        <item>1</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>5</item>
+        <item>4</item>
+        <item>4</item>
+
+    </string-array>
+
+    <string-array name="option_c">
+
+        &lt;!&ndash; REMOVE &ndash;&gt;
+        <item>Cousin</item>
+        <item>Nephew</item>
+        <item>Uncle</item>
+        <item>Cousin</item>
+        <item>Wife</item>
+        <item>Mother-in-law</item>
+        <item>Husband</item>
+        <item>Sister</item>
+        <item>Sister-in-law</item>
+        <item>Father or Uncle</item>
+
+        &lt;!&ndash; REMOVE&ndash;&gt;
+        <item>tractor</item>
+        <item>oasis</item>
+        <item>pictures</item>
+        <item>writing</item>
+        <item>test</item>
+        <item>nuisance</item>
+        <item>appetizer</item>
+        <item>rich</item>
+        <item>songs</item>
+        <item>November</item>
+
+
+        &lt;!&ndash; REMOVE &ndash;&gt;
+        <item>3</item>
+        <item>4</item>
+        <item>4</item>
+        <item>3</item>
+        <item>1</item>
+        <item>5</item>
+        <item>6</item>
+        <item>6</item>
+        <item>5</item>
+        <item>5</item>
+
+    </string-array>
+
+    <string-array name="option_d">
+
+        &lt;!&ndash; REMOVE &ndash;&gt;
+        <item>Father</item>
+        <item>Cannot be Determined</item>
+        <item>Son-in-law</item>
+        <item>Data is inadequate</item>
+        <item>None of these</item>
+        <item>Mother</item>
+        <item>Father-in-law</item>
+        <item>Daughter</item>
+        <item>Data is inadequate</item>
+        <item>Father</item>
+
+        &lt;!&ndash; REMOVE&ndash;&gt;
+        <item>crop</item>
+        <item>flat</item>
+        <item>learning</item>
+        <item>words</item>
+        <item>learning</item>
+        <item>hurt</item>
+        <item>orator</item>
+        <item>gigantic</item>
+        <item>strings</item>
+        <item>nation</item>
+
+        &lt;!&ndash; REMOVE &ndash;&gt;
+        <item>4</item>
+        <item>1</item>
+        <item>1</item>
+        <item>2</item>
+        <item>4</item>
+        <item>6</item>
+        <item>7</item>
+        <item>7</item>
+        <item>6</item>
+        <item>6</item>
+
+    </string-array>
+
+    <string-array name="correct_answer">
+
+        &lt;!&ndash; REMOVE &ndash;&gt;
+        <item>option_D</item>
+        <item>option_D</item>
+        <item>option_A</item>
+        <item>option_A</item>
+        <item>option_D</item>
+        <item>option_D</item>
+        <item>option_D</item>
+        <item>option_A</item>
+        <item>option_A</item>
+        <item>option_C</item>
+
+        &lt;!&ndash; REMOVE&ndash;&gt;
+        <item>option_D</item>
+        <item>option_B</item>
+        <item>option_B</item>
+        <item>option_D</item>
+        <item>option_A</item>
+        <item>option_D</item>
+        <item>option_A</item>
+        <item>option_B</item>
+        <item>option_D</item>
+        <item>option_B</item>
+
+        &lt;!&ndash; REMOVE &ndash;&gt;
+        <item>option_C</item>
+        <item>option_C</item>
+        <item>option_B</item>
+        <item>option_A</item>
+        <item>option_D</item>
+        <item>option_B</item>
+        <item>option_A</item>
+        <item>option_A</item>
+        <item>option_B</item>
+        <item>option_C</item>
+
+    </string-array>
+
+    <string-array name="penalty">
+
+        &lt;!&ndash; REMOVE &ndash;&gt;
+        <item>10</item>
+        <item>10</item>
+        <item>10</item>
+        <item>10</item>
+        <item>10</item>
+        <item>10</item>
+        <item>10</item>
+        <item>10</item>
+        <item>10</item>
+        <item>10</item>
+
+        &lt;!&ndash; REMOVE&ndash;&gt;
+        <item>20</item>
+        <item>20</item>
+        <item>20</item>
+        <item>20</item>
+        <item>20</item>
+        <item>20</item>
+        <item>20</item>
+        <item>20</item>
+        <item>20</item>
+        <item>20</item>
+
+        &lt;!&ndash; REMOVE &ndash;&gt;
+        <item>50</item>
+        <item>50</item>
+        <item>50</item>
+        <item>50</item>
+        <item>50</item>
+        <item>50</item>
+        <item>50</item>
+        <item>50</item>
+        <item>50</item>
+        <item>50</item>
+    </string-array>
+
+</resources>
+-->

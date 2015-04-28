@@ -39,15 +39,11 @@ import java.awt.font.NumericShaper;
 import java.net.URI;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Random;
-import java.util.Set;
 
 public class MainActivityFresh extends Activity {
 
-    //Boolean Variable
-    Boolean b = null ;
     //set a flag to check if the time ran out
     private Boolean POST_EXECUTE_REACHED = false ; //will only get called if the time runs out
 
@@ -98,12 +94,16 @@ public class MainActivityFresh extends Activity {
     //random number
     public static Random ran ;
     //store random number
-    private static Integer r  = 0;
+    private static int r ;
+
+    //current difficulty level
+    String CurrentDiffLevel = null ;
 
     //array to maintain the random numbers which have already been generated
-    public static Integer[] NumbersGenerated  = new Integer[100];
+    public static int[] NumbersGenerated = new int[100] ;
 
     private  String CorrectAnswer ;
+    private  String OptionSelectedByUser ;
 
     private static int question_number = 1 ;
 
@@ -124,10 +124,20 @@ public class MainActivityFresh extends Activity {
     private  int[] array_penalty = null ;
     //array to store correct_answer
     private String[] array_correct_answer = null ;
-    //link Radio Buttons to options
+
+    //array to store difficulty level
+    private String[] array_level = null ;
+
+    //private String ANSWER = "CORRECT" ;
+    private final  Button SubmitButton = null ;
+
     private static RadioButton choice1 = null , choice2= null , choice3= null , choice4= null  ;
+    private View.OnClickListener radioListener ;
+
     private Boolean AnswerSelected = null ;
     private Boolean CorrectAnswerSelected = false ;
+
+    private View contentView = null ;
 
     private static int CurrentQuestionNumber = 0 ;
     private int CurrentQuestionPenalty = 0 ;
@@ -168,15 +178,19 @@ public class MainActivityFresh extends Activity {
         //link array to penalties
         array_penalty = getResources().getIntArray(R.array.penalty) ;
 
-        //link progressBar
-        mProgress = (ProgressBar) findViewById(R.id.progressBar2);
+        //link array to difficulty level
+       // array_level = getResources().getStringArray(R.array.level) ;
 
         //get random number
+
         CurrentQuestionNumber = getRandomNumber() ;
 
+        //
         CurrentQuestionPenalty = array_penalty[CurrentQuestionNumber] ;
 
-       //link all UI elements to the screen
+  //      CurrentDiffLevel = array_level[CurrentQuestionNumber] ;
+
+        //link all UI elements to the screen
        //LinkToScreen() ;
         TextView tv= (TextView) findViewById(R.id.textView);
         TextView ques_no= (TextView) findViewById(R.id.text_question_number);
@@ -202,19 +216,12 @@ public class MainActivityFresh extends Activity {
         choice3.setChecked(false);
         choice4.setChecked(false);
 
+        question_number = question_number + 1 ;
 
-
+        //newedit 25th march
         //check if the current question number has reached the maximum number - if true
         //then finish the quiz and pass the control to the final score calculating activity
-        if(question_number < MAX_QUESTION_NUMBER)   {
-
-            //instantiate the AsyncTask UpdateTimerTask
-            updatetimertask = new UpdateTimerTask();
-            //execute the Asynctask in the background to start the timer
-            updatetimertask.execute(1);
-        }
-
-        else {
+        if(question_number == MAX_QUESTION_NUMBER)   {
 
             Intent intent = new Intent(MainActivityFresh.this, FinalScoreActivity.class) ;
             intent.putExtra("final_score" , CorrectActivity.PenaltyScored) ;
@@ -223,9 +230,22 @@ public class MainActivityFresh extends Activity {
             startActivity(intent);
         }
 
-        question_number = question_number + 1 ;
         //link the vibrator
         //myVib = (Vibrator) this.getSystemService(VIBRATOR_SERVICE);
+
+
+        //////////Needs to be changed for a horizontal bar timer by dhiraj
+
+        mProgress = (ProgressBar) findViewById(R.id.progressBar2);
+        updatetimertask = new UpdateTimerTask();
+
+        //edit by Ishan on 9th April
+        if(question_number < MAX_QUESTION_NUMBER) {
+            //execute the Asynctask in the background to start the timer
+            updatetimertask.execute(1) ;
+
+        }
+        //////Code changed till here by dhiraj
 
     }  /*End of Oncreate()*/
 
@@ -257,7 +277,7 @@ public class MainActivityFresh extends Activity {
     }
 
 
-    /*STOP THE RUNNING TIMER THREAD*/
+    /*STOP THE RUNNING THREAD*/
     public void stopTask(){
 
         //stop the background audio
@@ -346,63 +366,71 @@ public class MainActivityFresh extends Activity {
         switch(question_number) {
 
             case 1 :
+                //INNOVATIVE
+                //CAKEWALK 1
+                //nextInt(UL-LL) + LL
+                r = ran.nextInt(22) + 0 ;
+                break;
             case 2 :
-                //generate a cakewalk difficulty level question
-                //2nd category in xml
-                r = ran.nextInt(9) + 10 ;
+                //CAKEWALK 2
+                //nextInt(UL-LL) + LL
+                r = ran.nextInt(19) + 23 ;
                 break;
 
             case 3 :
+                //MODERATE 1
+                //nextInt(UL-LL) + LL
+                r = ran.nextInt(19) + 23 ;
+                break;
             case 4 :
-                //generate a moderate difficulty level question
-                //4th category
-                r = ran.nextInt(9) + 30 ;
+                //INNOVATIVE
+                //MODERATE 2
+                //nextInt(UL-LL) + LL
+                r = ran.nextInt(22) + 0 ;
                 break;
 
             case 5 :
+                //DIFFICULT 1
+                //nextInt(UL-LL) + LL
+                r = ran.nextInt(19) + 43 ;
+                break;
             case 6 :
-                //generate an extreme difficulty level question
-                //3rd category -- to be removed
-                r = ran.nextInt(9) + 20 ;
+                //DIFFICULT 2
+                //nextInt(UL-LL) + LL
+                r = ran.nextInt(19) + 43 ;
                 break;
 
             case 7 :
+                //INNOVATIVE
+                //EXTREME 1
+                //nextInt(UL-LL) + LL
+                r = ran.nextInt(22) + 0 ;
+                break;
             case 8 :
+                //EXTREME 2
+                //nextInt(UL-LL) + LL
+                r = ran.nextInt(19) + 63 ;
+                break;
+                /*
             case 9 :
             case 10 :
                 //generate a hardcore difficulty level question
                 //first category in xml
                 r = ran.nextInt(9) ;
-                break ;
+                break ;*/
         }
 
-
-        //check if the generated number has already been used
-       //b = Arrays.asList(NumbersGenerated).contains(r);
-
-        b = searchInArray(NumbersGenerated, r) ;
-        //b = ArrayUtils.contains(NumbersGenerated, r) ;
-
-        Log.i(TAG, "b assigned : " + b) ;
-        if(b)  {
-            Log.i(TAG, "Random Number matched " + r) ;
+        boolean b = Arrays.asList(NumbersGenerated).contains(r);
+        if( b == true)  {
+            Log.i("my_app", "Random Number matched " + r) ;
             getRandomNumber() ;
         }
         else {
-            NumbersGenerated[i] = r ;
-            Log.i(TAG, "" + r + " saved in index " + i) ;
-            i++ ;
+            NumbersGenerated[i] = r;
+            //editted on 12TH mARCH EDIT
+            // i++ ;
         }
-        //Log.i(TAG, "Random Number method entered : " + r) ;
-
-
-        //Refresh the array NumbersGenerated if nearly full
-        if(i > 70 )   {
-            NumbersGenerated = null ;
-            Log.i(TAG, "Array reassigned to NULL") ;
-        }
-
-
+        Log.i("my_app", "Random Number method entered : " + r) ;
         return(r) ;
     }
 
@@ -458,7 +486,7 @@ public class MainActivityFresh extends Activity {
         ).show();
     }
 
-     
+
     public static int getAudio(Context context, String name)
     {
         Assert.assertNotNull(context);
@@ -475,8 +503,6 @@ public class MainActivityFresh extends Activity {
         intent.putExtra("my_app" , 0) ;
         intent.putExtra("my_penalty", CurrentQuestionPenalty) ;
         startActivity(intent) ;
-
-        //startNewTimerThread() ;
     }
 
     /*CALLED WHEN USER PRESSES SUBMIT BUTTON AFTER SELECTING CORRECT ANSWER*/
@@ -511,7 +537,6 @@ public class MainActivityFresh extends Activity {
             //DO SOMETHING HERE
             mProgress.setVisibility(ProgressBar.VISIBLE);
         }
-
 
         @Override
         protected Integer doInBackground(Integer... resId) {
@@ -580,12 +605,6 @@ public class MainActivityFresh extends Activity {
             }
         }
     }
-
-    public static boolean searchInArray(Integer[] arr, Integer targetValue) {
-        Set<Integer> set = new HashSet<Integer>(Arrays.asList(arr));
-        return set.contains(targetValue);
-    }
-
 
 
 }
