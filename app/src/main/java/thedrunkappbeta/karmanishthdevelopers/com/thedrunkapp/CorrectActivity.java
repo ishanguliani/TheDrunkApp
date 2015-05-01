@@ -13,6 +13,7 @@ import android.widget.Toast;
 
 public class CorrectActivity extends Activity {
 
+
     public static int PenaltyScored = 0 ;
     public static int PenaltyScoredMax = 0 ;
     public static int MyScore = 0 ;

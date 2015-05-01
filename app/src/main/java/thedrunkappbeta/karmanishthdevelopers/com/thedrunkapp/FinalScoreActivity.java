@@ -21,7 +21,7 @@ import android.widget.Toast;
 public class FinalScoreActivity extends Activity {
     private double DrunkPercentage = 50 ;
     private int final_score = 470 ;
-    private int final_score_max = 3000 ;
+    private int final_score_max = 800 ;
 
 
     @Override

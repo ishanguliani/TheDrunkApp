@@ -46,6 +46,9 @@ import java.util.Set;
 
 public class MainActivityFresh extends Activity {
 
+    //variable to calculate the score
+    public static Integer NetScore = 0 ;
+
     //Boolean Variable
     Boolean b = null ;
     //set a flag to check if the time ran out
@@ -69,25 +72,23 @@ public class MainActivityFresh extends Activity {
 
     /*Addied by dhiraj for progress bar and media player*/
     private static final int PROGRESS = 0x1;
-    private static Thread mThread;
     private static ProgressBar mProgress;
-    private int mProgressStatus = 0;
+    private int mProgressStatus = 15;
     private MediaPlayer player;
 
-    private static Handler mHandler ;
-
-    /* Adeed by dhiraj till here*/
-
     //edit 7th April by Ishan
-    private static final int MAX_PROGRESSBAR_LIMIT = 15 ;
+    private static final int MAX_PROGRESSBAR_LOWER_LIMIT = 0 ;
     //end of edit on 7th April by Ishan
-    private static final int MAX_TIME_QUESTION = 16000;    //Time Limit for each question
-    private static final int FIRST_COLOR_CHANGE = 11000;    //Time at which first color change will happen
-    private static final int SECOND_COLOR_CHANGE = 6000;   //Time at which second color change will happen
+    private static final int MAX_TIME_QUESTION = 16;    //Time Limit for each question
+    private static final int FIRST_COLOR_CHANGE = 10;    //Time at which first color change will happen
+    private static final int SECOND_COLOR_CHANGE = 6;   //Time at which second color change will happen
     private static final int TIME_DELAY = 1000;           //Time delay after which time will be displayed
     private static final int COLOR_BLACK_FIRST_DISPLAYED = Color.BLACK;  //Text color changed to BLACK
     private static final int COLOR_BLUE_SECOND_DISPLAYED = Color.BLUE;   //Text color changed to BLUE
     private static final int COLOR_RED_LAST_DISPLAYED = Color.RED;       //Text color changed to RED
+    private static final int TIME_AUDIO_CHANGE = 5;    //Time at which first color change will
+    private static final int TIME_INTERVAL_TIMER_INCREMENT = 1 ;
+
 
     TextView mTextField = null ;
     /*VARIABLES END*/
@@ -103,7 +104,7 @@ public class MainActivityFresh extends Activity {
     //array to maintain the random numbers which have already been generated
     public static Integer[] NumbersGenerated  = new Integer[100];
 
-    private  String CorrectAnswer ;
+    private String CorrectAnswer ;
 
     private static int question_number = 1 ;
 
@@ -113,7 +114,7 @@ public class MainActivityFresh extends Activity {
     public static TextView tx = null ;
 
     //array to store all the questions
-    private  String[] array_questions = null ;
+    private String[] array_questions = null ;
     //array to store the options
     private String[] array_option_a = null ;
     private String[] array_option_b = null ;
@@ -121,7 +122,7 @@ public class MainActivityFresh extends Activity {
     private String[] array_option_d = null ;
 
     //array to store penalty
-    private  int[] array_penalty = null ;
+    private int[] array_penalty = null ;
     //array to store correct_answer
     private String[] array_correct_answer = null ;
     //link Radio Buttons to options
@@ -137,7 +138,7 @@ public class MainActivityFresh extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-          /*MAKE THE ACTIVITY FULL SCREEN*/
+        /*MAKE THE ACTIVITY FULL SCREEN*/
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
         WindowManager.LayoutParams.FLAG_FULLSCREEN);
@@ -148,6 +149,7 @@ public class MainActivityFresh extends Activity {
         if( getIntent().getIntExtra("replay_activity" , 100) == 555 )   {
 
             question_number = 1 ;
+            NetScore = 0 ;
             CorrectActivity.PenaltyScoredMax = 0 ;
             CorrectActivity.PenaltyScored = 0 ;
 
@@ -162,15 +164,16 @@ public class MainActivityFresh extends Activity {
         array_option_c = getResources().getStringArray(R.array.option_c) ;
         array_option_d = getResources().getStringArray(R.array.option_d) ;
 
-
         //link array to correct_answer
         array_correct_answer = getResources().getStringArray(R.array.correct_answer) ;
 
         //link array to penalties
         array_penalty = getResources().getIntArray(R.array.penalty) ;
 
-        //link progressBar
+        //link and initialize the progressBar
         mProgress = (ProgressBar) findViewById(R.id.progressBar2);
+        mProgress.setVisibility(ProgressBar.VISIBLE);
+        mProgress.setProgressDrawable(getResources().getDrawable(R.drawable.greenprogressbar));
 
         //get random number
         CurrentQuestionNumber = getRandomNumber() ;
@@ -203,8 +206,6 @@ public class MainActivityFresh extends Activity {
         choice3.setChecked(false);
         choice4.setChecked(false);
 
-
-
         //check if the current question number has reached the maximum number - if true
         //then finish the quiz and pass the control to the final score calculating activity
         if(question_number < MAX_QUESTION_NUMBER)   {
@@ -235,7 +236,6 @@ public class MainActivityFresh extends Activity {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.main_activity_fresh, menu);
         return true;
-
     }
 
     @Override
@@ -251,98 +251,70 @@ public class MainActivityFresh extends Activity {
     }
 
     public void playaudio(String playfile){
-
         player = MediaPlayer.create(MainActivityFresh.this, getAudio(MainActivityFresh.this, playfile) );
         player.start();
-
     }
-
 
     /*STOP THE RUNNING TIMER THREAD*/
     public void stopTask(){
-
         //stop the background audio
         stopaudio();
         //interrupt the currently running updatetimertask thread
         updatetimertask.cancel(true);
         //log the message
         Log.i(TAG, "Interrupt done");
-
     }
 
     public void stopaudio(){
-
-        //ADDED 29th March
         if(player.isPlaying() == true)  {
-
             player.stop();
         }
-
-
     }
 
     //respond to the press of a radio button
     public void onRadioButtonPressed(View v)    {
 
-
-        boolean checked = ((RadioButton)v).isChecked() ;
-
-
         switch(v.getId())   {
 
-            case R.id.option_A :     AnswerSelected = true ;
+            case R.id.option_A :
 
-      //          test_toast(getResources().getResourceEntryName(R.id.option_A));
-
+                AnswerSelected = true ;
                 if(getResources().getResourceEntryName(R.id.option_A).equals(CorrectAnswer) == true )  {
-
-                    CorrectAnswerSelected = true ;
+                CorrectAnswerSelected = true ;
 
                 }else CorrectAnswerSelected = false ;
                 break ;
 
 
-            case R.id.option_B :     AnswerSelected = true ;
-
-        //        test_toast(getResources().getResourceEntryName(R.id.option_B));
-
+            case R.id.option_B :
+                AnswerSelected = true ;
                 if(getResources().getResourceEntryName(R.id.option_B).equals(CorrectAnswer) == true )  {
-
-                    CorrectAnswerSelected = true ;
+                CorrectAnswerSelected = true ;
 
                 }else CorrectAnswerSelected = false ;
                 break ;
 
 
-            case R.id.option_C :     AnswerSelected = true ;
-
-          //      test_toast(getResources().getResourceEntryName(R.id.option_C));
-
+            case R.id.option_C :
+                AnswerSelected = true ;
                 if(getResources().getResourceEntryName(R.id.option_C).equals(CorrectAnswer) == true )  {
-
-                    CorrectAnswerSelected = true ;
+                CorrectAnswerSelected = true ;
 
                 }else CorrectAnswerSelected = false ;
                 break ;
 
 
-            case R.id.option_D :     AnswerSelected = true ;
-
-            //    test_toast(getResources().getResourceEntryName(R.id.option_D));
-
+            case R.id.option_D :
+                AnswerSelected = true ;
                 if(getResources().getResourceEntryName(R.id.option_D).equals(CorrectAnswer) == true )  {
-
-                    CorrectAnswerSelected = true ;
+                CorrectAnswerSelected = true ;
 
                 }else CorrectAnswerSelected = false ;
                 break ;
-
-
         }
     }
 
     public int getRandomNumber()    {
-
         ran = new Random() ;
         switch(question_number) {
 
@@ -352,6 +324,7 @@ public class MainActivityFresh extends Activity {
                 //nextInt(UL-LL) + LL
                 r = ran.nextInt(22) + 0 ;
                 break;
+
             case 2 :
                 //CAKEWALK 2
                 //nextInt(UL-LL) + LL
@@ -363,6 +336,7 @@ public class MainActivityFresh extends Activity {
                 //nextInt(UL-LL) + LL
                 r = ran.nextInt(19) + 23 ;
                 break;
+
             case 4 :
                 //INNOVATIVE
                 //MODERATE 2
@@ -375,6 +349,7 @@ public class MainActivityFresh extends Activity {
                 //nextInt(UL-LL) + LL
                 r = ran.nextInt(19) + 43 ;
                 break;
+
             case 6 :
                 //DIFFICULT 2
                 //nextInt(UL-LL) + LL
@@ -387,14 +362,18 @@ public class MainActivityFresh extends Activity {
                 //nextInt(UL-LL) + LL
                 r = ran.nextInt(22) + 0 ;
                 break;
+
             case 8 :
+
             case 9 :
+
             case 10 :
 
                 //EXTREME 2
                 //nextInt(UL-LL) + LL
                 r = ran.nextInt(19) + 63 ;
                 break;
+
                 /*
             case 9 :
             case 10 :
@@ -403,7 +382,6 @@ public class MainActivityFresh extends Activity {
                 r = ran.nextInt(9) ;
                 break ;*/
         }
-
 
         //check if the generated number has already been used
        //b = Arrays.asList(NumbersGenerated).contains(r);
@@ -421,59 +399,54 @@ public class MainActivityFresh extends Activity {
             Log.i(TAG, "" + r + " saved in index " + i) ;
             i++ ;
         }
-        //Log.i(TAG, "Random Number method entered : " + r) ;
-
 
         //Refresh the array NumbersGenerated if nearly full
         if(i > 70 )   {
             NumbersGenerated = null ;
             Log.i(TAG, "Array reassigned to NULL") ;
         }
-
-
         return(r) ;
     }
 
     private void NothingSelected()  {
-
         Toast.makeText(getApplicationContext()
                 , R.string.toast_nothing_selected
                 , Toast.LENGTH_SHORT)
                 .show();
     }
 
-    //newedit 25th march
-    //newedits on 25th April
     public void SubmitPressed(View v)   {
-
+        //show the current time
+        ShowCurrentTime();
         if(AnswerSelected == null) {
             /*if no radio button has been pressed even once*/
             //NothingSelected();
-
             //check if the time ran out
             if(POST_EXECUTE_REACHED == true) {
                 timeover();
+                ReturnNetScore("NO_SCORE");
             }
             else    {
                 NothingSelected();
             }
-
         }
 
        else if (CorrectAnswerSelected == true){
-
             //stop the background task
             stopTask();
             //EDITTED 29th March
             correctanswer();
-
+            //update score
+            ReturnNetScore("NULL");
         }
-        else if (CorrectAnswerSelected == false){
 
+        else if (CorrectAnswerSelected == false){
             //stop the background task
             stopTask();
             incorrectanswer();
             //  myVib.vibrate(800);
+            //update score
+            ReturnNetScore("NO_SCORE");
         }
     }
 
@@ -485,7 +458,6 @@ public class MainActivityFresh extends Activity {
                 ,Toast.LENGTH_SHORT
         ).show();
     }
-
 
     public static int getAudio(Context context, String name)
     {
@@ -509,7 +481,6 @@ public class MainActivityFresh extends Activity {
 
     /*CALLED WHEN USER PRESSES SUBMIT BUTTON AFTER SELECTING CORRECT ANSWER*/
     public void correctanswer() {
-
         //if the user selected an answer and that answer is correct
         Intent intent = new Intent(context, CorrectActivity.class) ;
         intent.putExtra("my_app" , 1) ;
@@ -523,41 +494,32 @@ public class MainActivityFresh extends Activity {
         intent.putExtra("my_app" , 2) ;
         intent.putExtra("my_penalty_correct", CurrentQuestionPenalty) ;
         startActivity(intent) ;
-
     }
 
-
-    /*this function will start a new timer thread if the current queston numbert
-    * HAS NOt exceeded the maximum numbtr of questions */
-    public void startNewTimerThread()   {
-
-
-    }
-    //the asynctask class has been added on 25th April 2015 by Ishan
+      //the asynctask class has been added on 25th April 2015 by Ishan
     class UpdateTimerTask extends AsyncTask<Integer, Integer, Integer> {
-
 
         @Override
         protected void onPreExecute() {
             //start playing the background audio
            playaudio("tick");
             //DO SOMETHING HERE
-            mProgress.setVisibility(ProgressBar.VISIBLE);
+           // mProgress.setProgressDrawable(getResources().getDrawable(R.drawable.greenprogressbar));
+            //mProgress.setVisibility(ProgressBar.VISIBLE);
         }
 
         @Override
         protected Integer doInBackground(Integer... resId) {
-
-            while (mProgressStatus < MAX_PROGRESSBAR_LIMIT) {
-
-                //delay the thread for one second to show updation on the screen after one second
-                sleep();
-                mProgressStatus = mProgressStatus + 1;
-
+            while (mProgressStatus >= MAX_PROGRESSBAR_LOWER_LIMIT) {
                 // Update the progress bar
                 publishProgress(mProgressStatus);
+                //delay the thread for one second to show updation on the screen after one second
+                sleep();
 
-                if (mProgressStatus >= 11) {
+                //decremenet the timer by 1
+                mProgressStatus = mProgressStatus - TIME_INTERVAL_TIMER_INCREMENT;
+
+                if (mProgressStatus <= TIME_AUDIO_CHANGE) {
                     stopaudio();
                     playaudio("timeover");
                 }
@@ -568,7 +530,6 @@ public class MainActivityFresh extends Activity {
                     break;
                 }
             }   //end of while loop
-
             return null;
         }
 
@@ -577,31 +538,31 @@ public class MainActivityFresh extends Activity {
             //update the progressbar
             mProgress.setProgress(mProgressStatus[0]);
 
-            if (mProgressStatus[0] >= 11) {
-                mProgress.setProgressDrawable(getResources().getDrawable(R.drawable.redprogressbar));
-            } else if (mProgressStatus[0] >= 6) {
+            //editted by Ishan on 2nd May
+            if ((mProgressStatus[0] <= FIRST_COLOR_CHANGE)&&(mProgressStatus[0] >= SECOND_COLOR_CHANGE)) {
                 mProgress.setProgressDrawable(getResources().getDrawable(R.drawable.blueprogressbar));
+            } else if (mProgressStatus[0] < SECOND_COLOR_CHANGE) {
+                mProgress.setProgressDrawable(getResources().getDrawable(R.drawable.redprogressbar));
             } else {
                 mProgress.setProgressDrawable(getResources().getDrawable(R.drawable.greenprogressbar));
-            } //end of while loop
-
+            } //end of while loops
         }
 
         @Override
         protected void onPostExecute(Integer result) {
+
             //log the report
             Log.i(TAG, "POST EXECUTE CALLED");
             //stop the audio
             stopaudio();
             //Make the progress bar invisible
-            mProgress.setVisibility(ProgressBar.INVISIBLE);
+            //mProgress.setVisibility(ProgressBar.INVISIBLE);
             //FLAG
             POST_EXECUTE_REACHED = true ;
             //press the Submit button manually
             SubmitPressed(null);
 
         }
-
 
         private void sleep() {
             try {
@@ -618,6 +579,172 @@ public class MainActivityFresh extends Activity {
         return set.contains(targetValue);
     }
 
+    /*function to Log/Toast the current value of mProgressStatus
+    * as soon as the user presses the submit button*/
+    public void ShowCurrentTime()   {
+        Integer currentTime = mProgressStatus ;
+        Toast.makeText(context, "Time is : " + currentTime, Toast.LENGTH_SHORT).show();
+        Log.i(TAG, "Time is : " + currentTime ) ;
+    }
+
+    /*Function to return the current range out of the 3 ranges in which the timer sits when the user
+    * submits the answer
+    * The range can be one of the following :-
+    * 1. RANGE_GREEN (mProgressStatus 0-5)
+    * 2. RANGE_BLUE (mProgressStatus 6-10)
+    * 3. RANGE_RED ()
+    * */
+    String ReturnCurrentTimerRange()    {
+        if(mProgressStatus > 10 && mProgressStatus <= 15)   {
+            Toast.makeText(context, "RETURNING GREEN", Toast.LENGTH_SHORT).show();
+            return("RANGE_GREEN");
+        }
+        else if(mProgressStatus > 5 && mProgressStatus <= 10)   {
+            Toast.makeText(context, "RETURNING BLUE", Toast.LENGTH_SHORT).show();
+            return("RANGE_BLUE");
+        }else   {
+            Toast.makeText(context, "RETURNING RED", Toast.LENGTH_SHORT).show();
+            return("RANGE_RED");
+        }
+    }
+
+    /*Function to return the current score based on the current Answer RANGE
+    * if RANGE_GREEN --> Score = 100(Cakewalk, Moderate, Difficult, Extreme)
+    * if RANGE_BLUE --> Score = 50(Cakewalk) | 60(Moderate) | 70(Difficult) | 80(Extreme)
+    * if RANGE_RED --> Score = 25(Cakewalk) | 30(Moderate) | 35(Difficult) | 40(Extreme)
+    */
+    void ReturnNetScore(String status)    {
+        //if the timer ran out, assign ZERO score to NetScore
+        if(status.equals("NO_SCORE".toString()))    {
+            Toast.makeText(context
+                    , "No Score Added!"
+                    , Toast.LENGTH_SHORT)
+                    .show();
+            return;
+        }
+
+        String CurrentTimerRange = ReturnCurrentTimerRange() ;
+
+        if(CurrentTimerRange.equals("RANGE_GREEN".toString()))  {
+
+            NetScore = NetScore + 100 ;
+            Toast.makeText(context
+                    , "MARKS = "+ NetScore
+                    , Toast.LENGTH_SHORT)
+                    .show();
+
+        }
+        else if(CurrentTimerRange.equals("RANGE_BLUE".toString()))  {
+
+            Integer CurrentQuestionWeightage = ReturnCurrentQuestionWeightage("RANGE_BLUE") ;
+
+            NetScore = NetScore + CurrentQuestionWeightage;
+            Toast.makeText(context
+                    , "MARKS BLUE = " + NetScore
+                    , Toast.LENGTH_SHORT)
+                    .show();
+
+
+        }
+        else if(CurrentTimerRange.equals("RANGE_RED".toString()))  {
+
+            Integer CurrentQuestionWeightage = ReturnCurrentQuestionWeightage("RANGE_RED") ;
+
+            NetScore = NetScore + CurrentQuestionWeightage;
+            Toast.makeText(context
+                    , "MARKS RED = " + NetScore
+                    , Toast.LENGTH_SHORT)
+                    .show();
+
+        }
+    }
+
+    Integer ReturnCurrentQuestionWeightage(String status)    {
+
+        Integer weightage = 0 ;
+        if(status.equals("RANGE_BLUE".toString()))  {
+
+            switch(question_number) {
+                case 1:
+                    weightage = 50 ;
+                    break;
+
+                case 2:
+                    weightage = 50 ;
+                    break;
+
+                case 3:
+                    weightage = 60 ;
+                    break;
+
+                case 4:
+                    weightage = 60 ;
+                    break;
+
+                case 5:
+                    weightage = 70 ;
+                    break;
+
+                case 6:
+                    weightage = 70 ;
+                    break;
+
+                case 7:
+                    weightage = 70 ;
+                    break;
+
+                case 8:
+                    weightage = 80 ;
+                    break;
+
+                case 9:
+                    weightage = 80 ;
+                    break;
+            }
+        }
+
+        else    {
+            switch(question_number) {
+                case 1:
+                    weightage = 25 ;
+                    break;
+
+                case 2:
+                    weightage = 25 ;
+                    break;
+
+                case 3:
+                    weightage = 30 ;
+                    break;
+
+                case 4:
+                    weightage = 30 ;
+                    break;
+
+                case 5:
+                    weightage = 35 ;
+                    break;
+
+                case 6:
+                    weightage = 35 ;
+                    break;
+
+                case 7:
+                    weightage = 35 ;
+                    break;
+
+                case 8:
+                    weightage = 40 ;
+                    break;
+
+                case 9:
+                    weightage = 40 ;
+                    break;
+            }
+        }
+    return weightage ;
+    }
 
 
 }
+
