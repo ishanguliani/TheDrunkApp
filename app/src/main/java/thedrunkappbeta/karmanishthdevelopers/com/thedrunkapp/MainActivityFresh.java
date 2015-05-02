@@ -74,7 +74,7 @@ public class MainActivityFresh extends Activity {
     private static final int PROGRESS = 0x1;
     private static ProgressBar mProgress;
     private int mProgressStatus = 15;
-    private MediaPlayer player;
+    private static MediaPlayer player;
 
     //edit 7th April by Ishan
     private static final int MAX_PROGRESSBAR_LOWER_LIMIT = 0 ;
@@ -177,6 +177,9 @@ public class MainActivityFresh extends Activity {
 
         //get random number
         CurrentQuestionNumber = getRandomNumber() ;
+
+        //initialize the media player
+        player = new MediaPlayer() ;
 
         CurrentQuestionPenalty = array_penalty[CurrentQuestionNumber] ;
 

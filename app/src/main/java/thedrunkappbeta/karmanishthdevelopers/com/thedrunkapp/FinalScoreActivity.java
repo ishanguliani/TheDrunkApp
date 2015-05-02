@@ -45,7 +45,7 @@ public class FinalScoreActivity extends Activity {
         Log.i("my_app", "Final Score Max is : " + final_score_max) ;
 
 
-        DrunkPercentage = ((double)final_score/(double)final_score_max)*100.00;
+        DrunkPercentage = ((double)(800-final_score)/(double)final_score_max)*100.00;
         DrunkPercentage = (double)Math.round(DrunkPercentage * 100) / 100 ;
 
 
