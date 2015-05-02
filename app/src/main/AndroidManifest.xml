@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="thedrunkappbeta.karmanishthdevelopers.com.thedrunkapp" >
-
-    <!-- ADD PERMISSIONS -->
+    package="thedrunkappbeta.karmanishthdevelopers.com.thedrunkapp" > <!-- ADD PERMISSIONS -->
     <uses-sdk
         android:minSdkVersion="8"
         android:targetSdkVersion="21" />
@@ -17,6 +15,14 @@
         android:protectionLevel="signature" />
 
     <uses-permission android:name="com.example.gcm.permission.C2D_MESSAGE" />
+
+    <android:uses-permission
+        android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+        android:maxSdkVersion="18" />
+    <android:uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <android:uses-permission
+        android:name="android.permission.READ_EXTERNAL_STORAGE"
+        android:maxSdkVersion="18" />
 
     <application
         android:allowBackup="true"
@@ -45,9 +51,9 @@
 
         <activity
             android:name=".MainActivity"
-            android:label="@string/label_home_screen"
             android:configChanges="keyboardHidden|orientation"
-            android:screenOrientation="portrait">
+            android:label="@string/label_home_screen"
+            android:screenOrientation="portrait" >
             <intent-filter>
                 <action android:name="com.karmanishthdevelopers.thedrunkapp.MA" />
 
@@ -56,9 +62,9 @@
         </activity>
         <activity
             android:name=".activity_splash_screen"
-            android:label="@string/label_main"
             android:configChanges="keyboardHidden|orientation"
-            android:screenOrientation="portrait">
+            android:label="@string/label_main"
+            android:screenOrientation="portrait" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -76,26 +82,29 @@
         </activity>
         <activity
             android:name=".MainActivityFresh"
-            android:label="@string/title_activity_main_activity_fresh"
             android:configChanges="keyboardHidden|orientation"
-            android:screenOrientation="portrait"
-            >
+            android:label="@string/title_activity_main_activity_fresh"
+            android:screenOrientation="portrait" >
         </activity>
         <activity
             android:name=".CorrectActivity"
-            android:label="@string/title_activity_correct"
             android:configChanges="keyboardHidden|orientation"
-            android:screenOrientation="portrait">
+            android:label="@string/title_activity_correct"
+            android:screenOrientation="portrait" >
         </activity>
         <activity
             android:name=".FinalScoreActivity"
-            android:label="@string/title_activity_final_score"
             android:configChanges="keyboardHidden|orientation"
-            android:screenOrientation="portrait">
+            android:label="@string/title_activity_final_score"
+            android:screenOrientation="portrait" >
         </activity>
         <activity
             android:name=".BroadcastReceiver"
             android:label="@string/title_activity_broadcast_receiver" >
+        </activity>
+        <activity
+            android:name=".PhysicalChallenge"
+            android:label="@string/title_activity_physical_challenge" >
         </activity>
     </application>
 

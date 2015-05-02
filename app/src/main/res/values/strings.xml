@@ -104,7 +104,7 @@
         <item>Number of distinct vowels in \'telephone\' are ___</item>
 
 
-        
+
 
         <!-- DIFFICULT 2-->
         <item>Which option has all the alphabets of \'PENCIL\' ? </item>
@@ -859,5 +859,6 @@
     <string name="action_share_app">Share</string>
     <string name="title_activity_broadcast_receiver">BroadcastReceiver</string>
     <string name="title_activity_m_receiver">mReceiver</string>
+    <string name="title_activity_physical_challenge">PhysicalChallenge</string>
 
 </resources>
