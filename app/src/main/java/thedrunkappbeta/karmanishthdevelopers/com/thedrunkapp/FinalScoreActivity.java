@@ -20,7 +20,7 @@ import android.widget.Toast;
 
 public class FinalScoreActivity extends Activity {
     private double DrunkPercentage = 50 ;
-    private int final_score = 470 ;
+    private int final_score ;
     private int final_score_max = 800 ;
 
 
@@ -36,7 +36,8 @@ public class FinalScoreActivity extends Activity {
 
         setContentView(R.layout.activity_final_score);
 
-        final_score = getIntent().getIntExtra("final_score" , -9999) ;
+        //final_score = getIntent().getIntExtra("final_score" , -9999) ;
+        final_score = MainActivityFresh.NetScore ;
         Log.i("my_app", "Final Score is : " + final_score) ;
 
         // final_score_max = getIntent().getIntExtra("final_score_max" , -9999) ;

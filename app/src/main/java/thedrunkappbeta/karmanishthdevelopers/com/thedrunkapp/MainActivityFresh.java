@@ -595,11 +595,15 @@ public class MainActivityFresh extends Activity {
     * 3. RANGE_RED ()
     * */
     String ReturnCurrentTimerRange()    {
-        if(mProgressStatus > 10 && mProgressStatus <= 15)   {
+
+        Integer CurrentStatus = mProgressStatus + 1 ;
+
+
+        if(CurrentStatus > 10 && CurrentStatus <= 15)   {
             Toast.makeText(context, "RETURNING GREEN", Toast.LENGTH_SHORT).show();
             return("RANGE_GREEN");
         }
-        else if(mProgressStatus > 5 && mProgressStatus <= 10)   {
+        else if(CurrentStatus > 5 && CurrentStatus <= 10)   {
             Toast.makeText(context, "RETURNING BLUE", Toast.LENGTH_SHORT).show();
             return("RANGE_BLUE");
         }else   {
@@ -624,10 +628,12 @@ public class MainActivityFresh extends Activity {
         }
 
         String CurrentTimerRange = ReturnCurrentTimerRange() ;
+        Log.i("ReceivedRange", "" + CurrentTimerRange) ;
 
         if(CurrentTimerRange.equals("RANGE_GREEN".toString()))  {
 
             NetScore = NetScore + 100 ;
+
             Toast.makeText(context
                     , "MARKS = "+ NetScore
                     , Toast.LENGTH_SHORT)
@@ -657,14 +663,18 @@ public class MainActivityFresh extends Activity {
                     .show();
 
         }
+
+        Log.i("ReceivedRange", "SCORE : " + NetScore) ;
+
     }
 
     Integer ReturnCurrentQuestionWeightage(String status)    {
 
         Integer weightage = 0 ;
+        Integer CurrentQuestion = question_number - 1 ;
         if(status.equals("RANGE_BLUE".toString()))  {
 
-            switch(question_number) {
+            switch(CurrentQuestion) {
                 case 1:
                     weightage = 50 ;
                     break;
@@ -704,7 +714,7 @@ public class MainActivityFresh extends Activity {
         }
 
         else    {
-            switch(question_number) {
+            switch(CurrentQuestion) {
                 case 1:
                     weightage = 25 ;
                     break;
