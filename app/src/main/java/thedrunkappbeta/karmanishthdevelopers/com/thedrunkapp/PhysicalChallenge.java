@@ -32,17 +32,12 @@ import android.widget.Toast;
 
 public class PhysicalChallenge extends Activity {
 
-    int SCORE = -1;
-    int TOTAL_SCORE = -2;
+    public Integer SCORE = -1;
+    public Integer TOTAL_SCORE = -2;
 
-    private final static int RANDOM = 0;
-    private final static int SINGLE = 1;
-    private final static int STILL = 2;
-    private static int speedMode = RANDOM;
+    private final static Integer RANDOM = 0;
 
-    private static final int MENU_STILL = Menu.FIRST;
-    private static final int MENU_SINGLE_SPEED = Menu.FIRST + 1;
-    private static final int MENU_RANDOM_SPEED = Menu.FIRST + 2;
+    private static Integer speedMode = RANDOM;
 
     private static final String TAG = "Lab-Graphics";
 
@@ -92,9 +87,7 @@ public class PhysicalChallenge extends Activity {
         int Y_VALUE = getScreenSizeY();
         Log.i("TAG", "Screen size for toast started")  ;
 
-
-
-        randomGenerateModified(X_VALUE, Y_VALUE);
+         randomGenerateModified(X_VALUE, Y_VALUE);
         
     }
 
@@ -153,34 +146,6 @@ public class PhysicalChallenge extends Activity {
                     // If a fling gesture starts on a BubbleView then change the
                     // BubbleView's velocity
 
-                   /* @Override
-                    public boolean onFling(MotionEvent event1, MotionEvent event2,
-                                           float velocityX, float velocityY) {
-                        // motion1 is initial press of the pointer
-                        // motion2 is the release of the pointer
-
-                        // DONE - Implement onFling actions.
-                        // You can get all Views in mFrame using the
-                        // ViewGroup.getChildCount() method
-
-                      boolean flungIt = false;
-
-                        // iterate over all the bubbles currently being displayed
-                        for (int i = 0; i < mFrame.getChildCount(); i++) {
-                            BubbleView current = (BubbleView) mFrame.getChildAt(i);
-
-                            // if the tap intersects with a bubble, then we should fling it
-                            if (current.intersects(event1.getRawX(), event1.getRawY())) {
-                                current.deflect(velocityX, velocityY);
-                                flungIt = true;
-                                break;
-                            }
-                        }
-
-                        return flungIt;
-
-                    }*/
-
                     // If a single tap intersects a BubbleView, then pop the BubbleView
                     // Otherwise, create a new BubbleView at the tap's location and add
                     // it to mFrame. You can get all views from mFrame with ViewGroup.getChildAt()
@@ -211,12 +176,7 @@ public class PhysicalChallenge extends Activity {
                         }
 
                         // if it did not intersect with any, add a new bubble
-                     /*   if(addNew){
-                            BubbleView temp = new BubbleView(mFrame.getContext(), eventX, eventY);
-                            mFrame.addView(temp); // add it to the view so that it will draw on the screen
-                            temp.start();         // start the bubble's motion
-                        }
-*/
+
                         // always return true because action has been consumed... that makes sense, right?
                         return true;
                     }
@@ -281,74 +241,17 @@ public class PhysicalChallenge extends Activity {
 
             setSpeedAndDirection(r);
 
-/*
-
-            mDx = 30 ;
-            mDy = 30 ;
-*/
-
-
-            // Set the BubbleView's rotation
-            // setRotation(r);
-
             mDRotate = 3 ;
             mPainter.setAntiAlias(true);
 
         }
 
-        private void setRotation(Random r) {
-
-            if (speedMode == RANDOM) {
-
-                // DONE - set rotation in range [1..3]
-                mDRotate = r.nextInt(10) + 9;
-
-            } else {
-
-                mDRotate = 0;
-
-            }
-        }
 
         private void setSpeedAndDirection(Random r) {
 
             mDx = r.nextFloat() * 15.0f - 7.5f;
             mDy = r.nextFloat() * 15.0f - 7.5f;
 
-/*            mDx = r.nextFloat() * 21.0f;
-            mDy = r.nextFloat() * 21.0f;*/
-
-           /* // Used by test cases
-            switch (speedMode) {
-
-                case SINGLE:
-
-                    // Fixed speed
-                    *//*mDx = 5;
-                    mDy = 5;*//*
-                    mDx = r.nextFloat() * 6.0f - 3.0f;
-                    mDy = r.nextFloat() * 6.0f - 3.0f;
-                    break;
-
-                case STILL:
-
-                    // No speed
-                    mDx = 0;
-                    mDy = 0;
-                    break;
-
-                default:
-
-                    // DONE - Set movement direction and speed
-                    // Limit movement speed in the x and y
-                    // direction to [-3..3].
-                    mDx = r.nextFloat() * 6.0f - 3.0f;
-                    mDy = r.nextFloat() * 6.0f - 3.0f;
-
-               *//*     mDx = r.nextFloat() * 21.0f;
-                    mDy = r.nextFloat() * 21.0f;*//*
-
-            }*/
         }
 
         private void createScaledBitmap(Random r) {
@@ -359,13 +262,9 @@ public class PhysicalChallenge extends Activity {
 
             } else {
 
-                //DONE - set scaled bitmap size in range [1..3] * BITMAP_SIZE
-               /* int rand = r.nextInt(4 - 1) + 1;
-                mScaledBitmapWidth = rand * BITMAP_SIZE;*/
-                mScaledBitmapWidth = 2 * BITMAP_SIZE;
-                //log("*** random n:"+rand);
-            }
+              mScaledBitmapWidth = 2 * BITMAP_SIZE;
 
+            }
             // DONE - create the scaled bitmap using size set above
             // use the mBitmap variable that was created with the BitmapFactory earlier
             mScaledBitmap = Bitmap.createScaledBitmap(mBitmap, mScaledBitmapWidth, mScaledBitmapWidth, true);
@@ -452,11 +351,7 @@ public class PhysicalChallenge extends Activity {
                         int Y_VALUE = getScreenSizeY();
                         Log.i("TAG", "Screen size for toast started");
 
-//                        long time = 3000L;
-//                        Toast.makeText(getApplicationContext(),"Screensize : WIDTH = " + X_VALUE + "**HEIGHT = " + Y_VALUE + ".",Toast.LENGTH_LONG).show();
-
                         Log.i("TAG", "Screensize  shown");
-
 
                         randomGenerate(X_VALUE, Y_VALUE);
                         Log.i("TAG", "Bubble Generated ");
@@ -467,17 +362,7 @@ public class PhysicalChallenge extends Activity {
             }
         }
 
-        /* // Change the Bubble's speed and direction
-         private synchronized void deflect(float velocityX, float velocityY) {
-             log("velocity X:" + velocityX + " velocity Y:" + velocityY);
 
-             //DONE - set mDx and mDy to be the new velocities divided by the REFRESH_RATE
-
-             mDx = velocityX / REFRESH_RATE;
-             mDy = velocityY / REFRESH_RATE;
-
-         }
- */
         // Draw the Bubble at its current location
         @Override
         protected synchronized void onDraw(Canvas canvas) {
@@ -573,28 +458,11 @@ public class PhysicalChallenge extends Activity {
         Random ry = new Random();
         int iy = ry.nextInt(MAX_Y_VALUE - 0) + 0;
 
-             /*   Paint paint = new Paint();
-        paint.setColor(Color.BLUE);
-        paint.setStyle(Paint.Style.STROKE);
-
-        int RADIUS = 100;
-
-        Canvas canvas = new Canvas();
-        canvas.drawCircle(ix, iy, RADIUS, paint);
-*/
         BubbleView temp1 = new BubbleView(mFrame.getContext(), ix, iy);
         Log.i("TAG", "BubbleView Created at " + ix + "and" + iy);
         mFrame.addView(temp1); // add it to the view so that it will draw on the screen
         Log.i("TAG", "BubbleView drawn");
-/*
-        try {
 
-            Thread.sleep(2000);
-        }catch(InterruptedException IO)
-        {
-            Log.i("TAG","ERROR ! Interrupted Exception");
-        }
-*/
 
         temp1.start();         // start the bubble's motion
         Log.i("TAG", "Motion Started");
@@ -605,8 +473,6 @@ public class PhysicalChallenge extends Activity {
         Point screenSize = new Point();
         display.getSize(screenSize);
         int width = screenSize.x;
-//        int height = screenSize.y;
-        //Toast.makeText(getApplicationContext(),"Screensize : WIDTH = " + width + "**HEIGHT = " + height + ".",Toast.LENGTH_LONG).show();
         return width;
     }
 
@@ -614,9 +480,7 @@ public class PhysicalChallenge extends Activity {
         Display display = getWindowManager().getDefaultDisplay();
         Point screenSize1 = new Point();
         display.getSize(screenSize1);
-//        int width = screenSize.x;
         int height = screenSize1.y;
-        //Toast.makeText(getApplicationContext(),"Screensize : WIDTH = " + width + "**HEIGHT = " + height + ".",Toast.LENGTH_LONG).show();
         return height;
     }
 
@@ -627,12 +491,7 @@ public class PhysicalChallenge extends Activity {
         // You can get all Views in mFrame using the
         // ViewGroup.getChildCount() method
 
-        /*float eventX, eventY;
-        boolean addNew = true;
 
-        eventX = event.getRawX();
-        eventY = event.getRawY();
-*/
         TOTAL_SCORE++;
         Random rx = new Random();
         int ix = rx.nextInt(MAX_X_VALUE - 0) + 0;
@@ -647,8 +506,6 @@ public class PhysicalChallenge extends Activity {
         Log.i("TAG", "BubbleView drawn");
         temp1.start();
 
-//        randomGenerate(X_VALUE,Y_VALUE);
-
         // iterate over all the bubbles currently being displayed
         for (int i = 0; i < mFrame.getChildCount(); i++) {
             BubbleView current = (BubbleView) mFrame.getChildAt(i);
@@ -662,13 +519,6 @@ public class PhysicalChallenge extends Activity {
         }
 
         // if it did not intersect with any, add a new bubble
-                     /*   if(addNew){
-                            BubbleView temp = new BubbleView(mFrame.getContext(), eventX, eventY);
-                            mFrame.addView(temp); // add it to the view so that it will draw on the screen
-                            temp.start();         // start the bubble's motion
-                        }
-*/
-
 
     }
 
