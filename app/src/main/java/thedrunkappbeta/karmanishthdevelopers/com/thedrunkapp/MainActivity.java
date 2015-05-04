@@ -113,12 +113,12 @@ public class MainActivity extends Activity {
                 }
 
             } else {
-                Log.e("===================", "======================");
+                Log.e("=====================", "====================");
                 Log.e("regid", regid);
-                Log.e("=======================", "======================");
-                Log.i("=======================", "======================");
+                Log.e("=====================", "====================");
+                Log.i("=====================", "====================");
                 Log.i("mygcm", regid);
-                Log.i("=======================", "======================");
+                Log.i("=====================", "====================");
             }
         }catch(Exception ex){
         Log.i(TAG,"Play Services Error");
@@ -184,7 +184,7 @@ public class MainActivity extends Activity {
          @Override
          public void onClick(View v) {
 
-            // method_start_playing(v) ;
+             // method_start_playing(v) ;
              start_physical_challenge();
 
          }
