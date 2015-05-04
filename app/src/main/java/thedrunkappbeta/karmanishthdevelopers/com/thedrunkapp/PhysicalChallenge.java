@@ -8,6 +8,7 @@ import java.util.concurrent.TimeUnit;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
@@ -15,11 +16,14 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Point;
 import android.media.AudioManager;
+import android.media.MediaPlayer;
 import android.media.SoundPool;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Display;
 import android.view.GestureDetector;
+import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.MotionEvent;
@@ -29,8 +33,19 @@ import android.view.WindowManager;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 
+import junit.framework.Assert;
+
 
 public class PhysicalChallenge extends Activity {
+
+    //variable to keep track if the game has begun
+    public Boolean gamestarted = false ;
+
+    //instantiate the async task
+    UpdateTimerTask updatetimertask ;
+
+    //media player instance
+    MediaPlayer player ;
 
     public Integer SCORE = -1;
     public Integer TOTAL_SCORE = -2;
@@ -88,6 +103,13 @@ public class PhysicalChallenge extends Activity {
         Log.i("TAG", "Screen size for toast started")  ;
 
          randomGenerateModified(X_VALUE, Y_VALUE);
+
+         //initialize the media player instance
+        player = new MediaPlayer() ;
+        //instantiate the AsyncTask UpdateTimerTask
+        updatetimertask = new UpdateTimerTask();
+        //execute the Asynctask in the background to start the timer
+        updatetimertask.execute(1);
         
     }
 
@@ -339,6 +361,7 @@ public class PhysicalChallenge extends Activity {
                             // variable set earlier
                             mSoundPool.play(mSoundID, 0.5f, 0.5f, 0, 0, 1.0f);
                             SCORE++;
+                            startgame(gamestarted);
                             Toast.makeText(getApplicationContext(),"***Score = " + SCORE + " / " + TOTAL_SCORE + "***",Toast.LENGTH_SHORT).show();
 
                         }
@@ -519,6 +542,76 @@ public class PhysicalChallenge extends Activity {
         }
 
         // if it did not intersect with any, add a new bubble
+
+    }
+
+    public void playaudio(String playfile){
+        player = MediaPlayer.create(PhysicalChallenge.this, getAudio(PhysicalChallenge.this, playfile));
+        player.start();
+    }
+
+    public void stopaudio(){
+        if(player.isPlaying() == true)  {
+            player.stop();
+        }
+    }
+
+
+    public static int getAudio(Context context, String name)
+    {
+        Assert.assertNotNull(context);
+        Assert.assertNotNull(name);
+        return context.getResources().getIdentifier(name,"raw", context.getPackageName());
+    }
+
+    //the asynctask class has been added on 25th April 2015 by Ishan
+    class UpdateTimerTask extends AsyncTask<Integer, Integer, Integer> {
+
+        @Override
+        protected void onPreExecute() {
+            //start playing the background audio
+            playaudio("escape");
+        }
+
+        @Override
+        protected Integer doInBackground(Integer... resId) {
+            //delay the thread for one second to show updation on the screen after one second
+            sleep();
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(Integer result) {
+            //stop the audio
+            stopaudio();
+            Toast.makeText(getApplicationContext(),"***Final Score = " + SCORE + " / " + TOTAL_SCORE + "***",Toast.LENGTH_LONG).show();
+            //finish the activity
+            //PhysicalChallenge.this.finish();
+
+            Intent intent = new Intent(PhysicalChallenge.this, FinalScoreActivity.class) ;
+            startActivity(intent);
+        }
+
+        private void sleep() {
+            try {
+                Thread.sleep(30000);
+             } catch (InterruptedException e) {
+                Log.e(TAG, e.toString());
+            }
+        }
+    }
+
+    private void startgame(Boolean gamestart)    {
+
+        if(gamestart == true) {
+            return ;
+        }
+
+            Toast toast = Toast.makeText(PhysicalChallenge.this, "25 second challenge BEGINS!", Toast.LENGTH_LONG);
+            toast.setGravity(Gravity.CENTER, 0, 0);
+            toast.show();
+
+            gamestarted = true ;
 
     }
 

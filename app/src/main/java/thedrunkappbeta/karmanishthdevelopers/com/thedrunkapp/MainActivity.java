@@ -184,8 +184,8 @@ public class MainActivity extends Activity {
          @Override
          public void onClick(View v) {
 
-             // method_start_playing(v) ;
-             start_physical_challenge();
+             method_start_playing(v) ;
+             //start_physical_challenge();
 
          }
      });

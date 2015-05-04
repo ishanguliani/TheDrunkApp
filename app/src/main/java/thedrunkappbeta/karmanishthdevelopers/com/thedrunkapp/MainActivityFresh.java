@@ -222,10 +222,13 @@ public class MainActivityFresh extends Activity {
 
         else {
 
-            Intent intent = new Intent(MainActivityFresh.this, FinalScoreActivity.class) ;
+           /* Intent intent = new Intent(MainActivityFresh.this, FinalScoreActivity.class) ;
             intent.putExtra("final_score" , CorrectActivity.PenaltyScored) ;
             intent.putExtra("final_score_max" , CorrectActivity.PenaltyScoredMax) ;
 
+            startActivity(intent);*/
+
+            Intent intent = new Intent(MainActivityFresh.this, PhysicalChallenge.class) ;
             startActivity(intent);
         }
 
@@ -257,11 +260,6 @@ public class MainActivityFresh extends Activity {
     public void playaudio(String playfile){
         player = MediaPlayer.create(MainActivityFresh.this, getAudio(MainActivityFresh.this, playfile) );
         player.start();
-    }
-
-    public void playclip(String playfile){
-        player_answer_submitted = MediaPlayer.create(getApplicationContext(), getAudio(getApplicationContext(), playfile) );
-        player_answer_submitted.start();
     }
 
     /*STOP THE RUNNING TIMER THREAD*/
