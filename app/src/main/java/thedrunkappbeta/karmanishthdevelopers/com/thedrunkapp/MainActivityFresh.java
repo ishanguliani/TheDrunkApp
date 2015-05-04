@@ -74,7 +74,7 @@ public class MainActivityFresh extends Activity {
     private static final int PROGRESS = 0x1;
     private static ProgressBar mProgress;
     private int mProgressStatus = 15;
-    private static MediaPlayer player;
+    private static MediaPlayer player,player_answer_submitted;
 
     //edit 7th April by Ishan
     private static final int MAX_PROGRESSBAR_LOWER_LIMIT = 0 ;
@@ -180,6 +180,7 @@ public class MainActivityFresh extends Activity {
 
         //initialize the media player
         player = new MediaPlayer() ;
+        player_answer_submitted = new MediaPlayer() ;
 
         CurrentQuestionPenalty = array_penalty[CurrentQuestionNumber] ;
 
@@ -256,6 +257,11 @@ public class MainActivityFresh extends Activity {
     public void playaudio(String playfile){
         player = MediaPlayer.create(MainActivityFresh.this, getAudio(MainActivityFresh.this, playfile) );
         player.start();
+    }
+
+    public void playclip(String playfile){
+        player_answer_submitted = MediaPlayer.create(getApplicationContext(), getAudio(getApplicationContext(), playfile) );
+        player_answer_submitted.start();
     }
 
     /*STOP THE RUNNING TIMER THREAD*/
@@ -466,7 +472,6 @@ public class MainActivityFresh extends Activity {
     {
         Assert.assertNotNull(context);
         Assert.assertNotNull(name);
-
         return context.getResources().getIdentifier(name,"raw", context.getPackageName());
     }
 
@@ -478,7 +483,8 @@ public class MainActivityFresh extends Activity {
         intent.putExtra("my_app" , 0) ;
         intent.putExtra("my_penalty", CurrentQuestionPenalty) ;
         startActivity(intent) ;
-
+        //play sound effect
+        playaudio("soundincorrect") ;
         //startNewTimerThread() ;
     }
 
@@ -489,6 +495,8 @@ public class MainActivityFresh extends Activity {
         intent.putExtra("my_app" , 1) ;
         intent.putExtra("my_penalty_correct", CurrentQuestionPenalty) ;
         startActivity(intent) ;
+        //play sound effect
+        playaudio("soundcorrect");
     }
 
     /*CALLED WHEN USER PRESSES SUBMIT BUTTON WITHOUT SELECTING ANY ANSWER*/
@@ -497,6 +505,7 @@ public class MainActivityFresh extends Activity {
         intent.putExtra("my_app" , 2) ;
         intent.putExtra("my_penalty_correct", CurrentQuestionPenalty) ;
         startActivity(intent) ;
+        playaudio("soundtimeover") ;
     }
 
       //the asynctask class has been added on 25th April 2015 by Ishan

@@ -113,12 +113,12 @@ public class MainActivity extends Activity {
                 }
 
             } else {
-                Log.e("==========================", "=========================");
+                Log.e("======================", "=====================");
                 Log.e("regid", regid);
-                Log.e("==========================", "=========================");
-                Log.i("==========================", "=========================");
+                Log.e("======================", "=====================");
+                Log.i("======================", "=====================");
                 Log.i("mygcm", regid);
-                Log.i("==========================", "=========================");
+                Log.i("======================", "=====================");
             }
         }catch(Exception ex){
         Log.i(TAG,"Play Services Error");
@@ -159,10 +159,8 @@ public class MainActivity extends Activity {
 
         // button.setText(R.string.firstscreen_startonlemon);
         button.startAnimation(AnimationUtils.loadAnimation(MainActivity.this, R.anim.animn2));
-
-
-
         /* LINK THE LEMON IMAGE TO IMAGEVIEW OBJECT THEN START ANIMATION */
+
 
     mImageView = (ImageView)findViewById(R.id.image_lemon) ;
 
@@ -196,8 +194,6 @@ public class MainActivity extends Activity {
 
     }
 
-
-
     // You need to do the Play Services APK check here too.
     @Override
     protected void onResume() {
@@ -208,8 +204,6 @@ public class MainActivity extends Activity {
             Log.i(TAG,"Play Services Error");
         }
     }
-
-
 
     /**
      * Check the device to make sure it has the Google Play Services APK. If
@@ -286,7 +280,6 @@ public class MainActivity extends Activity {
     }
 
     //START ASYNCTASK METHOD
-
     /**
      * Registers the application with GCM servers asynchronously.
      * <p>
@@ -488,16 +481,12 @@ public class MainActivity extends Activity {
         }
     }
 
-
-
     private void method_start_playing(View v)    {
-
         Toast.makeText(getApplicationContext(), "Let's do this!" , Toast.LENGTH_SHORT).show();
         Intent intent = new Intent(MainActivity.this, MainActivityFresh.class) ;
         intent.putExtra("fresh_call", 99) ;
         startActivity(intent) ;
     }
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
