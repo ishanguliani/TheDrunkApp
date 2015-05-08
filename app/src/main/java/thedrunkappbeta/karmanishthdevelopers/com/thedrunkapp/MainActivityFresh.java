@@ -246,13 +246,22 @@ public class MainActivityFresh extends Activity {
 
     public void playaudio(String playfile) {
 
-        if (playfile.equals("timeover")) {
-            player_fresh = MediaPlayer.create(MainActivityFresh.this, getAudio(MainActivityFresh.this, playfile));
-            player_fresh.start();
-        } else {
-            player = MediaPlayer.create(MainActivityFresh.this, getAudio(MainActivityFresh.this, playfile));
-            player.start();
-        }
+        /*PLAY AUDIO ONLY IF USER WANTS TO PLAY GameSound
+        * else return
+        * ie play only if GameSound == true */
+       if(MainActivity.GameSound == false)   {
+           return;
+       }
+
+            if (playfile.equals("timeover")) {
+                player_fresh = MediaPlayer.create(MainActivityFresh.this, getAudio(MainActivityFresh.this, playfile));
+                player_fresh.start();
+            } else {
+                player = MediaPlayer.create(MainActivityFresh.this, getAudio(MainActivityFresh.this, playfile));
+                player.start();
+            }
+
+
     }
 
     /*STOP THE RUNNING TIMER THREAD*/
@@ -266,9 +275,20 @@ public class MainActivityFresh extends Activity {
     }
 
     public void stopaudio(){
+
+        /*Return if the user does not
+        * wish to play any sound.
+        *
+        * ie GameSound == false */
+        if(MainActivity.GameSound == false) {
+            return;
+        }
+
+
         if(player.isPlaying() == true)  {
             player.stop();
         }
+
         if(player_fresh.isPlaying() == true)  {
             player_fresh.stop();
         }

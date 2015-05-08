@@ -117,6 +117,10 @@ public class CorrectActivity extends Activity {
 
     /*play the audio*/
     public void playaudio(String playfile){
+
+        if(MainActivity.GameSound == false)  {
+            return;
+        }
         mediaplayer = MediaPlayer.create(CorrectActivity.this, getAudio(CorrectActivity.this, playfile) );
         mediaplayer.start();
     }
@@ -130,6 +134,11 @@ public class CorrectActivity extends Activity {
     }
 
     public void stopaudio(){
+
+        if(MainActivity.GameSound == false)  {
+            return;
+        }
+
         if(mediaplayer.isPlaying() == true)  {
             mediaplayer.stop();
         }

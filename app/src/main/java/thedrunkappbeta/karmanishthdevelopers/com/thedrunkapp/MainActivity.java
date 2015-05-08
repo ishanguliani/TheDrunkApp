@@ -9,6 +9,7 @@ import android.content.pm.PackageManager;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -176,7 +177,7 @@ public class MainActivity extends Activity {
         //Also initialize with Sound ON
         imageviewSound = (ImageView)findViewById(R.id.image_sound) ;
         //set drawable 'SOUND_ON' by default
-        imageviewSound.setImageDrawable(getResources().getDrawable(R.drawable.ball));
+        imageviewSound.setImageDrawable(getResources().getDrawable(R.drawable.sound_on));
 
         //EDIT -- send the id via share intent
         /*mImageView.setOnClickListener( new View.OnClickListener() {
@@ -554,15 +555,20 @@ public class MainActivity extends Activity {
 
     public void change_sound_icon() {
 
-        /*Checl if the sound is currently ON, if true, then change the icon to Sound off
+        /*Check if the sound is currently ON, if true, then change the icon to Sound off
         * and turn the sound off
         *
         * */
         if(IsSoundOn()) {
-            imageviewSound.setImageDrawable(getResources().getDrawable(R.drawable.ball));
+            imageviewSound.setImageDrawable(getResources().getDrawable(R.drawable.sound_off));
+            GameSound = false ;
+            broadcast_sound_icon_change("off".toString());
         }
         else {
-            imageviewSound.setImageDrawable(getResources().getDrawable(R.drawable.ball));
+            imageviewSound.setImageDrawable(getResources().getDrawable(R.drawable.sound_on));
+            GameSound = true ;
+            broadcast_sound_icon_change("on".toString());
+
         }
 
 
@@ -570,14 +576,26 @@ public class MainActivity extends Activity {
     }
 
     /*Publish a toast to denote if sound is on or off*/
-    public void broadcast_sound_icon_change()    {
 
+    public void broadcast_sound_icon_change(String status)    {
+
+
+        if(status.equals("on"))
+            showToast("Music ON");
+        else if(status.equals("off"))
+            showToast("Music OFF");
 
     }
 
     /*Check if the sound is currently ON*/
     public Boolean IsSoundOn() {
 
-        return true ;
+        return GameSound ;
+    }
+
+    public void showToast(String message)   {
+        Toast toast = Toast.makeText(context, message, Toast.LENGTH_SHORT);
+        toast.setGravity(Gravity.CENTER, 0, 0);
+        toast.show();
     }
 }

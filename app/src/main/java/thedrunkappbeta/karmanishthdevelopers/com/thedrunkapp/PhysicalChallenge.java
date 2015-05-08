@@ -546,11 +546,20 @@ public class PhysicalChallenge extends Activity {
     }
 
     public void playaudio(String playfile){
+
+        if(MainActivity.GameSound == false)  {
+            return;
+        }
+
         player = MediaPlayer.create(PhysicalChallenge.this, getAudio(PhysicalChallenge.this, playfile));
         player.start();
     }
 
     public void stopaudio(){
+        if(MainActivity.GameSound == false)  {
+            return;
+        }
+        
         if(player.isPlaying() == true)  {
             player.stop();
         }
