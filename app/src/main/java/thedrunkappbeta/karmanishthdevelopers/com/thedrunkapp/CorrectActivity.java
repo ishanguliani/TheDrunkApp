@@ -1,7 +1,9 @@
 package thedrunkappbeta.karmanishthdevelopers.com.thedrunkapp;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -10,10 +12,13 @@ import android.view.WindowManager;
 import android.os.Handler;
 import android.widget.Toast;
 
+import junit.framework.Assert;
+
 
 public class CorrectActivity extends Activity {
 
-
+    //media player instance to play correct/incorrect/timeover audio
+    MediaPlayer mediaplayer ;
     public static int PenaltyScored = 0 ;
     public static int PenaltyScoredMax = 0 ;
     public static int MyScore = 0 ;
@@ -27,9 +32,13 @@ public class CorrectActivity extends Activity {
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
+        //initialize the media player
+        mediaplayer = new MediaPlayer();
 
         if(getIntent().getIntExtra("my_app" , 99) == 0)    {
             setContentView(R.layout.activity_incorrect);
+
+            playaudio("soundincorrect") ;
 
             PenaltyScored += getIntent().getIntExtra("my_penalty", -9999) ;
 
@@ -39,6 +48,8 @@ public class CorrectActivity extends Activity {
         //check if correct or incorrect based on the value received from the intent
         else if(getIntent().getIntExtra("my_app" , 99) == 1) {
             setContentView(R.layout.activity_correct);
+
+            playaudio("soundcorrect");
 
             MyScore += getIntent().getIntExtra("my_penalty_correct" , -9999) ;
             // PenaltyScoredMax += getIntent().getIntExtra("my_penalty_correct" , -9999) ;
@@ -50,14 +61,11 @@ public class CorrectActivity extends Activity {
         else if(getIntent().getIntExtra("my_app" , 99) == 2) {
             setContentView(R.layout.activity_timeover);
 
+            playaudio("soundtimeover") ;
+
             // PenaltyScoredMax += getIntent().getIntExtra("my_penalty_correct" , -9999) ;
 
         }
-
-
-
-
-
 
         Runnable mMyRunnablenew = new Runnable()
         {
@@ -105,6 +113,32 @@ public class CorrectActivity extends Activity {
         //do nothing
     }
 
+    /*play the audio*/
+    public void playaudio(String playfile){
+        mediaplayer = MediaPlayer.create(CorrectActivity.this, getAudio(CorrectActivity.this, playfile) );
+        mediaplayer.start();
+    }
+
+
+    public static int getAudio(Context context, String name)
+    {
+        Assert.assertNotNull(context);
+        Assert.assertNotNull(name);
+        return context.getResources().getIdentifier(name,"raw", context.getPackageName());
+    }
+
+    public void stopaudio(){
+        if(mediaplayer.isPlaying() == true)  {
+            mediaplayer.stop();
+        }
+    }
+
+
+    @Override
+    public void onStop()    {
+        super.onStop();
+        stopaudio();
+    }
 
 
     public int getPenaltyScored()   {

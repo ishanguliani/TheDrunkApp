@@ -74,7 +74,7 @@ public class MainActivityFresh extends Activity {
     private static final int PROGRESS = 0x1;
     private static ProgressBar mProgress;
     private int mProgressStatus = 15;
-    private static MediaPlayer player,player_answer_submitted;
+    private MediaPlayer player;
 
     //edit 7th April by Ishan
     private static final int MAX_PROGRESSBAR_LOWER_LIMIT = 0 ;
@@ -180,7 +180,6 @@ public class MainActivityFresh extends Activity {
 
         //initialize the media player
         player = new MediaPlayer() ;
-        player_answer_submitted = new MediaPlayer() ;
 
         CurrentQuestionPenalty = array_penalty[CurrentQuestionNumber] ;
 
@@ -424,12 +423,13 @@ public class MainActivityFresh extends Activity {
 
     public void SubmitPressed(View v)   {
         //show the current time
-        ShowCurrentTime();
+       // ShowCurrentTime();
         if(AnswerSelected == null) {
             /*if no radio button has been pressed even once*/
             //NothingSelected();
             //check if the time ran out
-            if(POST_EXECUTE_REACHED == true) {
+            if(POST_EXECUTE_REACHED) {
+                stopTask();
                 timeover();
                 ReturnNetScore("NO_SCORE");
             }
@@ -482,7 +482,7 @@ public class MainActivityFresh extends Activity {
         intent.putExtra("my_penalty", CurrentQuestionPenalty) ;
         startActivity(intent) ;
         //play sound effect
-        playaudio("soundincorrect") ;
+        //playaudio("soundincorrect") ;
         //startNewTimerThread() ;
     }
 
@@ -494,7 +494,7 @@ public class MainActivityFresh extends Activity {
         intent.putExtra("my_penalty_correct", CurrentQuestionPenalty) ;
         startActivity(intent) ;
         //play sound effect
-        playaudio("soundcorrect");
+        //playaudio("soundcorrect");
     }
 
     /*CALLED WHEN USER PRESSES SUBMIT BUTTON WITHOUT SELECTING ANY ANSWER*/
@@ -503,7 +503,7 @@ public class MainActivityFresh extends Activity {
         intent.putExtra("my_app" , 2) ;
         intent.putExtra("my_penalty_correct", CurrentQuestionPenalty) ;
         startActivity(intent) ;
-        playaudio("soundtimeover") ;
+        //playaudio("soundtimeover") ;
     }
 
       //the asynctask class has been added on 25th April 2015 by Ishan
@@ -564,7 +564,7 @@ public class MainActivityFresh extends Activity {
             //log the report
             Log.i(TAG, "POST EXECUTE CALLED");
             //stop the audio
-            stopaudio();
+            //stopaudio();
             //Make the progress bar invisible
             //mProgress.setVisibility(ProgressBar.INVISIBLE);
             //FLAG
