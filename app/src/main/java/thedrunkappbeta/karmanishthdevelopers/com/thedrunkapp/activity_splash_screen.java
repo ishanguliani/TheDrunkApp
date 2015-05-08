@@ -25,7 +25,7 @@ public class activity_splash_screen extends Activity {
         Thread timer = new Thread() {
             public void run() {
                 try {
-                    sleep(2500);
+                    sleep(3000);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 } finally {

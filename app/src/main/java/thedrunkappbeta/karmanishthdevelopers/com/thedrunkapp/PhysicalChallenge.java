@@ -529,6 +529,7 @@ public class PhysicalChallenge extends Activity {
         Log.i("TAG", "BubbleView drawn");
         temp1.start();
 
+
         // iterate over all the bubbles currently being displayed
         for (int i = 0; i < mFrame.getChildCount(); i++) {
             BubbleView current = (BubbleView) mFrame.getChildAt(i);
