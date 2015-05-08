@@ -32,7 +32,8 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 public class MainActivity extends Activity {
 
-    ImageView mImageView = null;
+    ImageView mImageView = null, imageviewSound = null;
+    public static Boolean GameSound = true ;
 
     //EDIT
     private final static int PLAY_SERVICES_RESOLUTION_REQUEST = 9000;
@@ -169,9 +170,15 @@ public class MainActivity extends Activity {
 
         /* LINK THE LEMON IMAGE TO IMAGEVIEW OBJECT THEN START ANIMATION */
 
-    mImageView = (ImageView)findViewById(R.id.image_lemon) ;
+        mImageView = (ImageView)findViewById(R.id.image_lemon) ;
 
-            //EDIT -- send the id via share intent
+        //link an instance of imageview to the Sound ONOFF icon
+        //Also initialize with Sound ON
+        imageviewSound = (ImageView)findViewById(R.id.image_sound) ;
+        //set drawable 'SOUND_ON' by default
+        imageviewSound.setImageDrawable(getResources().getDrawable(R.drawable.ball));
+
+        //EDIT -- send the id via share intent
         /*mImageView.setOnClickListener( new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -185,7 +192,9 @@ public class MainActivity extends Activity {
 
             }
         });*/
-     mImageView.setOnClickListener(new View.OnClickListener() {
+
+        //on pressing the LEMON IMAGE
+        mImageView.setOnClickListener(new View.OnClickListener() {
          @Override
          public void onClick(View v) {
 
@@ -194,6 +203,20 @@ public class MainActivity extends Activity {
 
          }
      });
+
+        //set a click listener on the SOUND IMAGE to turn it on/off
+        imageviewSound.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                change_sound_icon();
+                //method_start_playing(v) ;
+                //start_physical_challenge();
+
+            }
+        });
+
+
 
 
         //start animation
@@ -527,5 +550,34 @@ public class MainActivity extends Activity {
         Intent intent = new Intent(MainActivity.this, PhysicalChallenge.class) ;
 //        intent.putExtra("fresh_call", 99) ;
         startActivity(intent) ;
+    }
+
+    public void change_sound_icon() {
+
+        /*Checl if the sound is currently ON, if true, then change the icon to Sound off
+        * and turn the sound off
+        *
+        * */
+        if(IsSoundOn()) {
+            imageviewSound.setImageDrawable(getResources().getDrawable(R.drawable.ball));
+        }
+        else {
+            imageviewSound.setImageDrawable(getResources().getDrawable(R.drawable.ball));
+        }
+
+
+
+    }
+
+    /*Publish a toast to denote if sound is on or off*/
+    public void broadcast_sound_icon_change()    {
+
+
+    }
+
+    /*Check if the sound is currently ON*/
+    public Boolean IsSoundOn() {
+
+        return true ;
     }
 }
