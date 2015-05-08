@@ -509,7 +509,7 @@ public class MainActivityFresh extends Activity {
         @Override
         protected void onPreExecute() {
             //start playing the background audio
-           playaudio("tick");
+           playaudio("merge");
             //DO SOMETHING HERE
            // mProgress.setProgressDrawable(getResources().getDrawable(R.drawable.greenprogressbar));
             //mProgress.setVisibility(ProgressBar.VISIBLE);
@@ -527,8 +527,8 @@ public class MainActivityFresh extends Activity {
                 mProgressStatus = mProgressStatus - TIME_INTERVAL_TIMER_INCREMENT;
 
                 if (mProgressStatus <= TIME_AUDIO_CHANGE) {
-                    stopaudio();
-                    playaudio("timeover");
+                    //stopaudio();
+                    //playaudio("timeover");
                 }
 
                 //check if the thread has been interrupted manually
