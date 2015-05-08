@@ -32,7 +32,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 public class MainActivity extends Activity {
 
-    ImageView mImageView = null ;
+    ImageView mImageView = null;
 
     //EDIT
     private final static int PLAY_SERVICES_RESOLUTION_REQUEST = 9000;
