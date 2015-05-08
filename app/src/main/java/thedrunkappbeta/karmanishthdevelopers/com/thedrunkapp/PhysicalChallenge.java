@@ -559,7 +559,7 @@ public class PhysicalChallenge extends Activity {
         if(MainActivity.GameSound == false)  {
             return;
         }
-        
+
         if(player.isPlaying() == true)  {
             player.stop();
         }
