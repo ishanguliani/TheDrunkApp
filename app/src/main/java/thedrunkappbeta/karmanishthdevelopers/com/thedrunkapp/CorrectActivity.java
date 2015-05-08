@@ -18,7 +18,7 @@ import junit.framework.Assert;
 public class CorrectActivity extends Activity {
 
     //media player instance to play correct/incorrect/timeover audio
-    MediaPlayer mediaplayer ;
+    private static MediaPlayer mediaplayer ;
     public static int PenaltyScored = 0 ;
     public static int PenaltyScoredMax = 0 ;
     public static int MyScore = 0 ;
@@ -73,6 +73,8 @@ public class CorrectActivity extends Activity {
             public void run()
             {
                 // onrestartfragment();                  //Change state here
+                stopaudio();
+
                 Intent intent = new Intent(CorrectActivity.this, MainActivityFresh.class) ;
                 startActivity(intent) ;
 
@@ -131,13 +133,6 @@ public class CorrectActivity extends Activity {
         if(mediaplayer.isPlaying() == true)  {
             mediaplayer.stop();
         }
-    }
-
-
-    @Override
-    public void onStop()    {
-        super.onStop();
-        stopaudio();
     }
 
 

@@ -71,10 +71,9 @@ public class MainActivityFresh extends Activity {
     CountDownTimer countdowntimer;
 
     /*Addied by dhiraj for progress bar and media player*/
-    private static final int PROGRESS = 0x1;
     private static ProgressBar mProgress;
     private int mProgressStatus = 15;
-    private MediaPlayer player;
+    private static MediaPlayer player, player_fresh;
 
     //edit 7th April by Ishan
     private static final int MAX_PROGRESSBAR_LOWER_LIMIT = 0 ;
@@ -88,10 +87,6 @@ public class MainActivityFresh extends Activity {
     private static final int COLOR_RED_LAST_DISPLAYED = Color.RED;       //Text color changed to RED
     private static final int TIME_AUDIO_CHANGE = 5;    //Time at which first color change will
     private static final int TIME_INTERVAL_TIMER_INCREMENT = 1 ;
-
-
-    TextView mTextField = null ;
-    /*VARIABLES END*/
 
     //get an instance to the vibrator
     //private Vibrator myVib;
@@ -109,9 +104,6 @@ public class MainActivityFresh extends Activity {
     private static int question_number = 1 ;
 
     private Context context = MainActivityFresh.this ;
-
-    //textview to change the question statement
-    public static TextView tx = null ;
 
     //array to store all the questions
     private String[] array_questions = null ;
@@ -180,6 +172,7 @@ public class MainActivityFresh extends Activity {
 
         //initialize the media player
         player = new MediaPlayer() ;
+        player_fresh = new MediaPlayer() ;
 
         CurrentQuestionPenalty = array_penalty[CurrentQuestionNumber] ;
 
@@ -221,12 +214,7 @@ public class MainActivityFresh extends Activity {
 
         else {
 
-           /* Intent intent = new Intent(MainActivityFresh.this, FinalScoreActivity.class) ;
-            intent.putExtra("final_score" , CorrectActivity.PenaltyScored) ;
-            intent.putExtra("final_score_max" , CorrectActivity.PenaltyScoredMax) ;
-
-            startActivity(intent);*/
-
+          //start the physical challenge
             Intent intent = new Intent(MainActivityFresh.this, PhysicalChallenge.class) ;
             startActivity(intent);
         }
@@ -256,9 +244,15 @@ public class MainActivityFresh extends Activity {
         return super.onOptionsItemSelected(item);
     }
 
-    public void playaudio(String playfile){
-        player = MediaPlayer.create(MainActivityFresh.this, getAudio(MainActivityFresh.this, playfile) );
-        player.start();
+    public void playaudio(String playfile) {
+
+        if (playfile.equals("timeover")) {
+            player_fresh = MediaPlayer.create(MainActivityFresh.this, getAudio(MainActivityFresh.this, playfile));
+            player_fresh.start();
+        } else {
+            player = MediaPlayer.create(MainActivityFresh.this, getAudio(MainActivityFresh.this, playfile));
+            player.start();
+        }
     }
 
     /*STOP THE RUNNING TIMER THREAD*/
@@ -274,6 +268,9 @@ public class MainActivityFresh extends Activity {
     public void stopaudio(){
         if(player.isPlaying() == true)  {
             player.stop();
+        }
+        if(player_fresh.isPlaying() == true)  {
+            player_fresh.stop();
         }
     }
 

@@ -45,7 +45,7 @@ public class PhysicalChallenge extends Activity {
     UpdateTimerTask updatetimertask ;
 
     //media player instance
-    MediaPlayer player ;
+    private static MediaPlayer player ;
 
     public Integer SCORE = -1;
     public Integer TOTAL_SCORE = -2;
