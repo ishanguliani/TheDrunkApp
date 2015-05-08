@@ -48,6 +48,13 @@ public class FinalScoreActivity extends Activity {
         DrunkPercentage = ((double)(800-final_score)/(double)final_score_max)*100.00;
         DrunkPercentage = (double)Math.round(DrunkPercentage * 100) / 100 ;
 
+        if(DrunkPercentage <= 25.00 )   {
+
+        }
+        else    {
+
+        }
+
 
         //animation add
         TextView txtview = (TextView) findViewById(R.id.textView);
