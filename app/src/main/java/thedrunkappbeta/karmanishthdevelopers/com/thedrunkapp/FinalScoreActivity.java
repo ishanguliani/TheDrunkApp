@@ -38,26 +38,30 @@ public class FinalScoreActivity extends Activity {
 
         //final_score = getIntent().getIntExtra("final_score" , -9999) ;
         final_score = MainActivityFresh.NetScore ;
-        Log.i("my_app", "Final Score is : " + final_score) ;
+        //Log.i("my_app", "Final Score is : " + final_score) ;
 
         // final_score_max = getIntent().getIntExtra("final_score_max" , -9999) ;
         //  final_score_max+=final_score ;
-        Log.i("my_app", "Final Score Max is : " + final_score_max) ;
+        //Log.i("my_app", "Final Score Max is : " + final_score_max) ;
 
+        TextView txtview = (TextView) findViewById(R.id.textView);
+        TextView txtview2 = (TextView) findViewById(R.id.textView2);
 
         DrunkPercentage = ((double)(800-final_score)/(double)final_score_max)*100.00;
         DrunkPercentage = (double)Math.round(DrunkPercentage * 100) / 100 ;
 
-        if(DrunkPercentage <= 25.00 )   {
 
+        if(DrunkPercentage <= 40.00 )   {
+            txtview2.setTextColor(getResources().getColor(R.color.greencolorscore));
         }
-        else    {
-
-        }
+        else if(DrunkPercentage > 40.00 && DrunkPercentage <= 70.00)   {
+            txtview2.setTextColor(getResources().getColor(R.color.bluecolorsore));        }
+        else if(DrunkPercentage > 70.00)    {
+            txtview2.setTextColor(getResources().getColor(R.color.redcolorscore));        }
 
 
         //animation add
-        TextView txtview = (TextView) findViewById(R.id.textView);
+
         txtview.setText(R.string.acc_to_john);
         txtview.startAnimation(AnimationUtils.loadAnimation(FinalScoreActivity.this, R.anim.animate));
 
@@ -66,7 +70,7 @@ public class FinalScoreActivity extends Activity {
         txtview1.startAnimation(AnimationUtils.loadAnimation(FinalScoreActivity.this, R.anim.your_drunk));
 */
 
-        TextView txtview2 = (TextView) findViewById(R.id.textView2);
+
         txtview2.setText("You Are " + DrunkPercentage + "% Drunk!");
         txtview2.startAnimation(AnimationUtils.loadAnimation(FinalScoreActivity.this, R.anim.percentage));
 
@@ -85,7 +89,7 @@ public class FinalScoreActivity extends Activity {
 
                 Intent intent = new Intent() ;
                 intent.setAction(Intent.ACTION_SEND) ;
-                intent.putExtra(Intent.EXTRA_TEXT, "Hey ! Have you tried 'The Drunk App' yet? I am " + DrunkPercentage + "% Drunk right now ! Let's see if you're sober than me. https://play.google.com/store/apps/details?id=thedrunkappbeta.karmanishthdevelopers.com.thedrunkapp") ;
+                intent.putExtra(Intent.EXTRA_TEXT, "Hey ! Have you tried 'The Drunk App v2.0' yet? Love the newest gamified challenges ! I am " + DrunkPercentage + "% Drunk right now ! Let's see if you're sober than me. https://play.google.com/store/apps/details?id=thedrunkappbeta.karmanishthdevelopers.com.thedrunkapp") ;
                 intent.setType("text/plain") ;
                 startActivity(intent);
 

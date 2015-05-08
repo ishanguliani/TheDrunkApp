@@ -445,7 +445,7 @@ public class MainActivity extends Activity {
             protected void onPostExecute(Object m) {
 //                super.onPostExecute(m);
 //                mDisplay.append(msg + "\n");
-                Toast.makeText(context,m.toString()+'\n',Toast.LENGTH_LONG).show();
+              //  Toast.makeText(context,m.toString()+'\n',Toast.LENGTH_LONG).show();
                 //EDIT - set the final global reg id variable
                 finalid=m.toString();
 
@@ -490,7 +490,7 @@ public class MainActivity extends Activity {
 
                 @Override
                 protected void onPostExecute(Object m) {
-                    Toast.makeText(context,m.toString()+'\n',Toast.LENGTH_SHORT);
+                  //  Toast.makeText(context,m.toString()+'\n',Toast.LENGTH_SHORT);
                 }
 
                 @Override
@@ -512,7 +512,7 @@ public class MainActivity extends Activity {
                 }
             }.execute(null, null, null);
         } else if (view == findViewById(R.id.textView3)) {
-            Toast.makeText(context,"ALL CLEARED",Toast.LENGTH_SHORT);
+         //   Toast.makeText(context,"ALL CLEARED",Toast.LENGTH_SHORT);
 //            mDisplay.setText("");
         }
     }

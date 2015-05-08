@@ -610,7 +610,7 @@ public class MainActivityFresh extends Activity {
     * as soon as the user presses the submit button*/
     public void ShowCurrentTime()   {
         Integer currentTime = mProgressStatus ;
-        Toast.makeText(context, "Time is : " + currentTime, Toast.LENGTH_SHORT).show();
+        //Toast.makeText(context, "Time is : " + currentTime, Toast.LENGTH_SHORT).show();
         Log.i(TAG, "Time is : " + currentTime ) ;
     }
 
@@ -627,14 +627,14 @@ public class MainActivityFresh extends Activity {
 
 
         if(CurrentStatus > 10 && CurrentStatus <= 15)   {
-            Toast.makeText(context, "RETURNING GREEN", Toast.LENGTH_SHORT).show();
+           // Toast.makeText(context, "RETURNING GREEN", Toast.LENGTH_SHORT).show();
             return("RANGE_GREEN");
         }
         else if(CurrentStatus > 5 && CurrentStatus <= 10)   {
-            Toast.makeText(context, "RETURNING BLUE", Toast.LENGTH_SHORT).show();
+            //Toast.makeText(context, "RETURNING BLUE", Toast.LENGTH_SHORT).show();
             return("RANGE_BLUE");
         }else   {
-            Toast.makeText(context, "RETURNING RED", Toast.LENGTH_SHORT).show();
+            //Toast.makeText(context, "RETURNING RED", Toast.LENGTH_SHORT).show();
             return("RANGE_RED");
         }
     }
@@ -647,10 +647,10 @@ public class MainActivityFresh extends Activity {
     void ReturnNetScore(String status)    {
         //if the timer ran out, assign ZERO score to NetScore
         if(status.equals("NO_SCORE".toString()))    {
-            Toast.makeText(context
-                    , "No Score Added!"
-                    , Toast.LENGTH_SHORT)
-                    .show();
+           // Toast.makeText(context
+                    //, "No Score Added!"
+                   // , Toast.LENGTH_SHORT)
+                   // .show();
             return;
         }
 
@@ -660,11 +660,11 @@ public class MainActivityFresh extends Activity {
         if(CurrentTimerRange.equals("RANGE_GREEN".toString()))  {
 
             NetScore = NetScore + 100 ;
-
+/*
             Toast.makeText(context
                     , "MARKS = "+ NetScore
                     , Toast.LENGTH_SHORT)
-                    .show();
+                    .show();*/
 
         }
         else if(CurrentTimerRange.equals("RANGE_BLUE".toString()))  {
@@ -672,10 +672,10 @@ public class MainActivityFresh extends Activity {
             Integer CurrentQuestionWeightage = ReturnCurrentQuestionWeightage("RANGE_BLUE") ;
 
             NetScore = NetScore + CurrentQuestionWeightage;
-            Toast.makeText(context
+           /* Toast.makeText(context
                     , "MARKS BLUE = " + NetScore
                     , Toast.LENGTH_SHORT)
-                    .show();
+                    .show();*/
 
 
         }
@@ -684,10 +684,10 @@ public class MainActivityFresh extends Activity {
             Integer CurrentQuestionWeightage = ReturnCurrentQuestionWeightage("RANGE_RED") ;
 
             NetScore = NetScore + CurrentQuestionWeightage;
-            Toast.makeText(context
+           /* Toast.makeText(context
                     , "MARKS RED = " + NetScore
                     , Toast.LENGTH_SHORT)
-                    .show();
+                    .show();*/
 
         }
 

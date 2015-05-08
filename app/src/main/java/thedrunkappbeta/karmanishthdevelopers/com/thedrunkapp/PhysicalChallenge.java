@@ -362,7 +362,7 @@ public class PhysicalChallenge extends Activity {
                             mSoundPool.play(mSoundID, 0.5f, 0.5f, 0, 0, 1.0f);
                             SCORE++;
                             startgame(gamestarted);
-                            Toast.makeText(getApplicationContext(),"***Score = " + SCORE + " / " + TOTAL_SCORE + "***",Toast.LENGTH_SHORT).show();
+                           // Toast.makeText(getApplicationContext(),"***Score = " + SCORE + " / " + TOTAL_SCORE + "***",Toast.LENGTH_SHORT).show();
 
                         }
 
@@ -617,9 +617,13 @@ public class PhysicalChallenge extends Activity {
             return ;
         }
 
-            Toast toast = Toast.makeText(PhysicalChallenge.this, "25 second challenge BEGINS!", Toast.LENGTH_LONG);
+            Toast toast = Toast.makeText(PhysicalChallenge.this, "25 second challenge BEGINS!\n\n*POP! to Score*", Toast.LENGTH_LONG);
             toast.setGravity(Gravity.CENTER, 0, 0);
             toast.show();
+
+        /*Toast toastpop = Toast.makeText(PhysicalChallenge.this, "", Toast.LENGTH_LONG);
+        toastpop.setGravity(Gravity.CENTER, 0, 0);
+        toastpop.show();*/
 
             gamestarted = true ;
 
