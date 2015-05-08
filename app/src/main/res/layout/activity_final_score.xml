@@ -71,8 +71,8 @@
 
     <ImageView
         android:id="@+id/button_share"
-        android:layout_width="111dp"
-        android:layout_height="111dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:src="@drawable/ic_action_group"
         android:layout_alignParentRight="true"
@@ -81,9 +81,9 @@
 
     <ImageView
         android:id="@+id/button_replay"
-        android:layout_width="124dp"
+        android:layout_width="wrap_content"
         android:layout_gravity="center"
-        android:layout_height="124dp"
+        android:layout_height="wrap_content"
         android:src="@drawable/ic_action_replay"
         android:layout_toStartOf="@+id/imageView"
         android:layout_alignBottom="@+id/imageView"
