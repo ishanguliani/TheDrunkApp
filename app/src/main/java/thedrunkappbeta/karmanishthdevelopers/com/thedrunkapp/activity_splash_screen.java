@@ -29,8 +29,8 @@ public class activity_splash_screen extends Activity {
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 } finally {
-                      Intent it = new Intent("com.karmanishthdevelopers.thedrunkapp.MA");
-                      startActivity(it);
+                    Intent it = new Intent("com.karmanishthdevelopers.thedrunkapp.MA");
+                    startActivity(it);
                 }
             }
         };
@@ -42,13 +42,6 @@ public class activity_splash_screen extends Activity {
         // TODO Auto-generated method stub
         super.onPause();
         finish();
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.main, menu);
-        return true;
     }
 
 }

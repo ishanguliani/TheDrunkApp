@@ -16,11 +16,11 @@
 
     <uses-permission android:name="com.example.gcm.permission.C2D_MESSAGE" />
 
-    <android:uses-permission
+    <uses-permission
         android:name="android.permission.WRITE_EXTERNAL_STORAGE"
         android:maxSdkVersion="18" />
-    <android:uses-permission android:name="android.permission.READ_PHONE_STATE" />
-    <android:uses-permission
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission
         android:name="android.permission.READ_EXTERNAL_STORAGE"
         android:maxSdkVersion="18" />
 
@@ -72,15 +72,6 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".CardFlipActivity"
-            android:label="@string/title_activity_card_flip" >
-            <intent-filter>
-                <action android:name="com.karmanishthdevelopers.thedrunkapp.CFA" />
-
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-        </activity>
-        <activity
             android:name=".MainActivityFresh"
             android:configChanges="keyboardHidden|orientation"
             android:label="@string/title_activity_main_activity_fresh"
@@ -97,10 +88,6 @@
             android:configChanges="keyboardHidden|orientation"
             android:label="@string/title_activity_final_score"
             android:screenOrientation="portrait" >
-        </activity>
-        <activity
-            android:name=".BroadcastReceiver"
-            android:label="@string/title_activity_broadcast_receiver" >
         </activity>
         <activity
             android:name=".PhysicalChallenge"

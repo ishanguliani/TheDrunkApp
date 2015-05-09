@@ -1,18 +1,11 @@
 package thedrunkappbeta.karmanishthdevelopers.com.thedrunkapp;
 
-import java.util.Random;
-import java.util.concurrent.Executors;
-import java.util.concurrent.ScheduledExecutorService;
-import java.util.concurrent.ScheduledFuture;
-import java.util.concurrent.TimeUnit;
-
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
-import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Point;
 import android.media.AudioManager;
@@ -34,6 +27,12 @@ import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import junit.framework.Assert;
+
+import java.util.Random;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.ScheduledFuture;
+import java.util.concurrent.TimeUnit;
 
 
 public class PhysicalChallenge extends Activity {
@@ -385,33 +384,19 @@ public class PhysicalChallenge extends Activity {
             }
         }
 
-
         // Draw the Bubble at its current location
         @Override
         protected synchronized void onDraw(Canvas canvas) {
-
-
-
-            // DONE - save the canvas
             canvas.save();
-
-            // DONE - increase the rotation of the original image by mDRotate
             mRotate += mDRotate;
-
-
             // DONE Rotate the canvas by current rotation
             // need to calculate the values of the center pivot point, since mXPos and mYPos represent the
             // top left corner
             canvas.rotate((float) mRotate, mXPos + (mScaledBitmapWidth / 2), mYPos + (mScaledBitmapWidth / 2));
-
-
             // DONE - draw the bitmap at it's new location
             canvas.drawBitmap(mScaledBitmap, mXPos, mYPos, mPainter);
-
-
             // DONE - restore the canvas
             canvas.restore();
-
         }
 
 
@@ -440,28 +425,6 @@ public class PhysicalChallenge extends Activity {
             return false;
 
         }
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_physical_challenge, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
     }
 
     private static void log(String message) {
@@ -541,8 +504,7 @@ public class PhysicalChallenge extends Activity {
                 break;
             }
         }
-
-        // if it did not intersect with any, add a new bubble
+    // if it did not intersect with any, add a new bubble
 
     }
 
@@ -595,9 +557,6 @@ public class PhysicalChallenge extends Activity {
             //stop the audio
             stopaudio();
             Toast.makeText(getApplicationContext(),"***Final Score = " + SCORE + " / " + TOTAL_SCORE + "***",Toast.LENGTH_LONG).show();
-            //finish the activity
-            //PhysicalChallenge.this.finish();
-
             Intent intent = new Intent(PhysicalChallenge.this, FinalScoreActivity.class) ;
             startActivity(intent);
         }
@@ -620,11 +579,6 @@ public class PhysicalChallenge extends Activity {
             Toast toast = Toast.makeText(PhysicalChallenge.this, "25 second challenge BEGINS!\n\n*POP! to Score*", Toast.LENGTH_LONG);
             toast.setGravity(Gravity.CENTER, 0, 0);
             toast.show();
-
-        /*Toast toastpop = Toast.makeText(PhysicalChallenge.this, "", Toast.LENGTH_LONG);
-        toastpop.setGravity(Gravity.CENTER, 0, 0);
-        toastpop.show();*/
-
             gamestarted = true ;
 
     }

@@ -15,7 +15,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
-import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -27,7 +26,6 @@ import com.google.android.gms.common.GooglePlayServicesUtil;
 import com.google.android.gms.gcm.GoogleCloudMessaging;
 
 import java.io.IOException;
-import java.util.Objects;
 import java.util.concurrent.atomic.AtomicInteger;
 
 
@@ -38,14 +36,6 @@ public class MainActivity extends Activity {
 
     //EDIT
     private final static int PLAY_SERVICES_RESOLUTION_REQUEST = 9000;
-
-    //this is a test comment added on 29th March 2015
-
-    //added another test line
-
-    //third test line added
-
-
 
     //EDIT - constants
     public static final String EXTRA_MESSAGE = "message";
@@ -81,15 +71,10 @@ public class MainActivity extends Activity {
     String regid;
 
 
-
-    //  Animation mAnimation = null ;
-    
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-
-                         /*MAKE THE ACTIVITY FULL SCREEN*/
+        /*MAKE THE ACTIVITY FULL SCREEN*/
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
@@ -98,12 +83,10 @@ public class MainActivity extends Activity {
 
                         /*ANIMATED HOME SCREEN SNIPPET*/
 
-        //EDIT - get the application context
         context = getApplicationContext();
 
 
-        //EDIT START
-//                        REGISTER TO RECEIVE BROADCAST MESSAGES FROM GOOGLE CLOUD MESSAGING SERVER
+        //REGISTER TO RECEIVE BROADCAST MESSAGES FROM GOOGLE CLOUD MESSAGING SERVER
         // Check device for Play Services APK.
         try {
 
@@ -120,32 +103,20 @@ public class MainActivity extends Activity {
                 }
 
             } else {
-                Log.e("=====================", "====================");
+
                 Log.e("regid", regid);
-                Log.e("=====================", "====================");
-                Log.i("=====================", "====================");
+
                 Log.i("mygcm", regid);
-                Log.i("=====================", "====================");
+
             }
         }catch(Exception ex){
         Log.i(TAG,"Play Services Error");
 
     }
-
-
-
-        //EDIT END
-
-        //  mAnimation = AnimationUtils.loadAnimation(MainActivity.this, R.anim.animn2);
-                        //   final Button btn = (Button) findViewById(R.id.button);
-
-                        final TextView txtview = (TextView) findViewById(R.id.textView2);
+                  final TextView txtview = (TextView) findViewById(R.id.textView2);
                         txtview.setText(R.string.firstscreen_hi);
                         txtview.startAnimation(AnimationUtils.loadAnimation(MainActivity.this, R.anim.animn));
-
-
-
-                                            final TextView txtview1 = (TextView) findViewById(R.id.textView3);
+                                        final TextView txtview1 = (TextView) findViewById(R.id.textView3);
                                             txtview1.setText(R.string.firstscreen_letstake);
                                             txtview1.startAnimation(AnimationUtils.loadAnimation(MainActivity.this, R.anim.animn1));
 
@@ -179,21 +150,6 @@ public class MainActivity extends Activity {
         //set drawable 'SOUND_ON' by default
         imageviewSound.setImageDrawable(getResources().getDrawable(R.drawable.sound_on));
 
-        //EDIT -- send the id via share intent
-        /*mImageView.setOnClickListener( new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                Intent intent = new Intent() ;
-                intent.setAction(Intent.ACTION_SEND) ;
-                intent.putExtra(Intent.EXTRA_TEXT, "id is : " + finalid) ;
-                intent.setType("text/plain") ;
-                startActivity(intent);
-
-
-            }
-        });*/
-
         //on pressing the LEMON IMAGE
         mImageView.setOnClickListener(new View.OnClickListener() {
          @Override
@@ -216,11 +172,7 @@ public class MainActivity extends Activity {
 
             }
         });
-
-
-
-
-        //start animation
+     //start animation
         mImageView.startAnimation(AnimationUtils.loadAnimation(MainActivity.this, R.anim.anim_lemon_rotate));
 
     }
@@ -237,7 +189,6 @@ public class MainActivity extends Activity {
             Log.i(TAG,"Play Services Error");
         }
     }
-
 
 
     /**
@@ -314,97 +265,8 @@ public class MainActivity extends Activity {
         }
     }
 
-    //START ASYNCTASK METHOD
-
-    /**
-     * Registers the application with GCM servers asynchronously.
-     * <p>
-     * Stores the registration ID and app versionCode in the application's
-     * shared preferences.
-     */
-   /* private void registerInBackground() {
+       private void registerInBackground() {
         new AsyncTask() {
-            *//*@Override
-            protected String doInBackground(Void... params) {
-                String msg = "";
-                try {
-                    if (gcm == null) {
-                        gcm = GoogleCloudMessaging.getInstance(context);
-                    }
-                    regid = gcm.register(SENDER_ID);
-                    msg = "Device registered, registration ID=" + regid;
-
-                    // You should send the registration ID to your server over HTTP,
-                    // so it can use GCM/HTTP or CCS to send messages to your app.
-                    // The request to your server should be authenticated if your app
-                    // is using accounts.
-                    sendRegistrationIdToBackend();
-
-                    // For this demo: we don't need to send it because the device
-                    // will send upstream messages to a server that echo back the
-                    // message using the 'from' address in the message.
-
-                    // Persist the registration ID - no need to register again.
-                    storeRegistrationId(context, regid);
-                } catch (IOException ex) {
-                    msg = "Error :" + ex.getMessage();
-                    // If there is an error, don't just keep trying to register.
-                    // Require the user to click a button again, or perform
-                    // exponential back-off.
-                }
-                return msg;
-            }*//*
-
-            @Override
-            protected String doInBackground(Void... params) {
-
-                String msg = "";
-                try {
-                    if (gcm == null) {
-                        gcm = GoogleCloudMessaging.getInstance(context);
-                    }
-                    regid = gcm.register(SENDER_ID);
-                    msg = "Device registered, registration ID=" + regid;
-
-                    // You should send the registration ID to your server over HTTP,
-                    // so it can use GCM/HTTP or CCS to send messages to your app.
-                    // The request to your server should be authenticated if your app
-                    // is using accounts.
-                    sendRegistrationIdToBackend();
-
-                    // For this demo: we don't need to send it because the device
-                    // will send upstream messages to a server that echo back the
-                    // message using the 'from' address in the message.
-
-                    // Persist the registration ID - no need to register again.
-                    storeRegistrationId(context, regid);
-                } catch (IOException ex) {
-                    msg = "Error :" + ex.getMessage();
-                    // If there is an error, don't just keep trying to register.
-                    // Require the user to click a button again, or perform
-                    // exponential back-off.
-                }
-                return msg;
-            }
-
-            @Override
-            protected void onPostExecute(String msg) {
-//                mDisplay.append(msg + "\n");
-                Toast.makeText(context,msg+'\n',Toast.LENGTH_SHORT);
-            }
-
-
-        }.execute(null, null, null);
-
-    }*/
-
-
-
-    private void registerInBackground() {
-        new AsyncTask() {
-
-
-
 
             @Override
             protected String doInBackground(Object[] params) {
@@ -454,7 +316,6 @@ public class MainActivity extends Activity {
         }.execute(null, null, null);
 
     }
-    //END ASYNCTASK METHOD
 
     /**
      * Sends the registration ID to your server over HTTP, so it can use GCM/HTTP
@@ -487,7 +348,6 @@ public class MainActivity extends Activity {
         if (view == findViewById(R.id.textView2)) {
             new AsyncTask() {
 
-
                 @Override
                 protected void onPostExecute(Object m) {
                   //  Toast.makeText(context,m.toString()+'\n',Toast.LENGTH_SHORT);
@@ -516,8 +376,6 @@ public class MainActivity extends Activity {
 //            mDisplay.setText("");
         }
     }
-
-
 
     private void method_start_playing(View v)    {
 
